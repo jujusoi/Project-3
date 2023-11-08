@@ -42,6 +42,7 @@ const typeDefs = `
 
     type Query {
         profiles: [Profile]
+        profilesByOrg(isOrganisation: Boolean!): Profile
     }
 
     type Mutation {

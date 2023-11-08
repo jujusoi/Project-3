@@ -6,6 +6,12 @@ const resolvers = {
             const data = await Profile.find();
             return data;
         },
+        profilesByOrg: async (parent, { isOrganisation }) => {
+            const data = await Profile.findOne({
+                isOrganisation: isOrganisation
+            });
+            return data;
+        },
     },
     Mutation: {
         createProfile: async (parent, { profileInfo }) => {
