@@ -8,12 +8,12 @@ const resolvers = {
         },
     },
     Mutation: {
-        createUser: async (parent, { userInfo }) => {
-            const data = await Profile.create(userInfo);
+        createProfile: async (parent, { profileInfo }) => {
+            const data = await Profile.create(profileInfo);
             return data;
         },
-        createOrg: async (parent, { userInfo}) => {
-            const data = await Profile.create(userInfo);
+        createOrg: async (parent, { profileInfo}) => {
+            const data = await Profile.create(profileInfo);
             return data;
         },
     },

@@ -15,7 +15,7 @@ const typeDefs = `
         isOrganisation: Boolean!,
     }
 
-    input CreateUser {
+    input CreateProfile {
         email: String!,
         password: String!,
         firstName: String,
@@ -45,8 +45,8 @@ const typeDefs = `
     }
 
     type Mutation {
-        createUser(userInfo: CreateUser!): User
-        createOrg(userInfo: CreateOrganisation!): User
+        createProfile(profileInfo: CreateProfile!): Profile
+        createOrg(profileInfo: CreateOrganisation!): Profile
     }
 `
 
