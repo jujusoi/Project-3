@@ -7,6 +7,16 @@ const resolvers = {
             return data;
         },
     },
+    Mutation: {
+        createUser: async (parent, { userInfo }) => {
+            const data = await Profile.create(userInfo);
+            return data;
+        },
+        createOrg: async (parent, { userInfo}) => {
+            const data = await Profile.create(userInfo);
+            return data;
+        },
+    },
 };
 
 module.exports = resolvers;
