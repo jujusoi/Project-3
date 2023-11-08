@@ -20,11 +20,12 @@ const typeDefs = `
         title: String!,
         organisationName: String!,
         industry: String!,
+        location: String!,
         salary: String!,
         jobType: String!,
         jobDescription: String!,
-        postedOn: String!,
-        posterId: ID!,
+        postedOn: String,
+        poster: [Profile],
     }
 
     input CreateProfile {
@@ -56,11 +57,12 @@ const typeDefs = `
         title: String!,
         organisationName: String!,
         industry: String!,
+        location: String!,
         salary: String!,
         jobType: String!,
         jobDescription: String!,
-        postedOn: String!,
-        posterId: ID!,
+        postedOn: String,
+        poster: ID!,
     }
 
     type Query {

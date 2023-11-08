@@ -32,9 +32,8 @@ const listingSchema = new Schema({
     postedOn: {
         type: Date,
         default: Date.now,
-        required: true,
     },
-    posterId: [
+    poster: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Profile',

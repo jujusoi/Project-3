@@ -3,17 +3,18 @@ const { Profile, Listing } = require('../models');
 const resolvers = {
     Query: {
         profiles: async (parent, args) => {
-            const data = await Profile.find().populate(Listing);
+            const data = await Profile.find();
             return data;
         },
         profilesByOrg: async (parent, { isOrganisation }) => {
             const data = await Profile.findOne({
                 isOrganisation: isOrganisation
-            }).populate(Listing);
+            });
             return data;
         },
         listings: async (parent, args) => {
-            const data = Listing.find()
+            const data = Listing.find().populate('poster');
+            return data;
         }
     },
     Mutation: {
@@ -27,7 +28,7 @@ const resolvers = {
         },
         createListing: async ( parent, { listingInfo }) => {
             const data = await Listing.create(listingInfo);
-            return data;
+            return data.populate('poster');
         },
     },
 };
