@@ -57,17 +57,7 @@ const typeDefs = `
         industry: String!,
         profilePicture: String,
         isOrganisation: Boolean!,
-    }
-
-    input CreateOrganisation {
-        email: String!,
-        password: String!,
         orgName: String,
-        userLocation: String!,
-        biography: String!,
-        industry: String!,
-        profilePicture: String,
-        isOrganisation: Boolean!,
     }
 
     input CreateListing {
@@ -94,6 +84,11 @@ const typeDefs = `
         messageContent: String!,
     }
 
+    type Auth {
+        token: ID!,
+        profile: Profile
+    }
+
     type Query {
         profiles: [Profile]
         profilesByOrg(isOrganisation: Boolean!): [Profile]
@@ -105,14 +100,14 @@ const typeDefs = `
     }
 
     type Mutation {
-        createProfile(profileInfo: CreateProfile!): Profile
-        createOrg(profileInfo: CreateOrganisation!): Profile
+        createProfile(profileInfo: CreateProfile!): Auth
         createListing(listingInfo: CreateListing!): Listing
         deleteListing(listingId: ID!): Listing
         updateSavedListing(listingId: ID!, profileId: ID!): Profile
         createNewChat(chatInfo: CreateChat!): Chat
         createMessage(messageInfo: CreateMessage!, chatId: ID!): Message
         deleteMessage(messageId: ID!, chatId: ID!): Message
+        login(email: String!, password: String!): Auth
     }
 `
 

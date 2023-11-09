@@ -1,5 +1,6 @@
 const { Profile, Listing, Chat } = require('../models');
 const mongoose = require('mongoose');
+const Auth = require('../utils/auth');
 
 const resolvers = {
     Query: {
@@ -105,11 +106,8 @@ const resolvers = {
     Mutation: {
         createProfile: async (parent, { profileInfo }) => {
             const data = await Profile.create(profileInfo);
-            return data;
-        },
-        createOrg: async (parent, { profileInfo}) => {
-            const data = await Profile.create(profileInfo);
-            return data;
+            const token = Auth.signToken(data);
+            return { token, data };
         },
         createListing: async ( parent, { listingInfo }) => {
             const data = await Listing.create(listingInfo);
@@ -161,6 +159,17 @@ const resolvers = {
                 _id: chatId
         }, { $pull: { chatMessages: { _id: messageId }}}, { new: true });
         return data;
+        },
+        login: async (parent, { email, password }) => {
+            const data = await Profile.findOne({
+                email: email
+            });
+            if (!data) {
+                return;
+            } else {
+                const token = Auth.signToken(data);
+                return { token, data };
+            }
         }
     },
 };
