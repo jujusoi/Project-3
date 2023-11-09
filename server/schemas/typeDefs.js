@@ -75,6 +75,13 @@ const typeDefs = `
         poster: ID!,
     }
 
+    input CreateChat {
+        chatName: String!,
+        employer: ID!,
+        mainUser: ID!,
+        listedJob: ID!,
+    }
+
     type Query {
         profiles: [Profile]
         profilesByOrg(isOrganisation: Boolean!): [Profile]
@@ -90,6 +97,7 @@ const typeDefs = `
         createListing(listingInfo: CreateListing!): Listing
         deleteListing(listingId: ID!): Listing
         updateSavedListing(listingId: ID!, profileId: ID!): Profile
+        createNewChat(chatInfo: CreateChat!): Chat
     }
 `
 

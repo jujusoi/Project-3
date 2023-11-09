@@ -4,12 +4,28 @@ const mongoose = require('mongoose');
 const resolvers = {
     Query: {
         profiles: async (parent, args) => {
-            const data = await Profile.find().populate({
+            const data = await Profile.find().populate([
+                {
                 path: 'savedListings',
                 populate: {
                     path: 'poster'
                 }
-            })
+            },
+            {
+                path: 'userChats',
+                populate: [
+                    {
+                        path: 'employer',
+                    }, 
+                    {
+                        path: 'listedJob',
+                    },
+                    {
+                        path: 'mainUser',
+                    },
+                ],
+            },
+        ])
             return data;
         },
         profilesByOrg: async (parent, { isOrganisation }) => {
@@ -65,7 +81,30 @@ const resolvers = {
                 _id: profileId
             }, { $push: { savedListings: listingId }}, { new: true });
             return data.populate('savedListings');
-        }
+        },
+        createNewChat: async (parent, { chatInfo }) => {
+            const data = await Chat.create(chatInfo);
+
+            const employer = await Profile.findOneAndUpdate({
+               _id: chatInfo.employer
+            }, { $push: { userChats: data._id }}, { new: true });
+            const mainUser = await Profile.findOneAndUpdate({
+                _id: chatInfo.mainUser
+             }, { $push: { userChats: data._id }}, { new: true });
+             if (employer && mainUser) {
+                return data.populate([
+                    {
+                        path: 'employer',
+                    },
+                    {
+                        path: 'listedJob',
+                    },
+                    {
+                        path: 'mainUser',
+                    },
+                ]);
+             };
+        },
     },
 };
 
