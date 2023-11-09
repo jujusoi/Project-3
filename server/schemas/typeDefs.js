@@ -23,6 +23,13 @@ const typeDefs = `
         employer: [Profile],
         mainUser: [Profile],
         listedJob: [Listing],
+        chatMessages: [Message],
+    }
+
+    type Message {
+        username: String!,
+        messageContent: String!,
+        timeSent: String!,
     }
     
     type Listing {
@@ -88,8 +95,8 @@ const typeDefs = `
         profileById(profileId: ID!): Profile
         listings: [Listing]
         listingsByLocation(listingLocation: String!): [Listing]
-        chatByEmployer(employerId: ID!): Chat
-        chatByProfile(profileId: ID!): Chat
+        chatByEmployer(employerId: ID!): [Chat]
+        chatByProfile(profileId: ID!): [Chat]
     }
 
     type Mutation {

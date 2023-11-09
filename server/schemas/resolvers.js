@@ -72,13 +72,33 @@ const resolvers = {
         chatByEmployer: async (parent, { employerId }) => {
             const data = await Chat.find({
                 employer: new mongoose.Types.ObjectId(employerId),
-            });
+            }).populate([
+                {
+                    path: 'employer',
+                },
+                {
+                    path: 'listedJob',
+                },
+                {
+                    path: 'mainUser',
+                },
+            ]);
             return data;
         },
         chatByProfile: async (parent, { profileId }) => {
             const data = await Chat.find({
                 mainUser: new mongoose.Types.ObjectId(profileId),
-            });
+            }).populate([
+                {
+                    path: 'employer',
+                },
+                {
+                    path: 'listedJob',
+                },
+                {
+                    path: 'mainUser',
+                },
+            ]);
             return data;
         },
     },

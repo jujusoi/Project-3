@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const messageSchema = require('./Messages');
 
 const chatSchema = new Schema({
     chatName: {
@@ -23,6 +24,7 @@ const chatSchema = new Schema({
             ref: 'Listing'
         },
     ],
+    chatMessages: [messageSchema]
 });
 
 const Chat = model('Chat', chatSchema);
