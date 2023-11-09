@@ -34,6 +34,31 @@ const resolvers = {
             });
             return data;
         },
+        profileById: async (parent, { profileId }) => {
+            const data = await Profile.findById(profileId).populate([
+                {
+                path: 'savedListings',
+                populate: {
+                    path: 'poster'
+                }
+            },
+            {
+                path: 'userChats',
+                populate: [
+                    {
+                        path: 'employer',
+                    }, 
+                    {
+                        path: 'listedJob',
+                    },
+                    {
+                        path: 'mainUser',
+                    },
+                ],
+            },
+        ]);
+        return data;
+        },
         listings: async (parent, args) => {
             const data = Listing.find().populate('poster');
             return data;

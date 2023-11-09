@@ -85,6 +85,7 @@ const typeDefs = `
     type Query {
         profiles: [Profile]
         profilesByOrg(isOrganisation: Boolean!): [Profile]
+        profileById(profileId: ID!): Profile
         listings: [Listing]
         listingsByLocation(listingLocation: String!): [Listing]
         chatByEmployer(employerId: ID!): Chat
