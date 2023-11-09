@@ -15,7 +15,13 @@ const resolvers = {
         listings: async (parent, args) => {
             const data = Listing.find().populate('poster');
             return data;
-        }
+        },
+        listingsByLocation: async (parent, { listingLocation }) => {
+            const data = Listing.find({
+                location: listingLocation
+            }).populate('poster');
+            return data;
+        },
     },
     Mutation: {
         createProfile: async (parent, { profileInfo }) => {

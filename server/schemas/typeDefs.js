@@ -67,8 +67,9 @@ const typeDefs = `
 
     type Query {
         profiles: [Profile]
-        profilesByOrg(isOrganisation: Boolean!): Profile
+        profilesByOrg(isOrganisation: Boolean!): [Profile]
         listings: [Listing]
+        listingsByLocation(listingLocation: String!): [Listing]
     }
 
     type Mutation {
