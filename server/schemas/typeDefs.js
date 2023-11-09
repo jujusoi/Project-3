@@ -29,7 +29,7 @@ const typeDefs = `
     type Message {
         username: String!,
         messageContent: String!,
-        timeSent: String!,
+        timeSent: String,
     }
     
     type Listing {
@@ -89,6 +89,11 @@ const typeDefs = `
         listedJob: ID!,
     }
 
+    input CreateMessage {
+        username: String!,
+        messageContent: String!,
+    }
+
     type Query {
         profiles: [Profile]
         profilesByOrg(isOrganisation: Boolean!): [Profile]
@@ -106,6 +111,7 @@ const typeDefs = `
         deleteListing(listingId: ID!): Listing
         updateSavedListing(listingId: ID!, profileId: ID!): Profile
         createNewChat(chatInfo: CreateChat!): Chat
+        createMessage(messageInfo: CreateMessage!, chatId: ID!): Message
     }
 `
 

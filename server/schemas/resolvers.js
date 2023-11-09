@@ -150,6 +150,12 @@ const resolvers = {
                 ]);
              };
         },
+        createMessage: async (parent, { messageInfo, chatId }) => {
+            const data = await Chat.findOneAndUpdate({
+                _id: chatId
+            }, { $push: { chatMessages: messageInfo } }, { new: true });
+            return messageInfo;
+        }
     },
 };
 
