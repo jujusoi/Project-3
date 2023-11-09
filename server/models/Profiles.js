@@ -46,6 +46,12 @@ const profileSchema = new Schema({
         type: Boolean,
         required: true,
     },
+    savedListings: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Listing'
+        },
+    ],
 });
 
 const Profile = model('Profile', profileSchema);

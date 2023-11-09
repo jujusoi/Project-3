@@ -3,7 +3,12 @@ const { Profile, Listing } = require('../models');
 const resolvers = {
     Query: {
         profiles: async (parent, args) => {
-            const data = await Profile.find();
+            const data = await Profile.find().populate({
+                path: 'savedListings',
+                populate: {
+                    path: 'poster'
+                }
+            })
             return data;
         },
         profilesByOrg: async (parent, { isOrganisation }) => {
@@ -42,6 +47,12 @@ const resolvers = {
             });
             return data;
         },
+        updateSavedListing: async (parent, { listingId, profileId }) => {
+            const data = Profile.findOneAndUpdate({
+                _id: profileId
+            }, { $push: { savedListings: listingId }}, { new: true });
+            return data.populate('savedListings');
+        }
     },
 };
 

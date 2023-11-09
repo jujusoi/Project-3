@@ -13,6 +13,7 @@ const typeDefs = `
         industry: String!,
         profilePicture: String,
         isOrganisation: Boolean!,
+        savedListings: [Listing],
     }
     
     type Listing {
@@ -76,7 +77,8 @@ const typeDefs = `
         createProfile(profileInfo: CreateProfile!): Profile
         createOrg(profileInfo: CreateOrganisation!): Profile
         createListing(listingInfo: CreateListing!): Listing
-        deleteListing(listingId: ID): Listing
+        deleteListing(listingId: ID!): Listing
+        updateSavedListing(listingId: ID!, profileId: ID! ): Profile
     }
 `
 
