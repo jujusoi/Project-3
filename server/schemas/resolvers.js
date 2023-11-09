@@ -1,4 +1,5 @@
-const { Profile, Listing } = require('../models');
+const { Profile, Listing, Chat } = require('../models');
+const mongoose = require('mongoose');
 
 const resolvers = {
     Query: {
@@ -25,6 +26,18 @@ const resolvers = {
             const data = Listing.find({
                 location: listingLocation
             }).populate('poster');
+            return data;
+        },
+        chatByEmployer: async (parent, { employerId }) => {
+            const data = await Chat.find({
+                employer: new mongoose.Types.ObjectId(employerId),
+            });
+            return data;
+        },
+        chatByProfile: async (parent, { profileId }) => {
+            const data = await Chat.find({
+                mainUser: new mongoose.Types.ObjectId(profileId),
+            });
             return data;
         },
     },

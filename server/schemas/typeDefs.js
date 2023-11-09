@@ -14,6 +14,15 @@ const typeDefs = `
         profilePicture: String,
         isOrganisation: Boolean!,
         savedListings: [Listing],
+        userChats: [Chat],
+    }
+
+    type Chat {
+        _id: ID!,
+        chatName: String!,
+        employer: [Profile],
+        mainUser: [Profile],
+        listedJob: [Listing],
     }
     
     type Listing {
@@ -71,6 +80,8 @@ const typeDefs = `
         profilesByOrg(isOrganisation: Boolean!): [Profile]
         listings: [Listing]
         listingsByLocation(listingLocation: String!): [Listing]
+        chatByEmployer(employerId: ID!): Chat
+        chatByProfile(profileId: ID!): Chat
     }
 
     type Mutation {
@@ -78,7 +89,7 @@ const typeDefs = `
         createOrg(profileInfo: CreateOrganisation!): Profile
         createListing(listingInfo: CreateListing!): Listing
         deleteListing(listingId: ID!): Listing
-        updateSavedListing(listingId: ID!, profileId: ID! ): Profile
+        updateSavedListing(listingId: ID!, profileId: ID!): Profile
     }
 `
 

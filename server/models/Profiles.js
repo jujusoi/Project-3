@@ -49,7 +49,13 @@ const profileSchema = new Schema({
     savedListings: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Listing'
+            ref: 'Listing',
+        },
+    ],
+    userChats: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Chat',
         },
     ],
 });
