@@ -75,6 +75,7 @@ const typeDefs = `
         createProfile(profileInfo: CreateProfile!): Profile
         createOrg(profileInfo: CreateOrganisation!): Profile
         createListing(listingInfo: CreateListing!): Listing
+        deleteListing(listingId: ID): Listing
     }
 `
 

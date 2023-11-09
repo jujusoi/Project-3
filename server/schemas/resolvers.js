@@ -30,6 +30,12 @@ const resolvers = {
             const data = await Listing.create(listingInfo);
             return data.populate('poster');
         },
+        deleteListing: async (parent, { listingId }) => {
+            const data = await Listing.findOneAndDelete({
+                _id: listingId
+            });
+            return data;
+        },
     },
 };
 
