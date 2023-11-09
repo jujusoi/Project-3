@@ -155,6 +155,12 @@ const resolvers = {
                 _id: chatId
             }, { $push: { chatMessages: messageInfo } }, { new: true });
             return messageInfo;
+        },
+        deleteMessage: async (parent, { messageId, chatId }) => {
+            const data = await Chat.findOneAndUpdate({
+                _id: chatId
+        }, { $pull: { chatMessages: { _id: messageId }}}, { new: true });
+        return data;
         }
     },
 };

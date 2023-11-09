@@ -112,6 +112,7 @@ const typeDefs = `
         updateSavedListing(listingId: ID!, profileId: ID!): Profile
         createNewChat(chatInfo: CreateChat!): Chat
         createMessage(messageInfo: CreateMessage!, chatId: ID!): Message
+        deleteMessage(messageId: ID!, chatId: ID!): Message
     }
 `
 
