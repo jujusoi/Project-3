@@ -6,6 +6,8 @@ import { setContext } from '@apollo/client/link/context';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Header from './components/headerFooter/header';
+import Footer from './components/headerFooter/footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -30,7 +32,15 @@ function App() {
   return (
     <>
     <ApolloProvider client={client}>
-      <Outlet />
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </ApolloProvider>
     </>
   );
