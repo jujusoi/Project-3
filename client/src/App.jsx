@@ -36,7 +36,9 @@ function App() {
         <Header />
       </header>
       <main>
-        <Outlet />
+        <section>
+          <Outlet />
+        </section>
       </main>
       <footer>
         <Footer />

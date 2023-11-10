@@ -55,6 +55,22 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media screen and (max-width: 800px) {
+  #listing-holder {
+    width: 85% !important;
+  }
+  .liilj-hold {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .ilj-o-hold {
+    flex-direction: column-reverse !important;
+  }
+  .lio-hold {
+    justify-content: center;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

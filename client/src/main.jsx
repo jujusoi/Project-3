@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import JobBoardPage from './pages/jobBoardPage.jsx';
+import ListingPage from './pages/listingPage.jsx';
 import App from './App.jsx'
 import './index.css'
 
@@ -13,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <h2>Main page (Job area)</h2>,
+        element: <JobBoardPage />
       }, {
         path: '/profile/me',
         element: <h2>This is the user's profile</h2>
