@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_RANDOM_LISTINGS = gql`
+export const QUERY_LISTINGS = gql`
     query randomListings {
         listings {
             _id,
