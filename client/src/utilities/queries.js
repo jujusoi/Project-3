@@ -42,4 +42,19 @@ export const QUERY_LISTING_BY_ID = gql`
             }
         }
     }
-`
+`;
+
+export const QUERY_LISTING_BY_ORGANISATION = gql`
+    query listingOrg($orgName: String!) {
+        listingByOrganisation(orgName: $orgName) {
+            _id,
+            title,
+            organisationName,
+            industry,
+            location,
+            salary,
+            jobType,
+            postedOn,
+        }
+    }
+`;

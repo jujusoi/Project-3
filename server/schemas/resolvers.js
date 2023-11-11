@@ -71,9 +71,15 @@ const resolvers = {
             return data;
         },
         listingsByLocation: async (parent, { listingLocation }) => {
-            const data = Listing.find({
+            const data = await Listing.find({
                 location: listingLocation
             }).populate('poster');
+            return data;
+        },
+        listingByOrganisation: async (parent, { orgName }) => {
+            const data = await Listing.find({
+                organisationName: orgName
+            }).limit(2);
             return data;
         },
         chatByEmployer: async (parent, { employerId }) => {

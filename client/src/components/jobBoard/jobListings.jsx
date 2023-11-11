@@ -55,6 +55,10 @@ export default function JobListings() {
                             <h4 style={{ textAlign: "left"}}>Job Description: </h4>
                             <p className="listing-description">{listing.jobDescription.length <= 150 ? listing.jobDescription : snipDesc(listing.jobDescription)}</p>
                         </div>
+                        <div style={{ display: 'flex', justifyContent: 'right', marginTop: 15 }}>
+                                <button className="interested-btn" style={{ backgroundColor: '#5f5fff', marginRight: 10 }}>Interested</button>
+                                <button className="save-listing-btn">Save</button>
+                            </div>
                     </div>
                 </>
             );
