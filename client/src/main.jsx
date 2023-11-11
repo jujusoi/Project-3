@@ -17,6 +17,9 @@ const router = createBrowserRouter([
         index: true,
         element: <JobBoardPage />
       }, {
+        path: '/:listingSearch',
+        element: <JobBoardPage />
+      }, {
         path: '/profile/me',
         element: <h2>This is the user's profile</h2>
       }, {
@@ -27,7 +30,7 @@ const router = createBrowserRouter([
         element: <h2>This is the auth page</h2>
       },{
         path: '/listing/:listingId',
-        element: <h2>This is a detailed listing page</h2>
+        element: <ListingPage />
       }, {
         path: '/about',
         element: <h2>About us...</h2>

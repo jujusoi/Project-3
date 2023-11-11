@@ -11,7 +11,6 @@ export default function ListingSearchBar() {
 
     const [searchFilter, setSearchFilter] = useState([]);
 
-
     const clickIndustry = (element, content) => {
         if (element.classList.contains('from-industry')) {
             if (searchFilter[0] == content) {
@@ -60,8 +59,8 @@ export default function ListingSearchBar() {
     return (
         <>
             <div style={{ display: 'flex', justifyContent: "center", width: '100%', marginTop: 35 }}>
-                <form style={{ width: '80%', height: 70 }} action="submit" name="listing-search-form">
-                    <input style={{ padding: 25, width: '40%', height: '100%', borderTopLeftRadius: 25, borderBottomLeftRadius: 25, borderRadius: 25 }} type="text" placeholder="Search for listings..." name="listing-search-val" required />
+                <form style={{ width: '80%', height: 70, marginBottom: 15 }} action="submit" name="listing-search-form">
+                    <input id="listing-li-input" style={{ padding: 25, width: '40%', height: '100%', borderTopLeftRadius: 25, borderBottomLeftRadius: 25, borderRadius: 25 }} type="text" placeholder="Search for listings..." name="listing-search-val" required />
                     <input style={{ padding: 25, width: '20%', height: '100%' }} type="text" placeholder="Location" name="min-sal-val" required />
                     <button style={{ width: '28%', height: '100%', borderRadius: 0 }} className="btn btnB dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="filter-button">Filter</button>
                 <ul className="dropdown-menu" id="dropdown-search" onClick={() => event.stopPropagation()}>

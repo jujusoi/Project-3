@@ -59,6 +59,10 @@ button:focus-visible {
   border-bottom-left-radius: 0 !important;
   border-top-left-radius: 0 !important;
 }
+#listing-li-input {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
 
 @media screen and (max-width: 800px) {
   #listing-holder {

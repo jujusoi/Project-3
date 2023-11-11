@@ -64,6 +64,12 @@ const resolvers = {
             const data = Listing.find().populate('poster');
             return data;
         },
+        listingById: async (parent, { listingId }) => {
+            const data = Listing.findOne({
+                _id: listingId
+            }).populate('poster');
+            return data;
+        },
         listingsByLocation: async (parent, { listingLocation }) => {
             const data = Listing.find({
                 location: listingLocation
