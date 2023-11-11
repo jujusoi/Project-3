@@ -21,7 +21,7 @@ export default function JobListings() {
         data.listings.map((listing) => {
             return (
                 <>
-                     <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 15}}>
+                     <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 15, backgroundColor: '#e2e2e2'}}>
                         <div className="liinfo-hold" style={{ display: "flex", flexDirection: "column"}}>
                             <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between'}}>
                                 <div className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column'}}>

@@ -59,12 +59,11 @@ export default function ListingSearchBar() {
 
     return (
         <>
-            <div className="banner input-group">
-                <form action="submit" name="listing-search-form">
-                    <input type="text" placeholder="Search for listings..." name="listing-search-val" required />
-                    <input type="text" placeholder="Minimum salary" name="min-sal-val" required />
-                    <button className="btn btnB dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false" id="filter-button">Filter</button>
+            <div style={{ display: 'flex', justifyContent: "center", width: '100%', marginTop: 35 }}>
+                <form style={{ width: '80%', height: 70 }} action="submit" name="listing-search-form">
+                    <input style={{ padding: 25, width: '40%', height: '100%', borderTopLeftRadius: 25, borderBottomLeftRadius: 25, borderRadius: 25 }} type="text" placeholder="Search for listings..." name="listing-search-val" required />
+                    <input style={{ padding: 25, width: '20%', height: '100%' }} type="text" placeholder="Location" name="min-sal-val" required />
+                    <button style={{ width: '28%', height: '100%', borderRadius: 0 }} className="btn btnB dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="filter-button">Filter</button>
                 <ul className="dropdown-menu" id="dropdown-search" onClick={() => event.stopPropagation()}>
                     <li className="dropdown-item" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Industry</li>
                     {industries.map((industry) => {
@@ -83,7 +82,7 @@ export default function ListingSearchBar() {
                         );
                     })}
                 </ul>
-                    <button>🔎</button>
+                    <button id="listing-submit" style={{ width: '12%', height: '100%', borderRadius: 25}}>🔎</button>
                 </form>
             </div>
         </>
