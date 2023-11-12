@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 
+const options = { day: '2-digit', month: 'short', year: 'numeric' };
+
 const listingSchema = new Schema({
     title: {
         type: String,
@@ -30,8 +32,10 @@ const listingSchema = new Schema({
         required: true,
     },
     postedOn: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        default: function() {
+            return new Date().toLocaleDateString('en-US', options);
+        },
     },
     poster: [
         {

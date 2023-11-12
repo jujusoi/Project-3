@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import JobBoardPage from './pages/jobBoardPage.jsx';
 import ListingPage from './pages/listingPage.jsx';
+import LoadingPage from './pages/loadingPage.jsx';
 import App from './App.jsx'
 import './index.css'
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       }, {
         path: '/contact',
         element: <h2>Contact us</h2>
+      },
+      {
+        path: '/loading',
+        element: <LoadingPage />
       }
     ],
   },

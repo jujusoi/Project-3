@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import MiniListings from "../components/listingComps/miniListings";
+import LoadingPage from "./loadingPage";
 
 export default function ListingPage() {
 
@@ -15,7 +16,7 @@ export default function ListingPage() {
     });
 
     if (loading) {
-        <h2>Loading...</h2>
+        <LoadingPage />
     } else {
         return (
             <>
@@ -28,7 +29,7 @@ export default function ListingPage() {
                                         <h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0}}  className="listing-title">{data.listingById.title}</h2>
                                         <h5 style={{ textAlign: 'left' }} className="listing-salary">{data.listingById.salary}</h5>
                                     </div>
-                                    <p className="listing-date" style={{ width:'30%', marginTop: 0, textAlign: "right"}}>10th Nov, 2023</p>
+                                    <p className="listing-date" style={{ width:'30%', marginTop: 0, textAlign: "right"}}>{data.listingById.postedOn}</p>
                                 </div>
                                 <div className="ilj-o-hold" style={{ display: "flex", flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10}}>
                                     <div className="liilj-hold" style={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
@@ -71,7 +72,7 @@ export default function ListingPage() {
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', textAlign: 'left', alignItems: 'center' }}>
                             <div style={{ width: '60%'}}>
-                                <h5>{data.listingById.poster[0].orgName}</h5>
+                                <Link to={`/profile/${data.listingById.poster[0]._id}`} target="_blank"><h5>{data.listingById.poster[0].orgName}</h5></Link>
                                 <p style={{ marginBottom: 0 }}>Industry: <b>{data.listingById.poster[0].industry}</b></p>
                                 <p>Location: <b>{data.listingById.poster[0].userLocation}</b></p>
                             </div>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import { QUERY_LISTINGS } from "../../utilities/queries";
 import { useQuery } from "@apollo/client";
+import LoadingPage from "../../pages/loadingPage";
 
 export default function JobListings() {
 
@@ -15,7 +16,7 @@ export default function JobListings() {
 
     if (loading) {
         return (
-            <h2>Hello</h2>
+            <LoadingPage />
         );
     } else { return (
         data.listings.map((listing) => {
@@ -28,7 +29,7 @@ export default function JobListings() {
                                     <Link to={`/listing/${listing._id}`} target="_blank"><h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0}} key={listing._id} className="listing-title">{listing.title}</h2></Link>
                                     <h5 style={{ textAlign: 'left' }} className="listing-salary">{listing.salary}</h5>
                                 </div>
-                                <p className="listing-date" style={{ width:'30%', marginTop: 0, textAlign: "right"}}>10th Nov, 2023</p>
+                                <p className="listing-date" style={{ width:'30%', marginTop: 0, textAlign: "right"}}>{listing.postedOn}</p>
                             </div>
                             <div className="ilj-o-hold" style={{ display: "flex", flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center'}}>
                                 <div className="liilj-hold" style={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>

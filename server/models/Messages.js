@@ -1,5 +1,7 @@
 const { Schema } = require('mongoose');
 
+const options = { day: '2-digit', month: 'short' };
+
 const messageSchema = new Schema({
     username: {
         type: String,
@@ -10,9 +12,10 @@ const messageSchema = new Schema({
         required: true,
     },
     timeSent: {
-        type: Date,
-        default: Date.now,
-        required: true,
+        type: String,
+        default: function() {
+            return new Date().toLocaleDateString('en-US', options);
+        },
     },
 });
 
