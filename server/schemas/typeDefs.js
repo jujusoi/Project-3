@@ -97,6 +97,7 @@ const typeDefs = `
         listingsByLocation(listingLocation: String!): [Listing]
         listingById(listingId: ID!): Listing
         listingByOrganisation(orgName: String!): [Listing]
+        listingByOrganisationProf(orgName: String!): [Listing]
         chatByEmployer(employerId: ID!): [Chat]
         chatByProfile(profileId: ID!): [Chat]
     }

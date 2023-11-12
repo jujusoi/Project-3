@@ -22,7 +22,7 @@ export default function ListingPage() {
             <>
             <section style={{ display: 'flex', justifyContent: 'space-evenly'}}>
                 <div style={{ width: '60%'}}>
-                <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 15, backgroundColor: '#e2e2e2', width: '100%'}}>
+                <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 8, backgroundColor: '#e2e2e2', width: '100%'}}>
                             <div className="liinfo-hold" style={{ display: "flex", flexDirection: "column"}}>
                                 <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between', marginBottom: 15}}>
                                     <div className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column'}}>
@@ -65,7 +65,7 @@ export default function ListingPage() {
                         </div>
                     </div>
                 </div>
-                <div style={{ width: '30%', padding: 30, marginTop: 40, backgroundColor: 'rgb(226, 226, 226)', borderRadius: 15}}>
+                <div style={{ width: '30%', padding: 30, marginTop: 40, backgroundColor: 'rgb(226, 226, 226)', borderRadius: 8}}>
                     <div style={{ display: 'flex', flexDirection: 'column'}}>
                         <div style={{ marginBottom: 25}}>
                             <h3>About the Employer</h3>

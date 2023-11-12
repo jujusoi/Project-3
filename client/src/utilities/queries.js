@@ -59,6 +59,21 @@ export const QUERY_LISTING_BY_ORGANISATION = gql`
     }
 `;
 
+export const QUERY_LISTING_BY_ORGANISATION_FOR_PROF = gql`
+    query listingOrgProf($orgName: String!) {
+        listingByOrganisationProf(orgName: $orgName) {
+            _id,
+            title,
+            organisationName,
+            industry,
+            location,
+            salary,
+            jobType,
+            postedOn,
+        }
+    }
+`;
+
 export const QUERY_PROFILE_BY_ID = gql`
     query profileId($profileId: ID!) {
         profileById(profileId: $profileId) {
@@ -73,6 +88,7 @@ export const QUERY_PROFILE_BY_ID = gql`
             industry
             profilePicture
             isOrganisation
+            email
         }
     }
 `;

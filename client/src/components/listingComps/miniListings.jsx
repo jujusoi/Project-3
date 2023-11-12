@@ -18,7 +18,7 @@ export default function MiniListings({ orgName, index }) {
         if (data.listingByOrganisation.length == index + 1 || data.listingByOrganisation.length == index + 2) {
             return (
                 <>
-                    <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 25, marginTop: 5, border: '1px solid white', borderRadius: 15, backgroundColor: '#e2e2e2', width: '48%'}}>
+                    <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 25, marginTop: 5, border: '1px solid white', borderRadius: 8, backgroundColor: '#e2e2e2', width: '48%'}}>
                                     <div className="liinfo-hold" style={{ display: "flex", flexDirection: "column"}}>
                                         <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between'}}>
                                             <div className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column'}}>

@@ -82,6 +82,12 @@ const resolvers = {
             }).limit(2);
             return data;
         },
+        listingByOrganisationProf: async (parent, { orgName }) => {
+            const data = await Listing.find({
+                organisationName: orgName
+            });
+            return data;
+        },
         chatByEmployer: async (parent, { employerId }) => {
             const data = await Chat.find({
                 employer: new mongoose.Types.ObjectId(employerId),
