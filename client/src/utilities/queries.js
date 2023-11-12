@@ -58,3 +58,21 @@ export const QUERY_LISTING_BY_ORGANISATION = gql`
         }
     }
 `;
+
+export const QUERY_PROFILE_BY_ID = gql`
+    query profileId($profileId: ID!) {
+        profileById(profileId: $profileId) {
+            _id
+            firstName
+            lastName
+            orgName
+            age
+            userLocation
+            experience
+            biography
+            industry
+            profilePicture
+            isOrganisation
+        }
+    }
+`;
