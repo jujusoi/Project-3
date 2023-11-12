@@ -182,11 +182,17 @@ const resolvers = {
             const profile = await Profile.findOne({
                 email: email
             }).select('-password');
+            const tokenInfo = {
+                _id: profile._id,
+                industry: profile.industry,
+                isOrganisation: profile.isOrganisation,
+                userLocation: profile.userLocation,
+            };
             if (!profile) {
                 return;
             } else {
-                const token = Auth.signToken(profile);
-                return { token, profile };
+                const token = Auth.signToken(tokenInfo);
+                return { token, tokenInfo };
             }
         }
     },
