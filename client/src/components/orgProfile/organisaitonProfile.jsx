@@ -1,11 +1,9 @@
 
 
-export default function OrganisationProfile() {
+export default function OrganisationProfile({ profileData }) {
     return (
         <>
-            <section id="listing-sect" style={{ backgroundColor: '#b2a7a79c', width: '80%', margin: 'auto' }}>
-
-            </section>
+            <h3>{profileData.orgName}</h3>
         </>
     );
 }

@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROFILE_BY_ID } from "../utilities/queries";
 import LoadingPage from "./loadingPage";
+import NormalUserProfile from "../components/userProfile/userProfile";
+import OrganisationProfile from "../components/orgProfile/organisaitonProfile";
 
 export default function ProfilePage() {
 
@@ -18,10 +20,14 @@ export default function ProfilePage() {
             <LoadingPage />
         );
     } else {
-        return (
-            <>
-                <h3>{profileId}</h3>
-            </>
-        );
+        if (data.profileById.isOrganisation === true) {
+            return (
+                <OrganisationProfile profileData={data.profileById} />
+            );
+        } else {
+            return (
+                <NormalUserProfile profileData={data.profileById} />
+            );
+        }
     }
 }
