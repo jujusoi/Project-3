@@ -8,6 +8,7 @@ import LoadingPage from './pages/loadingPage.jsx';
 import App from './App.jsx'
 import './index.css'
 import ProfilePage from './pages/profilePage.jsx';
+import LoginPage from './pages/loginPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,8 @@ const router = createBrowserRouter([
         path: '/profile/:profileId',
         element: <ProfilePage />
       }, {
-        path: '/auth-page',
-        element: <h2>This is the auth page</h2>
+        path: '/login',
+        element: <LoginPage />
       },{
         path: '/listing/:listingId',
         element: <ListingPage />

@@ -179,14 +179,14 @@ const resolvers = {
         return data;
         },
         login: async (parent, { email, password }) => {
-            const data = await Profile.findOne({
+            const profile = await Profile.findOne({
                 email: email
-            });
-            if (!data) {
+            }).select('-password');
+            if (!profile) {
                 return;
             } else {
-                const token = Auth.signToken(data);
-                return { token, data };
+                const token = Auth.signToken(profile);
+                return { token, profile };
             }
         }
     },
