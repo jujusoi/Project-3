@@ -1,4 +1,9 @@
 import { useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
+
+import { CREATE_PROFILE } from "../utilities/mutations";
+
+import Auth from '../utilities/auth';
 
 export default function SignUpPage() {
 
@@ -6,21 +11,62 @@ export default function SignUpPage() {
     const [userInformation, setUserInformation] = useState({
         firstName: '',
         lastName: '',
-        age: '',
+        age: 0,
         userLocation: '',
         experience: '',
         biography: '',
         industry: '',
-        isOrganisation: '',
+        isOrganisation: false,
+        email: '',
+        password: '',
+        profilePicture: '',
+        orgName: '',
     });
+
+    const [ createProfile, { error }] = useMutation(CREATE_PROFILE);
+
+    const handleChange = (target, value) => {
+        if (target.name) {
+            setUserInformation(previousUserInformation => ({
+                ...previousUserInformation,
+                [target.name]: value,
+            }));
+        };
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const { data } = await createProfile({
+                variables: { profileInfo: userInformation }
+            });
+            if (data) {
+                Auth.login(data.createProfile.token);
+            };
+        } catch {
+            console.error(error);
+        };
+    };
+
+    useEffect(() => {
+        console.log(userInformation);
+    }, [userInformation])
 
     const setCheckVal = async (target) => {
         if (target.name === 'yes-org') {
             setCheckboxValue('yes');
             document.querySelector('#no-org').checked = false;
+            setUserInformation(previousUserInformation => ({
+                ...previousUserInformation,
+                isOrganisation: true,
+            }));
         } else {
             setCheckboxValue('no');
             document.querySelector('#yes-org').checked = false;
+            setUserInformation(previousUserInformation => ({
+                ...previousUserInformation,
+                isOrganisation: false,
+            }));
         };
     };
 
@@ -52,7 +98,7 @@ export default function SignUpPage() {
                 empassDisplay.style.opacity = 1;
             }, 300);
         }, 1000);
-    }
+    };
 
     return (
         <>
@@ -89,37 +135,37 @@ export default function SignUpPage() {
                             <div id="first-last-hold" style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', marginBottom: 20 }}>
                                 <div id="firstName-hold" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '30%' }}>
                                     <label htmlFor="firstName">First Name:</label>
-                                    <input type="text" name="firstName" id="firstName" placeholder="Your first name" required />
+                                    <input type="text" name="firstName" id="firstName" placeholder="Your first name" required onChange={() => handleChange(event.target, event.target.value)} />
                                 </div>
                                 <div id="lastName-hold" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '30%' }}>
                                     <label htmlFor="lastName">Last Name:</label>
-                                    <input type="text" name="lastName" id="lastName" placeholder="Your last name" required />
+                                    <input type="text" name="lastName" id="lastName" placeholder="Your last name" required onChange={() => handleChange(event.target, event.target.value)} />
                                 </div>
                                 <div id="age-hold" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                                     <label htmlFor="age">Age:</label>
-                                    <input type="number" name="age" id="age" min={14} max={70} placeholder="14-70" required />
+                                    <input type="number" name="age" id="age" min={14} max={70} placeholder="14-70" required onChange={() => handleChange(event.target, parseInt(event.target.value))} />
                                 </div>
                             </div>
                             <div id="location-industry-hold" style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', marginBottom: 20 }}>
                                 <div id="location-hold" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '38%' }}>
-                                    <label htmlFor="location">Location:</label>
-                                    <input type="text" name="location" id="location" placeholder="Enter your city" required />
+                                    <label htmlFor="userLocation">Location:</label>
+                                    <input type="text" name="userLocation" id="userLocation" placeholder="Enter your city" required onChange={() => handleChange(event.target, event.target.value)} />
                                 </div>
                                 <div id="industry-hold" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '38%' }}>
                                     <label htmlFor="industry">Industry:</label>
-                                    <input type="text" name="industry" id="industry" placeholder="Preferred Industry?" required />
+                                    <input type="text" name="industry" id="industry" placeholder="Preferred Industry?" required onChange={() => handleChange(event.target, event.target.value)} />
                                 </div>
                             </div>
                             <div id="experience-hold" style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', marginBottom: 20 }}>
                                 <div id="exp-div" style={{ width: '84%', textAlign: 'left' }}>
                                     <label htmlFor="experience">Experience?</label>
-                                    <textarea name="experience" id="experience" rows="3" style={{ width: '100%' }} placeholder="Previous job experience, volunteering, etc." required></textarea>
+                                    <textarea name="experience" id="experience" rows="3" style={{ width: '100%' }} placeholder="Previous job experience, volunteering, etc." required onChange={() => handleChange(event.target, event.target.value)}></textarea>
                                 </div>
                             </div>
                             <div id="biography-hold" style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', marginBottom: 20 }}>
                                 <div id="bio-div" style={{ width: '84%', textAlign: 'left' }}>
                                     <label htmlFor="biography">Biography:</label>
-                                    <textarea name="biography" id="biography" rows="5" style={{ width: '100%' }} placeholder="A deep-dive into who you are. Your passions, interests and goals. Where do you see yourself in the future? etc." required></textarea>
+                                    <textarea name="biography" id="biography" rows="5" style={{ width: '100%' }} placeholder="A deep-dive into who you are. Your passions, interests and goals. Where do you see yourself in the future? etc." required onChange={() => handleChange(event.target, event.target.value)}></textarea>
                                 </div>
                             </div>
                             <button style={{ width: '20%', margin: 'auto' }}>Submit details</button>
@@ -130,15 +176,15 @@ export default function SignUpPage() {
                             <h2>Email & Password</h2>
                             <p >You're almost there! All that's left is your email and a unique password to create your profile!</p>
                         </div>
-                        <form id="empass-form" action="submit" onSubmit={(event) => event.preventDefault()}>
+                        <form id="empass-form" action="submit" onSubmit={() => handleSubmit(event)}>
                             <div id="empass-hold" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                                 <div id="email-hold" style={{ display: 'flex', flexDirection: 'column', width: '40%' }}>
                                     <label htmlFor="email">Email:</label>
-                                    <input type="email" name="email" id="email" required />
+                                    <input type="email" name="email" id="email" required onChange={() => handleChange(event.target, event.target.value)} />
                                 </div>
                                 <div id="pass-hold" style={{ display: 'flex', flexDirection: 'column', width: '36%' }}>
                                     <label htmlFor="password">Password:</label>
-                                    <input type="password" name="password" id="password" required />
+                                    <input type="password" name="password" id="password" required onChange={() => handleChange(event.target, event.target.value)} />
                                 </div>
                             </div>
                             <button style={{ width: '20%', margin: 'auto', marginTop: 30 }}>Create Account</button>

@@ -124,7 +124,13 @@ const resolvers = {
     Mutation: {
         createProfile: async (parent, { profileInfo }) => {
             const data = await Profile.create(profileInfo);
-            const token = Auth.signToken(data);
+            const tokenInfo = {
+                _id: data._id,
+                industry: data.industry,
+                isOrganisation: data.isOrganisation,
+                userLocation: data.userLocation,
+            };
+            const token = Auth.signToken(tokenInfo);
             return { token, data };
         },
         createListing: async ( parent, { listingInfo }) => {

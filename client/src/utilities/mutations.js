@@ -11,4 +11,20 @@ export const LOGIN = gql`
             }
         }
     }
+`;
+
+export const CREATE_PROFILE = gql`
+    mutation createNewProfile($profileInfo: CreateProfile!) {
+        createProfile(profileInfo: $profileInfo) {
+            token,
+            profile {
+                firstName,
+                lastName,
+                age,
+                userLocation,
+                experience,
+                biography,
+            }
+        }
+    }
 `
