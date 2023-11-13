@@ -47,7 +47,7 @@ export default function OrganisationProfile({ profileData }) {
                             </div>
                         </div>
                         <div id="mini-joblist-hold" style={{ display: "flex", flexDirection: "column"}}>
-                            <h3 style={{ textAlign: 'left' }}>Other Job Listings by {profileData.orgName}</h3>
+                            <h3 style={{ textAlign: 'left' }}>Job Listings by {profileData.orgName}</h3>
                             <div id="org-minilist-holder" style={{ display: 'flex', overflowX: 'scroll', width: '100%'}}>
                                 {data.listingByOrganisationProf.map((listing) => {
                                     index++;
