@@ -9,6 +9,7 @@ import App from './App.jsx'
 import './index.css'
 import ProfilePage from './pages/profilePage.jsx';
 import LoginPage from './pages/loginPage.jsx';
+import SignUpPage from './pages/signupPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,9 @@ const router = createBrowserRouter([
       {
         path: '/loading',
         element: <LoadingPage />
+      }, {
+        path: '/create-account',
+        element: <SignUpPage />
       }
     ],
   },

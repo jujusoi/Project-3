@@ -19,7 +19,7 @@ export default function Header() {
                     <button>Chats</button>
                     <Link to={'/'}><button>Job Listings</button></Link>
                     {isLoggedIn ? <button onClick={() => {event.preventDefault(), Auth.logout()}}>Logout</button> : <Link to={'/login'}><button>Login</button></Link> }
-                    <Link to={'/auth-page'}><button>Sign Up</button></Link>
+                    <Link to={'/create-account'}><button>Sign Up</button></Link>
                 </div>
             </div>
         </section>
