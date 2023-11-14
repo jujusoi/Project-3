@@ -19,7 +19,7 @@ export default function Header() {
                 <div style={{display: "flex", width: '50%', justifyContent: 'space-evenly'}}>
                     <Link to={'/'}><button>Job Listings</button></Link>
                     {isLoggedIn ? '' : <Link to={'/login'}><button>Login</button></Link> }
-                    {isLoggedIn ? (<MenuButton />): <Link to={'/create-account'}><button>Sign Up</button></Link>}
+                    {isLoggedIn ? (<MenuButton isOrganisation={Auth.getProfile().data.userInfo.isOrganisation} />): <Link to={'/create-account'}><button>Sign Up</button></Link>}
                 </div>
             </div>
         </section>

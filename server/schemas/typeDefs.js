@@ -19,7 +19,7 @@ const typeDefs = `
 
     type Chat {
         _id: ID!,
-        chatName: String!,
+        chatName: String,
         employer: [Profile],
         mainUser: [Profile],
         listedJob: [Listing],
@@ -73,7 +73,7 @@ const typeDefs = `
     }
 
     input CreateChat {
-        chatName: String!,
+        chatName: String,
         employer: ID!,
         mainUser: ID!,
         listedJob: ID!,

@@ -117,3 +117,33 @@ export const QUERY_PROF_SAVES = gql`
         }
     }
 `;
+
+export const QUERY_PROF_CHATS = gql`
+    query profileIdChats($profileId: ID!) {
+        profileById(profileId: $profileId) {
+            userChats {
+                _id
+                chatName
+                employer {
+                    _id
+                    orgName
+                    profilePicture
+                }
+                mainUser {
+                    _id
+                    firstName
+                    lastName
+                }
+                listedJob {
+                    _id
+                    title
+                    jobType
+                }
+                chatMessages {
+                    username
+                    messageContent
+                }
+            }
+        }
+    }
+`;
