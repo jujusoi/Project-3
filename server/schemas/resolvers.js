@@ -120,6 +120,22 @@ const resolvers = {
             ]);
             return data;
         },
+        chatById: async (parent, {chatId}) => {
+            const data = await Chat.findOne({
+                _id: chatId
+            }).populate([
+                {
+                    path: 'employer',
+                },
+                {
+                    path: 'listedJob',
+                },
+                {
+                    path: 'mainUser',
+                },
+            ]);
+            return data;
+        },
     },
     Mutation: {
         createProfile: async (parent, { profileInfo }) => {

@@ -100,6 +100,7 @@ const typeDefs = `
         listingByOrganisationProf(orgName: String!): [Listing]
         chatByEmployer(employerId: ID!): [Chat]
         chatByProfile(profileId: ID!): [Chat]
+        chatById(chatId: ID!): Chat
     }
 
     type Mutation {

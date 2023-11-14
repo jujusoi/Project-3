@@ -4,7 +4,6 @@ const messageSchema = require('./Messages');
 const chatSchema = new Schema({
     chatName: {
         type: String,
-        required: true,
     },
     employer: [
         {

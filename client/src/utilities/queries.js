@@ -133,6 +133,7 @@ export const QUERY_PROF_CHATS = gql`
                     _id
                     firstName
                     lastName
+                    profilePicture
                 }
                 listedJob {
                     _id
@@ -146,4 +147,23 @@ export const QUERY_PROF_CHATS = gql`
             }
         }
     }
+`;
+
+export const QUERY_CHAT_ID = gql`
+    query chatInfoById($chatId: ID!) {
+  chatById(chatId: $chatId) {
+    _id
+    employer {
+      orgName
+    }
+    mainUser {
+      industry
+      firstName
+      lastName
+    }
+    listedJob {
+      title
+    }
+  }
+}
 `;
