@@ -27,4 +27,12 @@ export const CREATE_PROFILE = gql`
             }
         }
     }
+`;
+
+export const SAVE_LISTING = gql`
+    mutation SaveListingToProfile($listingId: ID!, $profileId: ID!) {
+        updateSavedListing(listingId: $listingId, profileId: $profileId) {
+            _id
+        }
+    }
 `

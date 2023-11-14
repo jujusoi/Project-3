@@ -6,10 +6,14 @@ import { Link } from "react-router-dom";
 
 import MiniListings from "../components/listingComps/miniListings";
 import LoadingPage from "./loadingPage";
+import SaveListingButton from "../components/jobBoard/boardButtons/saveListingButton";
+import Auth from '../utilities/auth';
 
 export default function ListingPage() {
 
     const listingId = useParams().listingId;
+
+    const profileId = Auth.getProfile().data.userInfo._id;
 
     const { loading, data } = useQuery(QUERY_LISTING_BY_ID, {
         variables: { listingId: listingId }
@@ -54,7 +58,7 @@ export default function ListingPage() {
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'right' }}>
                                 <button className="interested-btn" style={{ backgroundColor: '#5f5fff', marginRight: 10 }}>Interested</button>
-                                <button className="save-listing-btn">Save</button>
+                                <SaveListingButton listingId={listingId} profileId={profileId} />
                             </div>
                         </div>
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', marginTop: 10}}>

@@ -107,3 +107,13 @@ export const QUERY_PROFILE_BY_ID = gql`
         }
     }
 `;
+
+export const QUERY_PROF_SAVES = gql`
+    query profileIdSaves($profileId: ID!) {
+        profileById(profileId: $profileId) {
+            savedListings {
+                _id
+            }
+        }
+    }
+`;

@@ -144,10 +144,24 @@ const resolvers = {
             return data;
         },
         updateSavedListing: async (parent, { listingId, profileId }) => {
-            const data = Profile.findOneAndUpdate({
+            const profile = await Profile.findOne({
                 _id: profileId
-            }, { $push: { savedListings: listingId }}, { new: true });
-            return data.populate('savedListings');
+            });
+            if (profile.savedListings.includes(listingId)) {
+                const data = await Profile.findOneAndUpdate(
+                    { _id: profileId },
+                    { $pull: { savedListings: listingId } },
+                    { new: true }
+                ).populate('savedListings');
+                return data;
+            } else {
+                const data = await Profile.findOneAndUpdate(
+                    { _id: profileId },
+                    { $addToSet: { savedListings: listingId } },
+                    { new: true }
+                ).populate('savedListings');
+                return data;
+            }
         },
         createNewChat: async (parent, { chatInfo }) => {
             const data = await Chat.create(chatInfo);

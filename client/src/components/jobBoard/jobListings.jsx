@@ -3,10 +3,20 @@ import { Link } from "react-router-dom";
 import { QUERY_LISTINGS } from "../../utilities/queries";
 import { useQuery } from "@apollo/client";
 import LoadingPage from "../../pages/loadingPage";
+import SaveListingButton from "./boardButtons/saveListingButton";
+
+import Auth from '../../utilities/auth';
 
 export default function JobListings() {
 
     const { loading, data } = useQuery(QUERY_LISTINGS);
+
+    let isLoggedIn;
+    let profileId;
+    if (Auth.getToken()) {
+        isLoggedIn = true;
+        profileId = Auth.getProfile().data.userInfo._id;
+    };
 
     const snipDesc = (description) => {
         let newDesc = description.slice(150);
@@ -57,14 +67,14 @@ export default function JobListings() {
                                 <h4 style={{ textAlign: "left" }}>Job Description: </h4>
                                 <p className="listing-description">{listing.jobDescription.length <= 150 ? listing.jobDescription : snipDesc(listing.jobDescription)}</p>
                             </div>
-                            <div style={{ display: 'flex', justifyContent: 'right', marginTop: 15 }}>
+                            {isLoggedIn ? (<div style={{ display: 'flex', justifyContent: 'right', marginTop: 15 }}>
                                 <button className="interested-btn" style={{ backgroundColor: '#5f5fff', marginRight: 10 }}>Interested</button>
-                                <button className="save-listing-btn">Save</button>
-                            </div>
+                                <SaveListingButton listingId={listing._id} profileId={profileId} />
+                            </div>) : ""}
                         </div>
                     </>
                 );
             }
-        ))
+            ))
     }
 }
