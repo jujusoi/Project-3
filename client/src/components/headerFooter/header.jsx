@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Auth from '../../utilities/auth';
+import MenuButton from "./menuButton";
 
 export default function Header() {
 
@@ -18,8 +19,8 @@ export default function Header() {
                 <div style={{display: "flex", width: '50%', justifyContent: 'space-evenly'}}>
                     <button>Chats</button>
                     <Link to={'/'}><button>Job Listings</button></Link>
-                    {isLoggedIn ? <button onClick={() => {event.preventDefault(), Auth.logout()}}>Logout</button> : <Link to={'/login'}><button>Login</button></Link> }
-                    <Link to={'/create-account'}><button>Sign Up</button></Link>
+                    {isLoggedIn ? '' : <Link to={'/login'}><button>Login</button></Link> }
+                    {isLoggedIn ? (<MenuButton />): <Link to={'/create-account'}><button>Sign Up</button></Link>}
                 </div>
             </div>
         </section>

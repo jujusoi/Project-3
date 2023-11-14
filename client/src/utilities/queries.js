@@ -89,6 +89,21 @@ export const QUERY_PROFILE_BY_ID = gql`
             profilePicture
             isOrganisation
             email
+            savedListings {
+                _id
+                title
+                organisationName
+                industry
+                location
+                salary
+                jobType
+                jobDescription
+                postedOn
+                poster {
+                    _id
+                    orgName
+                }
+            }
         }
     }
 `;

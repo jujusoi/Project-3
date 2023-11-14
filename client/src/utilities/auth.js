@@ -13,7 +13,7 @@ class AuthService {
     };
     logout() {
         localStorage.removeItem('token');
-        window.location.assign('/');
+        window.location.assign('/login');
     };
 };
 

@@ -1,6 +1,14 @@
+import Auth from '../../utilities/auth';
 
+import MinilistingComponent from '../listingComps/miniListingComp';
 
 export default function NormalUserProfile({ profileData }) {
+
+    let isLoggedIn;
+    if (Auth.getToken()) {
+        isLoggedIn = true;
+    }
+
     return (
         <>
  <section id="org-profile-sect" style={{ width: '90%', margin: 'auto'}}>
@@ -30,6 +38,16 @@ export default function NormalUserProfile({ profileData }) {
                                 <p>Email: {profileData.email}</p>
                             </div>
                         </div>
+                        { isLoggedIn && Auth.getProfile().data.userInfo._id === profileData._id ? (<div id="mini-joblist-hold" style={{ display: "flex", flexDirection: "column"}}>
+                            <h3 style={{ textAlign: 'left' }}>{profileData.savedListings.length == 0 ? "You have no saved job listings!" : "Your saved job listings:"}</h3>
+                            <div id="org-minilist-holder" style={{ display: 'flex', overflowX: 'scroll', width: '100%'}}>
+                                {profileData.savedListings.map((listing) => {
+                                    return (
+                                        <MinilistingComponent data={listing}/>
+                                    );
+                                })}
+                            </div>
+                        </div> ) : <div></div>}
                     </div>
                 </section>
         </>

@@ -41,7 +41,7 @@ const resolvers = {
                 path: 'savedListings',
                 populate: {
                     path: 'poster'
-                }
+                },
             },
             {
                 path: 'userChats',
