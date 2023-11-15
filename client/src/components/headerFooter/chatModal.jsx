@@ -13,7 +13,7 @@ export default function ChatModal({ data, handleChatInfo, handleChatInput, curre
                                 </button>
                             </div>
                             <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', height: 500 }}>
-                                <div id="main-chat-holder" style={{ display: 'flex', flexDirection: 'column' }}>
+                                <div id="main-chat-holder" style={{ display: 'flex', flexDirection: 'column', overflowY: 'scroll' }}>
                                     {data.profileById.userChats.map((chat) => {
                                         return (
                                             <>

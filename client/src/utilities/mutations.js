@@ -45,3 +45,32 @@ export const CREATE_MESSAGE = gql`
       }
     }
 `;
+
+export const CREATE_NEW_CHAT = gql`
+mutation Mutation($chatInfo: CreateChat!) {
+  createNewChat(chatInfo: $chatInfo) {
+    _id
+    employer {
+      _id
+      orgName
+      profilePicture
+    }
+    mainUser {
+      _id
+      firstName
+      lastName
+      profilePicture
+    }
+    listedJob {
+      _id
+      title
+      jobType
+    }
+    chatMessages {
+      username
+      messageContent
+      timeSent
+    }
+  }
+}
+`;

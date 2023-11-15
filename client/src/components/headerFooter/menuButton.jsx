@@ -49,8 +49,8 @@ export default function MenuButton({ isOrganisation }) {
     };
 
     useEffect(() => {
-        console.log(data);
-    }, [data]);
+        console.log('helo')
+    }, []);
 
     const scrollIntoMessage = () => {
         setTimeout(() => {
@@ -98,7 +98,7 @@ export default function MenuButton({ isOrganisation }) {
                             </div>
                             <div className="modal-body" style={{ display: 'flex', flexDirection: 'column' }}>
                                 <Link to={`/profile/${Auth.getProfile().data.userInfo._id}`}><button id="my-profile-button">My profile</button></Link>
-                                <ChatButton />
+                                <ChatButton refetch={refetch} />
                                 {isOrganisation ? (<button id="create-listing-button">Create listing</button>) : ''}
                                 <button id="logout-button" onClick={() => { event.preventDefault(), Auth.logout() }}>Logout</button>
                             </div>

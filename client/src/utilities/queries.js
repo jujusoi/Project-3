@@ -168,3 +168,13 @@ export const QUERY_CHAT_ID = gql`
   }
 }
 `;
+
+export const QUERY_CHATS_PROF = gql`
+query Query($profileId: ID!) {
+  chatByProfile(profileId: $profileId) {
+    listedJob {
+      _id
+    }
+  }
+}
+`;

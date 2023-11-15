@@ -65,8 +65,11 @@ button:focus-visible {
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 }
-#signup-org-hold, #signup-info-hold, #email-pass-hold, #current-chat-holder, #main-chat-holder {
+#signup-org-hold, #signup-info-hold, #email-pass-hold, #current-chat-holder, #main-chat-holder{
   transition: ease-in-out 600ms;
+}
+.userchat-hold {
+  transition: ease-in-out 850ms;
 }
 
 @media screen and (max-width: 800px) {

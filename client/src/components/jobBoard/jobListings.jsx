@@ -1,21 +1,49 @@
 import { Link } from "react-router-dom";
 
 import { QUERY_LISTINGS } from "../../utilities/queries";
-import { useQuery } from "@apollo/client";
+import { CREATE_NEW_CHAT } from "../../utilities/mutations";
+import { useQuery, useMutation } from "@apollo/client";
 import LoadingPage from "../../pages/loadingPage";
 import SaveListingButton from "./boardButtons/saveListingButton";
 
 import Auth from '../../utilities/auth';
+import InterestedButton from "./boardButtons/interestedButton";
 
 export default function JobListings() {
 
     const { loading, data } = useQuery(QUERY_LISTINGS);
+    const [createNewChat, { error }] = useMutation(CREATE_NEW_CHAT);
 
     let isLoggedIn;
     let profileId;
     if (Auth.getToken()) {
         isLoggedIn = true;
         profileId = Auth.getProfile().data.userInfo._id;
+    };
+
+    const handleNewChat = async (event, chatInfo) => {
+        event.preventDefault();
+        try {
+            const { data } = await createNewChat({
+                variables: { chatInfo: { ...chatInfo } },
+            });
+            if (data) {
+                document.querySelector('#chat-button').click();
+                setTimeout(() => {
+                    const listOfAllChats = document.getElementsByClassName('userchat-hold');
+                    const mostRecentChat = listOfAllChats[listOfAllChats.length - 1];
+                    setTimeout(() => {
+                        mostRecentChat.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+                        mostRecentChat.style.backgroundColor = '#94d7ef'
+                        setTimeout(() => {
+                            mostRecentChat.style.backgroundColor = ''
+                        }, 1000);
+                    }, 300);
+                }, 200);
+            }
+        } catch (err) {
+            console.error(err);
+        };
     };
 
     const snipDesc = (description) => {
@@ -29,6 +57,7 @@ export default function JobListings() {
             <LoadingPage />
         );
     } else {
+        console.log(data);
         return (
             data.listings.map((listing) => {
                 return (
@@ -68,7 +97,7 @@ export default function JobListings() {
                                 <p className="listing-description">{listing.jobDescription.length <= 150 ? listing.jobDescription : snipDesc(listing.jobDescription)}</p>
                             </div>
                             {isLoggedIn ? (<div style={{ display: 'flex', justifyContent: 'right', marginTop: 15 }}>
-                                <button className="interested-btn" style={{ backgroundColor: '#5f5fff', marginRight: 10 }}>Interested</button>
+                                <InterestedButton handleNewChat={handleNewChat} listing={listing} profileId={profileId} />
                                 <SaveListingButton listingId={listing._id} profileId={profileId} />
                             </div>) : ""}
                         </div>

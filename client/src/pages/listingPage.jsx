@@ -1,6 +1,9 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_LISTING_BY_ID } from "../utilities/queries";
 import { useParams } from "react-router-dom";
+import { CREATE_NEW_CHAT } from "../utilities/mutations";
+
+
 
 import { Link } from "react-router-dom";
 
@@ -8,6 +11,7 @@ import MiniListings from "../components/listingComps/miniListings";
 import LoadingPage from "./loadingPage";
 import SaveListingButton from "../components/jobBoard/boardButtons/saveListingButton";
 import Auth from '../utilities/auth';
+import InterestedButton from "../components/jobBoard/boardButtons/interestedButton";
 
 export default function ListingPage() {
 
@@ -18,10 +22,37 @@ export default function ListingPage() {
     const { loading, data } = useQuery(QUERY_LISTING_BY_ID, {
         variables: { listingId: listingId }
     });
+    const [createNewChat, { error }] = useMutation(CREATE_NEW_CHAT);
+
+    const handleNewChat = async (event, chatInfo) => {
+        event.preventDefault();
+        try {
+            const { data } = await createNewChat({
+                variables: { chatInfo: { ...chatInfo } },
+            });
+            if (data) {
+                document.querySelector('#chat-button').click();
+                setTimeout(() => {
+                    const listOfAllChats = document.getElementsByClassName('userchat-hold');
+                    const mostRecentChat = listOfAllChats[listOfAllChats.length - 1];
+                    setTimeout(() => {
+                        mostRecentChat.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+                        mostRecentChat.style.backgroundColor = '#94d7ef'
+                        setTimeout(() => {
+                            mostRecentChat.style.backgroundColor = ''
+                        }, 1000);
+                    }, 300);
+                }, 200);
+            }
+        } catch (err) {
+            console.error(err);
+        };
+    };
 
     if (loading) {
         <LoadingPage />
     } else {
+        console.log(data)
         return (
             <>
             <section style={{ display: 'flex', justifyContent: 'space-evenly'}}>
@@ -57,7 +88,7 @@ export default function ListingPage() {
                                 <p className="listing-description">{data.listingById.jobDescription}</p>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'right' }}>
-                                <button className="interested-btn" style={{ backgroundColor: '#5f5fff', marginRight: 10 }}>Interested</button>
+                                <InterestedButton handleNewChat={handleNewChat} listing={data.listingById} profileId={Auth.getProfile().data.userInfo._id}  />
                                 <SaveListingButton listingId={listingId} profileId={profileId} />
                             </div>
                         </div>
