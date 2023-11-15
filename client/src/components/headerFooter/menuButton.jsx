@@ -2,25 +2,63 @@ import { Link } from "react-router-dom";
 import Auth from '../../utilities/auth';
 import ChatButton from "./chatButton";
 
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PROF_CHATS, QUERY_CHAT_ID } from "../../utilities/queries";
+import { CREATE_MESSAGE } from "../../utilities/mutations";
 import { useState, useEffect } from "react";
 
 export default function MenuButton({ isOrganisation }) {
 
-    const [currentChatInfo, setCurrentChatInfo] = useState({})
+    const [currentChatInfo, setCurrentChatInfo] = useState({});
+    const [messageText, setMessageText] = useState('');
 
-    const { loading, data } = useQuery(QUERY_PROF_CHATS, {
+    const options = { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
+    setInterval(() => {
+        
+    }, 2000);
+    const { loading, data, refetch } = useQuery(QUERY_PROF_CHATS, {
         variables: { profileId: Auth.getProfile().data.userInfo._id }
     });
+    const [ createMessage, { error }] = useMutation(CREATE_MESSAGE);
+
+    const handleChatInput = async (event, chatId, messageInfo) => {
+        event.preventDefault();
+        try {
+            const { data } = await createMessage({
+                variables: { messageInfo, chatId },
+            });
+            if (data) {
+                console.log(data);
+                setMessageText('');
+                let newArray = [...currentChatInfo.chatMessages, { ...messageInfo, timeSent: new Date().toLocaleDateString('en-US', options)}];
+                setCurrentChatInfo(previousChatInfo => ({
+                    ...previousChatInfo,
+                    chatMessages: newArray,
+                }));
+                refetch();
+                scrollIntoMessage();
+            }
+        } catch (err) {
+            console.error(err);
+        };
+    };
 
     const handleChatInfo = (chatId) => {
         setCurrentChatInfo(...(data.profileById.userChats.filter((chat) => chat._id == chatId)))
     };
 
     useEffect(() => {
-        console.log(currentChatInfo);
-    }, [currentChatInfo]);
+        console.log(data);
+    }, [data]);
+
+    const scrollIntoMessage = () => {
+        setTimeout(() => {
+            const allMessages = document.getElementsByClassName('message');
+            if (allMessages.length > 0) {
+                allMessages[allMessages.length - 1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+            }; 
+        }, 50);
+    }
 
     const closeChatsOpenMessage = () => {
         document.querySelector('#current-chat-holder').style.display = 'flex';
@@ -28,6 +66,7 @@ export default function MenuButton({ isOrganisation }) {
         setTimeout(() => {
             document.querySelector('#main-chat-holder').style.display = 'none';
             document.querySelector('#current-chat-holder').style.opacity = 1;
+            scrollIntoMessage();
         }, 1000);
     };
     
@@ -92,26 +131,29 @@ export default function MenuButton({ isOrganisation }) {
                                         );
                                     })}
                                 </div>
-                                <div id="current-chat-holder" style={{ overflowY: 'scroll', display: 'none', flexDirection: 'column', opacity: 0 }}>
+                                <div id="current-chat-holder" style={{ display: 'none', flexDirection: 'column', opacity: 0, height: '100%' }}>
                                     {Object.keys(currentChatInfo).length > 0 ? (<>
-                                        <div id="chat-tne" style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center' }}>
+                                        <div id="chat-tne" style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'flex-start', height: '20%' }}>
                                             <div>
                                                 <p style={{ width: '100%' }}><b>Chat between {currentChatInfo.mainUser[0].firstName} {currentChatInfo.mainUser[0].lastName} and {currentChatInfo.employer[0].orgName}</b></p>
                                                 <p>For {currentChatInfo.listedJob[0].jobType} {currentChatInfo.listedJob[0].title}</p>
                                             </div>
                                             <button type='button' onClick={() => openChatsCloseMessage()}><i class="bi bi-arrow-return-left"></i></button>
                                         </div>
-                                        <div id="chat-mni">
-                                            <div id="chats-hold">
+                                        <div id="chat-mni" style={{ height: '65%'}}>
+                                            <div id="chats-hold" style={{ overflowY: 'scroll', height: '100%', padding: 20 }}>
                                                 {currentChatInfo.chatMessages.map((message) => {
                                                     return (
                                                         <>
                                                         <div className="message" style={{ display: 'flex', flexDirection: Auth.getProfile().data.userInfo.isOrganisation && message.username == currentChatInfo.mainUser[0].firstName || Auth.getProfile().data.userInfo.isOrganisation === false && message.username == currentChatInfo.employer[0].orgName ? 'row' : 'row-reverse' }}>
                                                             <div className="message-img">
-                                                                <img src={message.username == currentChatInfo.mainUser[0].firstName ? currentChatInfo.mainUser[0].profilePicture : currentChatInfo.employer[0].profilePicture} width={50} height={50} style={{ borderRadius: 50 }} alt="pfp" />
+                                                                <img src={message.username == currentChatInfo.mainUser[0].firstName ? currentChatInfo.mainUser[0].profilePicture : currentChatInfo.employer[0].profilePicture} width={50} height={50} style={{ borderRadius: 50, marginRight: 10, marginLeft: 10 }} alt="pfp" />
                                                             </div>
-                                                            <div className="message-nnu">
-                                                                <p style={{ fontSize: 13}}>{message.username}</p>
+                                                            <div className="message-nnu" style={{ width: '70%', textAlign: Auth.getProfile().data.userInfo.isOrganisation && message.username == currentChatInfo.mainUser[0].firstName || Auth.getProfile().data.userInfo.isOrganisation === false && message.username == currentChatInfo.employer[0].orgName ? 'left' : 'right'}}>
+                                                                <div style={{ display: 'flex', flexDirection: 'column-reverse', justifyContent: 'space-evenly'}}>
+                                                                    <p style={{ fontSize: 13, marginBottom: 0}}><b>{message.username}</b></p>
+                                                                    <p style={{ fontSize: 13, marginBottom: 0}}>{message.timeSent}</p>
+                                                                </div>
                                                                 <p>{message.messageContent}</p>
                                                             </div>
                                                         </div>
@@ -119,10 +161,10 @@ export default function MenuButton({ isOrganisation }) {
                                                     );
                                                 })}
                                             </div>
-                                            <div id="chat-input-hold">
-                                                <form action="submit" onSubmit={(event) => event.preventDefault()}>
-                                                    <input type="text" name="messageContent" id="message-input" placeholder="Your message..." />
-                                                    <button type='button' className="bi bi-send"></button>
+                                            <div id="chat-input-hold" style={{ marginTop: 15, height: '15%'}}>
+                                                <form action="submit" onSubmit={() => handleChatInput(event, currentChatInfo._id, { messageContent: messageText, username: Auth.getProfile().data.userInfo.isOrganisation ? currentChatInfo.employer[0].orgName : currentChatInfo.mainUser[0].firstName})} style={{ display: 'flex'}}>
+                                                    <input type="text" name="messageContent" id="message-input" placeholder="Your message..." style={{ width: '90%', borderTopLeftRadius: 15, borderBottomLeftRadius: 15, padding: 10}} onChange={(event) => setMessageText(event.currentTarget.value)} value={messageText} />
+                                                    <button type='submit' className="bi bi-send" style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}></button>
                                                 </form>
                                             </div>
                                         </div>

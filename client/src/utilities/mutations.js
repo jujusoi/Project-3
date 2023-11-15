@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client"; 
+import { gql } from "@apollo/client";
 
 export const LOGIN = gql`
     mutation loginUser($email: String!, $password: String!) {
@@ -35,4 +35,13 @@ export const SAVE_LISTING = gql`
             _id
         }
     }
-`
+`;
+
+export const CREATE_MESSAGE = gql`
+    mutation Mutation($chatId: ID!, $messageInfo: CreateMessage!) {
+      createMessage(chatId: $chatId, messageInfo: $messageInfo) {
+        messageContent
+        username
+      }
+    }
+`;

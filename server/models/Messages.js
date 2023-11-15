@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 
-const options = { day: '2-digit', month: 'short' };
+const options = { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
 
 const messageSchema = new Schema({
     username: {

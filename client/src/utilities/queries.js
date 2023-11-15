@@ -143,6 +143,7 @@ export const QUERY_PROF_CHATS = gql`
                 chatMessages {
                     username
                     messageContent
+                    timeSent
                 }
             }
         }
