@@ -109,6 +109,7 @@ const typeDefs = `
         deleteListing(listingId: ID!): Listing
         updateSavedListing(listingId: ID!, profileId: ID!): Profile
         createNewChat(chatInfo: CreateChat!): Chat
+        deleteChat(chatId: ID!): Chat
         createMessage(messageInfo: CreateMessage!, chatId: ID!): Message
         deleteMessage(messageId: ID!, chatId: ID!): Message
         login(email: String!, password: String!): Auth

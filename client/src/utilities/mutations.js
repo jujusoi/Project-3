@@ -74,3 +74,11 @@ mutation Mutation($chatInfo: CreateChat!) {
   }
 }
 `;
+
+export const DELETE_CHAT = gql`
+  mutation Mutation($chatId: ID!) {
+  deleteChat(chatId: $chatId) {
+    chatName
+  }
+}
+`;

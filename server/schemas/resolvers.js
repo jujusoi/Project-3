@@ -202,6 +202,12 @@ const resolvers = {
                 ]);
              };
         },
+        deleteChat: async (parent, { chatId }) => {
+            const data = await Chat.deleteOne({
+                _id: chatId,
+            });
+            return data;
+        },
         createMessage: async (parent, { messageInfo, chatId }) => {
             const data = await Chat.findOneAndUpdate({
                 _id: chatId

@@ -97,7 +97,7 @@ export default function MenuButton({ isOrganisation }) {
                                 </button>
                             </div>
                             <div className="modal-body" style={{ display: 'flex', flexDirection: 'column' }}>
-                                <Link to={`/profile/${Auth.getProfile().data.userInfo._id}`}><button id="my-profile-button">My profile</button></Link>
+                                <Link to={`/profile/${Auth.getProfile().data.userInfo._id}`} target="_blank"><button id="my-profile-button">My profile</button></Link>
                                 <ChatButton refetch={refetch} />
                                 {isOrganisation ? (<button id="create-listing-button">Create listing</button>) : ''}
                                 <button id="logout-button" onClick={() => { event.preventDefault(), Auth.logout() }}>Logout</button>

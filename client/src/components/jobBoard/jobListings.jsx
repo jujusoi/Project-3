@@ -47,7 +47,7 @@ export default function JobListings() {
     };
 
     const snipDesc = (description) => {
-        let newDesc = description.slice(150);
+        let newDesc = description.slice(0, 300);
         newDesc = newDesc + '...'
         return newDesc;
     }

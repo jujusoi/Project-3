@@ -1,6 +1,29 @@
 
+import { useMutation } from "@apollo/client";
+import { DELETE_CHAT } from "../../utilities/mutations";
+import { Link } from "react-router-dom";
 
 export default function ChatModal({ data, handleChatInfo, handleChatInput, currentChatInfo, openChatsCloseMessage, closeChatsOpenMessage, Auth, setMessageText, messageText}) {
+
+    const [ deleteChat, { error }] = useMutation(DELETE_CHAT);
+
+    const handleChatDelete = async (event, chatId) => {
+        event.preventDefault();
+        try {
+            const { data } = deleteChat({
+                variables: { chatId },
+            });
+            event.target.disabled = true;
+            const chatDeletedDiv = event.target.parentElement.parentElement;
+            chatDeletedDiv.style.opacity = 0;
+            setTimeout(() => {
+                chatDeletedDiv.remove();
+            }, 600);
+        } catch (err) {
+            console.error(err);
+        };
+    };
+
     return (
         <>
             
@@ -17,13 +40,16 @@ export default function ChatModal({ data, handleChatInfo, handleChatInput, curre
                                     {data.profileById.userChats.map((chat) => {
                                         return (
                                             <>
-                                                <div className="userchat-hold" key={chat._id} data_id={chat._id} onClick={(event) => {handleChatInfo(event.currentTarget.getAttribute("data_id")), closeChatsOpenMessage()}} style={{ display: 'flex' }}>
+                                                <div className="userchat-hold" key={chat._id} style={{ display: 'flex', marginBottom: 25, alignItems: 'center' }}>
                                                     <div className="chat-pfp-hold">
-                                                        <img src={chat.employer[0].profilePicture} alt="Organisation Photo" width={60} height={60} style={{ borderRadius: 50 }} />
+                                                        <Link to={`/profile/${Auth.getProfile().data.userInfo._id == chat.employer[0]._id ? chat.mainUser[0]._id : chat.employer[0]._id}`}><img src={Auth.getProfile().data.userInfo._id == chat.employer[0]._id ? chat.mainUser[0].profilePicture : chat.employer[0].profilePicture} alt="Organisation Photo" width={60} height={60} style={{ borderRadius: 50 }} /></Link>
                                                     </div>
-                                                    <div className="chat-desc-hold">
-                                                        <p><b>Chat for {chat.listedJob[0].title} at {chat.employer[0].orgName}</b></p>
-                                                        <p>{chat.chatMessages.length > 0 ? chat.chatMessages[chat.chatMessages.length - 1].messageContent : ''}</p>
+                                                    <div className="chat-desc-hold" onClick={(event) => {handleChatInfo(chat._id), closeChatsOpenMessage()}}>
+                                                        <p style={{ marginBottom: 0 }}><b>Chat for {chat.listedJob[0].title} at {chat.employer[0].orgName}</b></p>
+                                                        <p style={{ marginBottom: 0 }}>{chat.chatMessages.length > 0 ? chat.chatMessages[chat.chatMessages.length - 1].messageContent.slice(0, 25) + '...' : ''}</p>
+                                                    </div>
+                                                    <div className="chat-delete-btn" style={{ height: '100%'}}>
+                                                        <button type="button" className="bi bi-trash" style={{ height: 75, backgroundColor: '#cd4747' }} onClick={(event) => handleChatDelete(event, chat._id)}></button>
                                                     </div>
                                                 </div>
                                             </>
