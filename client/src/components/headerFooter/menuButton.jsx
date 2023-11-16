@@ -3,10 +3,11 @@ import Auth from '../../utilities/auth';
 import ChatButton from "./chatButton";
 
 import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_PROF_CHATS, QUERY_CHAT_ID } from "../../utilities/queries";
+import { QUERY_PROF_CHATS } from "../../utilities/queries";
 import { CREATE_MESSAGE } from "../../utilities/mutations";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ChatModal from "./chatModal";
+import ListingModal from "./createListingModal";
 
 export default function MenuButton({ isOrganisation }) {
 
@@ -15,12 +16,12 @@ export default function MenuButton({ isOrganisation }) {
 
     const options = { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
     setInterval(() => {
-        
+
     }, 2000);
     const { loading, data, refetch } = useQuery(QUERY_PROF_CHATS, {
         variables: { profileId: Auth.getProfile().data.userInfo._id }
     });
-    const [ createMessage, { error }] = useMutation(CREATE_MESSAGE);
+    const [createMessage, { error }] = useMutation(CREATE_MESSAGE);
 
     const handleChatInput = async (event, chatId, messageInfo) => {
         event.preventDefault();
@@ -31,7 +32,7 @@ export default function MenuButton({ isOrganisation }) {
             if (data) {
                 console.log(data);
                 setMessageText('');
-                let newArray = [...currentChatInfo.chatMessages, { ...messageInfo, timeSent: new Date().toLocaleDateString('en-US', options)}];
+                let newArray = [...currentChatInfo.chatMessages, { ...messageInfo, timeSent: new Date().toLocaleDateString('en-US', options) }];
                 setCurrentChatInfo(previousChatInfo => ({
                     ...previousChatInfo,
                     chatMessages: newArray,
@@ -48,16 +49,12 @@ export default function MenuButton({ isOrganisation }) {
         setCurrentChatInfo(...(data.profileById.userChats.filter((chat) => chat._id == chatId)))
     };
 
-    useEffect(() => {
-        console.log('helo')
-    }, []);
-
     const scrollIntoMessage = () => {
         setTimeout(() => {
             const allMessages = document.getElementsByClassName('message');
             if (allMessages.length > 0) {
                 allMessages[allMessages.length - 1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-            }; 
+            };
         }, 50);
     }
 
@@ -70,7 +67,7 @@ export default function MenuButton({ isOrganisation }) {
             scrollIntoMessage();
         }, 1000);
     };
-    
+
     const openChatsCloseMessage = () => {
         document.querySelector('#current-chat-holder').style.opacity = '0';
         setTimeout(() => {
@@ -99,14 +96,17 @@ export default function MenuButton({ isOrganisation }) {
                             <div className="modal-body" style={{ display: 'flex', flexDirection: 'column' }}>
                                 <Link to={`/profile/${Auth.getProfile().data.userInfo._id}`} target="_blank"><button id="my-profile-button">My profile</button></Link>
                                 <ChatButton refetch={refetch} />
-                                {isOrganisation ? (<button id="create-listing-button">Create listing</button>) : ''}
+                                {isOrganisation ? (<button id="create-listing-button" data-bs-toggle="modal" data-bs-target="#createlisting-menu-modal" >Create listing</button>) : ''}
                                 <button id="logout-button" onClick={() => { event.preventDefault(), Auth.logout() }}>Logout</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="modal fade" id="chat-menu-modal" tabIndex="-1" role="dialog" aria-labelledby="chat-menu-modalLabel" aria-hidden="true" style={{ marginTop: 20 }}>
-                    <ChatModal data={data} handleChatInfo={handleChatInfo} handleChatInput={handleChatInput} currentChatInfo={currentChatInfo} openChatsCloseMessage={openChatsCloseMessage} closeChatsOpenMessage={closeChatsOpenMessage} Auth={Auth} setMessageText={setMessageText} messageText={messageText}/>
+                    <ChatModal data={data} handleChatInfo={handleChatInfo} handleChatInput={handleChatInput} currentChatInfo={currentChatInfo} openChatsCloseMessage={openChatsCloseMessage} closeChatsOpenMessage={closeChatsOpenMessage} Auth={Auth} setMessageText={setMessageText} messageText={messageText} />
+                </div>
+                <div className="modal fade" id="createlisting-menu-modal" tabIndex="-1" role="dialog" aria-labelledby="createlisting-menu-modalLabel" aria-hidden="true">
+                    <ListingModal />
                 </div>
             </>
         );

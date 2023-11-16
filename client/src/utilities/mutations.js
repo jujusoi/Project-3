@@ -96,3 +96,11 @@ mutation EditProfile($editInfo: EditProfile!) {
   }
 }
 `;
+
+export const CREATE_LISTING = gql`
+mutation Mutation($listingInfo: CreateListing!) {
+  createListing(listingInfo: $listingInfo) {
+    _id
+  }
+}
+`

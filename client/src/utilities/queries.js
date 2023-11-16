@@ -150,6 +150,16 @@ export const QUERY_PROF_CHATS = gql`
     }
 `;
 
+export const GET_ORG_DATA_LISTING = gql`
+    query orgIdInfo($profileId: ID!) {
+        profileById(profileId: $profileId) {
+            _id,
+            orgName,
+            industry,
+        }
+    }
+`;
+
 export const QUERY_CHAT_ID = gql`
     query chatInfoById($chatId: ID!) {
   chatById(chatId: $chatId) {
