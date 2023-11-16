@@ -5,6 +5,9 @@ class AuthService {
         localStorage.setItem('token', token);
         window.location.assign('/');
     };
+    setToken(token) {
+        localStorage.setItem('token', token);
+    }
     getToken() {
         return localStorage.getItem('token');
     };

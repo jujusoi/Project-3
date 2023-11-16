@@ -60,6 +60,15 @@ const typeDefs = `
         orgName: String,
     }
 
+    input EditProfile {
+        _id: ID!,
+        isOrganisation: Boolean!,
+        industry: String!,
+        userLocation: String!,
+        biography: String!,
+        experience: String!,
+    }
+
     input CreateListing {
         title: String!,
         organisationName: String!,
@@ -105,6 +114,7 @@ const typeDefs = `
 
     type Mutation {
         createProfile(profileInfo: CreateProfile!): Auth
+        editProfile(editInfo: EditProfile!): Auth
         createListing(listingInfo: CreateListing!): Listing
         deleteListing(listingId: ID!): Listing
         updateSavedListing(listingId: ID!, profileId: ID!): Profile

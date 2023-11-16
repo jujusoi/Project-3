@@ -149,6 +149,21 @@ const resolvers = {
             const token = Auth.signToken(tokenInfo);
             return { token, data };
         },
+        editProfile: async (parent, { editInfo }) => {
+            const data = await Profile.findOneAndUpdate({
+                _id: editInfo._id
+            }, { $set: { userLocation: editInfo.userLocation, industry: editInfo.industry, biography: editInfo.biography, experience: editInfo.experience, isOrganisation: editInfo.isOrganisation }}, { new: true });
+            if (data) {
+                const tokenInfo = {
+                    _id: data._id,
+                    industry: data.industry,
+                    isOrganisation: data.isOrganisation,
+                    userLocation: data.userLocation,
+                };
+                const token = Auth.signToken(tokenInfo);
+                return { token, data };
+            }
+        },
         createListing: async ( parent, { listingInfo }) => {
             const data = await Listing.create(listingInfo);
             return data.populate('poster');

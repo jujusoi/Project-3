@@ -82,3 +82,17 @@ export const DELETE_CHAT = gql`
   }
 }
 `;
+
+export const EDIT_PROFILE = gql`
+mutation EditProfile($editInfo: EditProfile!) {
+  editProfile(editInfo: $editInfo) {
+    token
+    profile {
+      biography
+      industry
+      isOrganisation
+      userLocation
+    }
+  }
+}
+`;

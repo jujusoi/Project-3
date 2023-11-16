@@ -5,6 +5,9 @@ import MinilistingComponent from '../listingComps/miniListingComp';
 import { useState, useEffect } from 'react';
 import EditButtons from './editButtons';
 
+import { useMutation } from '@apollo/client';
+import { EDIT_PROFILE } from '../../utilities/mutations';
+
 export default function NormalUserProfile({ profileData, refetch }) {
 
     const [onOrOff, setOnOrOff] = useState(false);
@@ -15,6 +18,8 @@ export default function NormalUserProfile({ profileData, refetch }) {
         experience: profileData.experience,
         userLocation: profileData.userLocation,
     });
+
+    const [editProfile, { error }] = useMutation(EDIT_PROFILE);
 
     let isLoggedIn;
     if (Auth.getToken()) {
@@ -66,8 +71,27 @@ export default function NormalUserProfile({ profileData, refetch }) {
         }
     }, [onOrOff]);
 
-    const handleSubmitChanges = (event) => {
-        console.log('saved changes');
+    const handleSubmitChanges = async (event) => {
+        const newObj = {
+            ...editData, isOrganisation: false, _id: Auth.getProfile().data.userInfo._id
+        };
+        if (newObj) {
+            try {
+                const { data } = await editProfile({
+                    variables: { editInfo: { ...newObj }},
+                });
+                if (data) {
+                    setTimeout(() => {
+                        Auth.setToken(data.editProfile.token)
+                        refetch();
+                    }, 300);
+                } else {
+                    console.error('Could not edit data');
+                }
+            } catch (err) {
+                console.error(err);
+            };
+        };
     };
 
     const changeEditInfo = (target, value) => {
