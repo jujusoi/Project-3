@@ -37,7 +37,7 @@ export default function ChatModal({ data, handleChatInfo, handleChatInput, curre
                             </div>
                             <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', height: 500 }}>
                                 <div id="main-chat-holder" style={{ display: 'flex', flexDirection: 'column', overflowY: 'scroll' }}>
-                                    {data.profileById.userChats.map((chat) => {
+                                    {data.profileById.userChats.length > 0 ? data.profileById.userChats.map((chat) => {
                                         return (
                                             <>
                                                 <div className="userchat-hold" key={chat._id} style={{ display: 'flex', marginBottom: 25, alignItems: 'center' }}>
@@ -54,7 +54,7 @@ export default function ChatModal({ data, handleChatInfo, handleChatInput, curre
                                                 </div>
                                             </>
                                         );
-                                    })}
+                                    }) : (<i>You have no chats!</i>)}
                                 </div>
                                 <div id="current-chat-holder" style={{ display: 'none', flexDirection: 'column', opacity: 0, height: '100%' }}>
                                     {Object.keys(currentChatInfo).length > 0 ? (<>

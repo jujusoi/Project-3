@@ -9,7 +9,7 @@ export default function ProfilePage() {
 
     const profileId = useParams().profileId;
 
-    const { loading, data } = useQuery(QUERY_PROFILE_BY_ID, {
+    const { loading, data, refetch } = useQuery(QUERY_PROFILE_BY_ID, {
         variables: {profileId: profileId}
     });
 
@@ -26,7 +26,7 @@ export default function ProfilePage() {
             );
         } else {
             return (
-                <NormalUserProfile profileData={data.profileById} />
+                <NormalUserProfile profileData={data.profileById} refetch={refetch} />
             );
         }
     }
