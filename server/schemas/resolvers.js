@@ -60,8 +60,10 @@ const resolvers = {
         ]);
         return data;
         },
-        listings: async (parent, { pageNumber }) => {
-            const data = Listing.find().populate('poster').limit(10).skip(pageNumber * 10);
+        listings: async (parent, { pageNumber, title, location, jobType, industry }) => {
+            const data = Listing.find({
+                title: { $regex: new RegExp(title, 'i') }, location: { $regex: new RegExp(location, 'i') }, jobType: { $regex: new RegExp(jobType, 'i') }, industry: { $regex: new RegExp(industry, 'i') }
+            }).populate('poster').limit(10).skip(pageNumber * 10).sort({ _id: -1 });
             return data;
         },
         listingById: async (parent, { listingId }) => {

@@ -9,10 +9,10 @@ import SaveListingButton from "./boardButtons/saveListingButton";
 import Auth from '../../utilities/auth';
 import InterestedButton from "./boardButtons/interestedButton";
 
-export default function JobListings({ pageNumber }) {
+export default function JobListings({ pageNumber, searchValues }) {
 
     const { loading, data } = useQuery(QUERY_LISTINGS, {
-        variables: { pageNumber },
+        variables: { pageNumber, title: searchValues.title, location: searchValues.location, jobType: searchValues.jobType, industry: searchValues.industry },
     });
     const [createNewChat, { error }] = useMutation(CREATE_NEW_CHAT);
 

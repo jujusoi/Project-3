@@ -6,6 +6,19 @@ import { useState, useEffect } from "react";
 export default function JobBoardPage() {
 
     const [pageNumber, setPageNumber] = useState(0);
+    const [searchValues, setSearchValues] = useState({
+        title: '',
+        location: '',
+        industry: '',
+        jobType: '',
+    });
+
+    const handleSearchChange = (target, value) => {
+        setSearchValues(previousSearchValues => ({
+            ...previousSearchValues,
+            [target.name]: value,
+        }));
+    };
 
     useEffect(() => {
         pageNumber <= 0 ? document.querySelector('#decrease-page').disabled = true : document.querySelector('#decrease-page').disabled = false;
@@ -14,11 +27,12 @@ export default function JobBoardPage() {
     return (
         <>
             <section id="searchbar-sect">
-                <ListingSearchBar />
+                <ListingSearchBar setPageNumber={setPageNumber} searchValues={searchValues} handleSearchChange={handleSearchChange} />
             </section>
+            <br />
             <section id="listing-sect" style={{ backgroundColor: '#b2a7a79c', width: '80%', margin: 'auto' }}>
                 <div id="listing-holder" style={{ width: '100%', margin: 'auto', padding: 25}}>
-                    <JobListings pageNumber={pageNumber} />
+                    <JobListings pageNumber={pageNumber} searchValues={searchValues} />
                 </div>
             </section>
             <section id="page-sect">
