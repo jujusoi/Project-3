@@ -172,6 +172,9 @@ const resolvers = {
             const data = await Listing.findOneAndDelete({
                 _id: listingId
             });
+            const listingChats = await Chat.deleteMany({
+                'listedJob[0]._id': listingId
+            })
             return data;
         },
         updateSavedListing: async (parent, { listingId, profileId }) => {

@@ -49,11 +49,15 @@ export default function ListingModal() {
             const { data } = await createListing({
                 variables: { listingInfo: { ...newObj }}
             });
-            if (!data) {
-                setErrorMessage('All input fields required')
+            if (data) {
+                window.location.assign(`/listing/${data.createListing._id}`)
             }
         } catch (err) {
             console.error(err);
+            setErrorMessage('All input fields required')
+            setTimeout(() => {
+                setErrorMessage('')
+            }, 4000);
         }
     };
 
@@ -82,24 +86,24 @@ export default function ListingModal() {
                                     <div style={{ width: '40%' }}>
                                         <h4>Job Title</h4>
                                         <p>The name of your open position.</p>
-                                        <input type="text" name="title" id="job-title-input" placeholder="Register worker..." required onChange={(event) => handleInputChange(event.target)} value={listingInputs.title} className='listing-input-area' />
+                                        <input type="text" name="title" id="job-title-input" placeholder="Register worker..."  onChange={(event) => handleInputChange(event.target)} value={listingInputs.title} className='listing-input-area' />
                                     </div>
                                     <div style={{ width: '40%' }}>
                                         <h4>Employment</h4>
                                         <p>Full time, part time, or casual.</p>
-                                        <input type="text" name="jobType" id="job-type-input" placeholder="Full time" required onChange={(event) => handleInputChange(event.target)} value={listingInputs.jobType} className='listing-input-area' />
+                                        <input type="text" name="jobType" id="job-type-input" placeholder="Full time"  onChange={(event) => handleInputChange(event.target)} value={listingInputs.jobType} className='listing-input-area' />
                                     </div>
                                 </div>
                                 <div id="createlisting-JLJS-hold" style={{ display: 'flex', justifyContent: 'space-around' }}>
                                     <div style={{ width: '40%' }}>
                                         <h4>Job Location</h4>
                                         <p>The name of your open position.</p>
-                                        <input type="text" name="location" id="job-location-input" placeholder="Brisbane, QLD" required onChange={(event) => handleInputChange(event.target)} value={listingInputs.location} className='listing-input-area' />
+                                        <input type="text" name="location" id="job-location-input" placeholder="Brisbane, QLD"  onChange={(event) => handleInputChange(event.target)} value={listingInputs.location} className='listing-input-area' />
                                     </div>
                                     <div style={{ width: '40%' }}>
                                         <h4>Salary</h4>
                                         <p>Average yearly salary. Include currency</p>
-                                        <input type="text" name="salary" id="job-salary-input" placeholder="$45,000 - $60,000 AUD" required onChange={(event) => handleInputChange(event.target)} value={listingInputs.salary} className='listing-input-area' />
+                                        <input type="text" name="salary" id="job-salary-input" placeholder="$45,000 - $60,000 AUD"  onChange={(event) => handleInputChange(event.target)} value={listingInputs.salary} className='listing-input-area' />
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +116,7 @@ export default function ListingModal() {
                                     <textarea name="jobDescription" id="job-desc-edit" rows="7" style={{ width: '100%', padding: 15, resize: 'none' }} placeholder="Placeholder text" onChange={(event) => handleInputChange(event.target)}value={listingInputs.jobDescription} className='listing-input-area'></textarea>
                                 </div>
                                 <button type="submit" id="create-listing-button">Create Listing</button>
-                                <p style={{ textAlign: 'center', marginTop: 15}}>{errorMessage}</p>
+                                <p style={{ textAlign: 'center', marginTop: 15, color: 'red', fontWeight: 'bold' }}>{errorMessage}</p>
                             </div>
                         </form>
                     </div>

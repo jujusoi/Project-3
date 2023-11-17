@@ -103,4 +103,12 @@ mutation Mutation($listingInfo: CreateListing!) {
     _id
   }
 }
-`
+`;
+
+export const DELETE_LISTING = gql`
+mutation Mutation($listingId: ID!) {
+  deleteListing(listingId: $listingId) {
+    _id
+  }
+}
+`;
