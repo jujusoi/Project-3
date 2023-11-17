@@ -96,7 +96,7 @@ export default function JobListings() {
                                 <h4 style={{ textAlign: "left" }}>Job Description: </h4>
                                 <p className="listing-description">{listing.jobDescription.length <= 150 ? listing.jobDescription : snipDesc(listing.jobDescription)}</p>
                             </div>
-                            {isLoggedIn ? (<div style={{ display: 'flex', justifyContent: 'right', marginTop: 15 }}>
+                            {isLoggedIn && Auth.getProfile().data.userInfo.isOrganisation == false ? (<div style={{ display: 'flex', justifyContent: 'right', marginTop: 15 }}>
                                 <InterestedButton handleNewChat={handleNewChat} listing={listing} profileId={profileId} />
                                 <SaveListingButton listingId={listing._id} profileId={profileId} />
                             </div>) : ""}
