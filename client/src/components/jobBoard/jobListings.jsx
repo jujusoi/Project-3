@@ -61,7 +61,7 @@ export default function JobListings({ pageNumber, searchValues }) {
     } else {
         data.listings.length < 10 ? document.querySelector('#increase-page').disabled = true : document.querySelector('#increase-page').disabled = false;
         return (
-            data.listings.map((listing) => {
+            data.listings.length <= 0 ? ( <h2>No listings found D:</h2>) : (data.listings.map((listing) => {
                 return (
                     <>
                         <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 8, backgroundColor: '#e2e2e2' }}>
@@ -106,6 +106,7 @@ export default function JobListings({ pageNumber, searchValues }) {
                     </>
                 );
             }
-            ))
+        ))
+            )
     }
 }
