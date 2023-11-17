@@ -60,8 +60,8 @@ const resolvers = {
         ]);
         return data;
         },
-        listings: async (parent, args) => {
-            const data = Listing.find().populate('poster');
+        listings: async (parent, { pageNumber }) => {
+            const data = Listing.find().populate('poster').limit(10).skip(pageNumber * 10);
             return data;
         },
         listingById: async (parent, { listingId }) => {

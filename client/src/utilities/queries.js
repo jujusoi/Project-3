@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_LISTINGS = gql`
-    query randomListings {
-        listings {
+    query randomListings($pageNumber: Int) {
+        listings(pageNumber: $pageNumber) {
             _id,
             title,
             organisationName,

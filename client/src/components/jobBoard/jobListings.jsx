@@ -9,9 +9,11 @@ import SaveListingButton from "./boardButtons/saveListingButton";
 import Auth from '../../utilities/auth';
 import InterestedButton from "./boardButtons/interestedButton";
 
-export default function JobListings() {
+export default function JobListings({ pageNumber }) {
 
-    const { loading, data } = useQuery(QUERY_LISTINGS);
+    const { loading, data } = useQuery(QUERY_LISTINGS, {
+        variables: { pageNumber },
+    });
     const [createNewChat, { error }] = useMutation(CREATE_NEW_CHAT);
 
     let isLoggedIn;
@@ -57,7 +59,7 @@ export default function JobListings() {
             <LoadingPage />
         );
     } else {
-        console.log(data);
+        data.listings.length < 10 ? document.querySelector('#increase-page').disabled = true : document.querySelector('#increase-page').disabled = false;
         return (
             data.listings.map((listing) => {
                 return (

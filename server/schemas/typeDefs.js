@@ -102,7 +102,7 @@ const typeDefs = `
         profiles: [Profile]
         profilesByOrg(isOrganisation: Boolean!): [Profile]
         profileById(profileId: ID!): Profile
-        listings: [Listing]
+        listings(pageNumber: Int): [Listing]
         listingsByLocation(listingLocation: String!): [Listing]
         listingById(listingId: ID!): Listing
         listingByOrganisation(orgName: String!): [Listing]
