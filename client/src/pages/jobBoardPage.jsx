@@ -2,6 +2,7 @@ import JobListings from "../components/jobBoard/jobListings";
 import ListingSearchBar from "../components/jobBoard/listingSearch";
 
 import { useState, useEffect } from "react";
+import Auth from '../utilities/auth';
 
 export default function JobBoardPage() {
 
@@ -19,6 +20,17 @@ export default function JobBoardPage() {
             [target.name]: value,
         }));
     };
+
+    useEffect(() => {
+        if (window.localStorage.getItem('token')) {
+            const tokenInfo = Auth.getProfile().data.userInfo;
+            setSearchValues(previousSearchValues => ({
+                ...previousSearchValues,
+                location: tokenInfo.userLocation,
+                industry: tokenInfo.industry,
+            }));
+        };
+    }, []);
 
     useEffect(() => {
         pageNumber <= 0 ? document.querySelector('#decrease-page').disabled = true : document.querySelector('#decrease-page').disabled = false;

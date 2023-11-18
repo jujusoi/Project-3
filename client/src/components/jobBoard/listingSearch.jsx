@@ -1,8 +1,4 @@
 import { useState, useEffect } from "react";
-let lastElement;
-let lastContent;
-let lastElement1;
-let lastContent1;
 
 export default function ListingSearchBar({ setPageNumber, searchValues, handleSearchChange }) {
     return (
