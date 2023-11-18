@@ -22,7 +22,7 @@ export default function ProfilePage() {
     } else {
         if (data.profileById.isOrganisation === true) {
             return (
-                <OrganisationProfile profileData={data.profileById} />
+                <OrganisationProfile profileData={data.profileById} refetch={refetch} />
             );
         } else {
             return (

@@ -66,7 +66,7 @@ const typeDefs = `
         industry: String!,
         userLocation: String!,
         biography: String!,
-        experience: String!,
+        experience: String,
     }
 
     input CreateListing {
