@@ -24,7 +24,9 @@ export default function Header() {
             </div>
         </section>
         <section style={{ width: '100%'}}>
-            <div style={{ height: 350, backgroundColor: '#EFEFF5'}}></div>
+            <div style={{ height: 350, backgroundColor: 'rgb(135 165 195)'}}>
+                <div style={{ height: '100%', width: '100%', backgroundImage: 'url(https://cdn.shopify.com/s/files/1/0117/0442/files/Blog_Image.jpg?2664)', backgroundSize: 'cover', filter: 'blur(2.5px) opacity(.5)', boxShadow: 'rgba(0, 0, 0, 0.25) 0px -12px 15px 0px inset'}}></div>
+            </div>
         </section>
     </>
     );

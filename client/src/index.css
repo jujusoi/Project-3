@@ -32,6 +32,10 @@ input:focus {
   border: #EA322E 2px solid !important;
 }
 
+.job-listing:hover {
+  border-left: '5px solid #032075' !important;
+}
+
 
 a {
   font-weight: 500;
@@ -44,7 +48,7 @@ a:hover {
 
 .linkanchor:hover {
   transition: ease-in-out 200ms;
-  color: #EA312D !important;
+  color: #ff4a47 !important;
 }
 
 body {
@@ -72,6 +76,19 @@ h1, h2, h3, h4, h5 {
   background-color: #ff4a47 !important;
 }
 
+.search-input:focus {
+  transition: 300ms ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px 0px inset;
+  border: 2px solid #2545a7 !important;
+}
+
+.listing-details {
+  font-size: 17px;
+  list-style-type: disc;
+}
+.listing-not {
+  font-weight: 300;
+}
 
 button:hover {
   transition: 150ms ease-in-out;
@@ -116,19 +133,32 @@ button:focus-visible {
   transition: ease-in-out 850ms;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 960pxy) {
   #listing-holder {
-    width: 85% !important;
+    width: 100% !important;
+    padding: 0 !important;
   }
   .liilj-hold {
     flex-direction: column !important;
-    align-items: center;
+    align-items: left;
+    width: 100% !important;
   }
   .ilj-o-hold {
     flex-direction: column-reverse !important;
   }
   .lio-hold {
     justify-content: center;
+    width: 100% !important;
+  }
+  .lidesc-hold {
+    flex-direction: column;
+    text-align: left;
+  }
+  #listing-para-div, #listing-buttons-div {
+    width: 100% !important;
+  }
+  #listing-buttons-div{
+    justify-content: center !important;
   }
 }
 
