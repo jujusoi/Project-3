@@ -49,7 +49,7 @@ export default function JobListings({ pageNumber, searchValues }) {
     };
 
     const snipDesc = (description) => {
-        let newDesc = description.slice(0, 300);
+        let newDesc = description.slice(0, 200);
         newDesc = newDesc + '...'
         return newDesc;
     }
@@ -59,54 +59,63 @@ export default function JobListings({ pageNumber, searchValues }) {
             <LoadingPage />
         );
     } else {
+        console.log(data);
         data.listings.length < 10 ? document.querySelector('#increase-page').disabled = true : document.querySelector('#increase-page').disabled = false;
         return (
-            data.listings.length <= 0 ? ( <h2>No listings found D:</h2>) : (data.listings.map((listing) => {
+            data.listings.length <= 0 ? (<div><h2>No listings found</h2><p>It seems there are no open job listings that match your filters!</p></div>) : (data.listings.map((listing) => {
                 return (
                     <>
-                        <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 8, backgroundColor: '#e2e2e2' }}>
+                        <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 8, backgroundColor: 'white', boxShadow: '5px 5px 12px 0px rgba(0, 0, 0, 0.15)' }}>
                             <div className="liinfo-hold" style={{ display: "flex", flexDirection: "column" }}>
-                                <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between' }}>
+                                <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between', marginBottom: 20 }}>
                                     <div className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column' }}>
-                                        <Link to={`/listing/${listing._id}`} target="_blank"><h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0 }} key={listing._id} className="listing-title">{listing.title}</h2></Link>
-                                        <h5 style={{ textAlign: 'left' }} className="listing-salary">{listing.salary}</h5>
+                                        <Link to={`/listing/${listing._id}`} target="_blank"><h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0 }} key={listing._id} className="listing-title linkanchor">{listing.title}</h2></Link>
                                     </div>
                                     <p className="listing-date" style={{ width: '30%', marginTop: 0, textAlign: "right" }}>{listing.postedOn}</p>
                                 </div>
-                                <div className="ilj-o-hold" style={{ display: "flex", flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <div className="liilj-hold" style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                                            <p style={{ marginRight: 10 }}>Job type: </p>
-                                            <h4 className="listing-jobtype">{listing.jobType}</h4>
+                                <div className="ilj-o-hold" style={{ display: "flex", flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, borderTop: '1px solid black', paddingTop: 20 }}>
+                                    <div className="liilj-hold" style={{ display: 'flex', width: '55%', justifyContent: 'space-between', textAlign: 'left' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                            <p style={{ marginRight: 10 }}>Employment: </p>
+                                            <h5 className="listing-jobtype">{listing.jobType}</h5>
                                         </div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
                                             <p style={{ marginRight: 10 }}>Industry: </p>
-                                            <h4 className="listing-industry">{listing.industry}</h4>
+                                            <h5 className="listing-industry">{listing.industry}</h5>
                                         </div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
                                             <p style={{ marginRight: 10 }}>Location: </p>
-                                            <h4 className="listing-location">{listing.location}</h4>
+                                            <h5 className="listing-location">{listing.location}</h5>
                                         </div>
                                     </div>
-                                    <div className="lio-hold" style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
-                                        <p style={{ marginRight: 10 }}>Listing by: </p>
-                                        <Link to={`/profile/${listing.poster[0]._id}`} target="_blank"><h4 className="listing-org">{listing.organisationName}</h4></Link>
+                                    <div className="lio-hold" style={{ display: 'flex', width: '40%', flexDirection: 'column' }}>
+                                        <div style={{ display: 'flex' }}>
+                                            <p style={{ marginRight: 10 }}>By: </p>
+                                            <Link to={`/profile/${listing.poster[0]._id}`} target="_blank"><h5 className="listing-org linkanchor">{listing.organisationName}</h5></Link>
+                                        </div>
+                                        <div style={{ display: 'flex' }}>
+                                            <p style={{ marginRight: 10 }}>Salary: </p>
+                                            <h5 style={{ textAlign: 'left' }} className="listing-salary">{listing.salary}</h5>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            <div className="lidesc-hold">
-                                <h4 style={{ textAlign: "left" }}>Job Description: </h4>
-                                <p className="listing-description">{listing.jobDescription.length <= 150 ? listing.jobDescription : snipDesc(listing.jobDescription)}</p>
+                            <div className="lidesc-hold" style={{ display: 'flex', borderTop: '1px solid black', paddingTop: 20 }}>
+                                <div style={{ width: '70%'}}>
+                                    <h4 style={{ textAlign: "left" }}>Job Description: </h4>
+                                    <p className="listing-description">{listing.jobDescription.length <= 100 ? listing.jobDescription : snipDesc(listing.jobDescription)}</p>
+                                </div>
+                                {isLoggedIn && Auth.getProfile().data.userInfo.isOrganisation == false ? (<div style={{ display: 'flex', justifyContent: 'right', marginTop: 15, width: '30%', height: 60, margin: 'auto' }}>
+                                    <InterestedButton handleNewChat={handleNewChat} listing={listing} profileId={profileId} />
+                                    <SaveListingButton listingId={listing._id} profileId={profileId} />
+                                </div>) : ""}
                             </div>
-                            {isLoggedIn && Auth.getProfile().data.userInfo.isOrganisation == false ? (<div style={{ display: 'flex', justifyContent: 'right', marginTop: 15 }}>
-                                <InterestedButton handleNewChat={handleNewChat} listing={listing} profileId={profileId} />
-                                <SaveListingButton listingId={listing._id} profileId={profileId} />
-                            </div>) : ""}
                         </div>
                     </>
                 );
             }
-        ))
-            )
+            ))
+        )
     }
 }

@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: light;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -14,6 +14,25 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  display: block !important;
+}
+
+#header-sect {
+ padding-left: 5%;
+ padding-right: 5%;
+}
+
+#root {
+  padding: 0 !important;
+  max-width: none;
+}
+
+input:focus {
+  border: #EA322E 2px solid !important;
+}
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -23,10 +42,14 @@ a:hover {
   color: #535bf2;
 }
 
+.linkanchor:hover {
+  transition: ease-in-out 200ms;
+  color: #EA312D !important;
+}
+
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -36,14 +59,45 @@ h1 {
   line-height: 1.1;
 }
 
+h1, h2, h3, h4, h5 {
+  color: #040037;
+}
+
+.interested-btn {
+  background-color: #EA312D !important;
+}
+
+.interested-btn:hover {
+  transition: 200ms ease-in-out;
+  background-color: #ff4a47 !important;
+}
+
+
+button:hover {
+  transition: 150ms ease-in-out;
+  background-color: rgb(58, 82, 157);
+  color: white;
+}
+
+#listing-li-input {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+#listing-ind-input {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
 button {
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #032075;
+  color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -55,16 +109,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-#listing-submit {
-  border-bottom-left-radius: 0 !important;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-}
-#listing-li-input {
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
 #signup-org-hold, #signup-info-hold, #email-pass-hold, #current-chat-holder, #main-chat-holder, .edit-input, #profile-cancel-btn{
   transition: ease-in-out 600ms;
 }

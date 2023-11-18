@@ -41,9 +41,8 @@ export default function JobBoardPage() {
             <section id="searchbar-sect">
                 <ListingSearchBar setPageNumber={setPageNumber} searchValues={searchValues} handleSearchChange={handleSearchChange} />
             </section>
-            <br />
-            <section id="listing-sect" style={{ backgroundColor: '#b2a7a79c', width: '80%', margin: 'auto' }}>
-                <div id="listing-holder" style={{ width: '100%', margin: 'auto', padding: 25}}>
+            <section id="listing-sect" style={{ backgroundColor: 'rgb(239, 239, 245)', margin: 'auto', marginBottom: 25, padding: 25, boxShadow: 'rgba(0, 0, 0, .15) 0px 10px 12px 0px inset' }}>
+                <div id="listing-holder" style={{ width: '85%', margin: 'auto', padding: 25}}>
                     <JobListings pageNumber={pageNumber} searchValues={searchValues} />
                 </div>
             </section>
