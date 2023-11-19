@@ -55,75 +55,61 @@ export default function ListingPage() {
         return (
             <>
                 <section style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                    <div style={{ width: '60%' }}>
-                        <div className="job-listing" style={{ display: 'flex', flexDirection: "column", padding: 40, marginTop: 40, border: '1px solid white', borderRadius: 8, backgroundColor: '#e2e2e2', width: '100%' }}>
+                    <div style={{ width: '80%' }}>
+                        <div className="job-listing" style={{ display: 'flex', flexDirection: "column", margin: '40px auto', border: '1px solid white', borderRadius: 8, width: '100%' }}>
                             <div className="liinfo-hold" style={{ display: "flex", flexDirection: "column" }}>
-                                <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between', marginBottom: 15 }}>
-                                    <div className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column' }}>
-                                        <h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0 }} className="listing-title">{data.listingById.title}</h2>
-                                        <h5 style={{ textAlign: 'left' }} className="listing-salary">{data.listingById.salary}</h5>
+                                <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between', marginBottom: 15, alignItems: 'center' }}>
+                                    <div id="td-div" className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column' }}>
+                                        <h1 style={{ textAlign: 'left', marginTop: 0, marginBottom: 5 }} className="listing-title">{data.listingById.title}</h1>
+                                        <div style={{ display: 'flex' }}>
+                                            <p className="listing-not" style={{ marginRight: 10 }}>By: </p>
+                                            <Link to={`/profile/${data.listingById.poster[0]._id}`} target="_blank"><h5 className="listing-org linkanchor">{data.listingById.organisationName}</h5></Link>
+                                        </div>
                                     </div>
-                                    <p className="listing-date" style={{ width: '30%', marginTop: 0, textAlign: "right" }}>{data.listingById.postedOn}</p>
+                                    <div className="ts-hold" id="buttonsndate" style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <p className="listing-not" style={{ marginTop: 0, textAlign: "right", marginBottom: 35 }}>Posted on: {data.listingById.postedOn}</p>
+                                        {Auth.getProfile().data.userInfo.isOrganisation ? (Auth.getProfile().data.userInfo._id == data.listingById.poster[0]._id ? (< DeleteListing listingId={listingId} profileId={profileId} />) : '') : (
+                                            <div style={{ height: 60, display: 'flex' }}>
+                                                <InterestedButton handleNewChat={handleNewChat} listing={data.listingById} profileId={Auth.getProfile().data.userInfo._id} />
+                                                <SaveListingButton listingId={listingId} profileId={profileId} />
+                                            </div>
+                                        )}
+                                    </div>
+
                                 </div>
-                                <div className="ilj-o-hold" style={{ display: "flex", flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                                    <div className="liilj-hold" style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                                            <p style={{ marginRight: 10 }}>Job type: </p>
-                                            <h4 className="listing-jobtype">{data.listingById.jobType}</h4>
-                                        </div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                                            <p style={{ marginRight: 10 }}>Industry: </p>
-                                            <h4 className="listing-industry">{data.listingById.industry}</h4>
-                                        </div>
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                                            <p style={{ marginRight: 10 }}>Location: </p>
-                                            <h4 className="listing-location">{data.listingById.location}</h4>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
-                            <div className="lidesc-hold" style={{ marginBottom: 10 }}>
-                                <h4 style={{ textAlign: "left" }}>Job Description: </h4>
-                                <p className="listing-description">{data.listingById.jobDescription}</p>
-                            </div>
-                            <div style={{ display: 'flex', justifyContent: 'right' }}>
-                                {Auth.getProfile().data.userInfo.isOrganisation ? (Auth.getProfile().data.userInfo._id == data.listingById.poster[0]._id ? (< DeleteListing listingId={listingId} profileId={profileId} />) : '') : (
-                                    <div>
-                                        <InterestedButton handleNewChat={handleNewChat} listing={data.listingById} profileId={Auth.getProfile().data.userInfo._id} />
-                                        <SaveListingButton listingId={listingId} profileId={profileId} />
-                                    </div>
-                                )}
-                            </div>
+
                         </div>
-                        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', marginTop: 10 }}>
-                            <h4 style={{ textAlign: 'left' }}>Other listings by Employer:</h4>
-                            <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
-                                <MiniListings orgName={data.listingById.organisationName} index={0} />
-                                <MiniListings orgName={data.listingById.organisationName} index={1} />
+                    </div>
+                </section>
+                <section style={{ minHeight: 300, display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 0px 15px 4px inset', padding: '40px 0px'}}>
+                    <div style={{ width: '65%', margin: '0px auto 30px auto'}}>
+                        <div className="ilj-o-hold" style={{ display: "flex", flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, paddingTop: 20 }}>
+                            <div className="liilj-hold" style={{ display: 'flex', width: '100%', justifyContent: 'space-between', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <p className="listing-not" style={{ marginRight: 10 }}>Employment: </p>
+                                    <li className="listing-details">{data.listingById.jobType}</li>
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <p className="listing-not" style={{ marginRight: 10 }}>Industry: </p>
+                                    <li className="listing-details">{data.listingById.industry}</li>
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <p className="listing-not" style={{ marginRight: 10 }}>Location: </p>
+                                    <li className="listing-details">{data.listingById.location}</li>
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <p className="listing-not" style={{ marginRight: 10 }}>Salary: </p>
+                                    <li style={{ textAlign: 'left' }} className="listing-details">{data.listingById.salary}</li>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div style={{ width: '30%', padding: 30, marginTop: 40, backgroundColor: 'rgb(226, 226, 226)', borderRadius: 8 }}>
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <div style={{ marginBottom: 25 }}>
-                                <h3>About the Employer</h3>
-                            </div>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', textAlign: 'left', alignItems: 'center' }}>
-                                <div style={{ width: '60%' }}>
-                                    <Link to={`/profile/${data.listingById.poster[0]._id}`} target="_blank"><h5>{data.listingById.poster[0].orgName}</h5></Link>
-                                    <p style={{ marginBottom: 0 }}>Industry: <b>{data.listingById.poster[0].industry}</b></p>
-                                    <p>Location: <b>{data.listingById.poster[0].userLocation}</b></p>
-                                </div>
-                                <div style={{ width: '30%' }}>
-                                    <Link to={`/profile/${data.listingById.poster[0]._id}`} target="_blank"><img src={data.listingById.poster[0].profilePicture} alt="pfp" height={75} width={75} style={{ borderRadius: 50, border: '1px solid #686868' }} /></Link>
-                                </div>
-                            </div>
-                            <div style={{ textAlign: 'left', marginTop: 18 }}>
-                                <h5>Biography</h5>
-                                <p>{data.listingById.poster[0].biography}</p>
-                            </div>
+                    <div className="lidesc-hold" style={{ width: '80%', margin: 'auto', marginBottom: 30, textAlign: 'left', borderLeft: '5px solid #032075', padding: 30, boxShadow: 'rgba(0, 0, 0, 0.07) 7px 7px 7px 0px', borderRadius: 5 }}>
+                            <h4>Job Description: </h4>
+                            <p className="listing-description">{data.listingById.jobDescription}</p>
                         </div>
-                    </div>
                 </section>
             </>
         );

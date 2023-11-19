@@ -18,6 +18,10 @@ body {
   display: block !important;
 }
 
+p, li {
+  color: #032075 !important;
+}
+
 #header-sect {
  padding-left: 5%;
  padding-right: 5%;
@@ -133,7 +137,7 @@ button:focus-visible {
   transition: ease-in-out 850ms;
 }
 
-@media screen and (max-width: 960pxy) {
+@media screen and (max-width: 960px) {
   #listing-holder {
     width: 100% !important;
     padding: 0 !important;
@@ -150,15 +154,27 @@ button:focus-visible {
     justify-content: center;
     width: 100% !important;
   }
-  .lidesc-hold {
+  .lidesc-hold, .tsd-hold {
     flex-direction: column;
     text-align: left;
   }
-  #listing-para-div, #listing-buttons-div {
+  #listing-para-div, #listing-buttons-div, .ts-hold {
     width: 100% !important;
+  }
+  #buttonsndate {
+    align-items: center;
+  }
+  #td-div {
+    margin-bottom: 25px;
   }
   #listing-buttons-div{
     justify-content: center !important;
+  }
+  .listing-details {
+    margin-bottom: 15px !important;
+  }
+  .listing-not {
+    margin-bottom: 5px !important;
   }
 }
 
