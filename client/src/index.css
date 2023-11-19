@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5 {
   height: 125px;
 }
 
-.search-input:focus {
+.search-input:focus, .edit-input:focus {
   transition: 300ms ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px 0px inset;
   border: 2px solid #2545a7 !important;
@@ -114,6 +114,23 @@ button:hover {
 #listing-ind-input {
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+}
+
+.edit-input {
+  border-radius: 12px;
+}
+
+#org-minilist-holder::-webkit-scrollbar, textarea::-webkit-scrollbar {
+  height: 11px;
+  width: 11px;
+}
+#org-minilist-holder::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
+  background-color: #e3e3e3;
+  border-radius: 6px;
+}
+#org-minilist-holder::-webkit-scrollbar-thumb:hover, textarea::-webkit-scrollbar-thumb:hover {
+  background-color: #d4d3d3;
+  border-radius: 6px;
 }
 
 button {
@@ -174,8 +191,8 @@ button:focus-visible {
   #buttonsndate {
     align-items: center;
   }
-  #td-div, #organisation-pfp-list {
-    margin-bottom: 25px;
+  #td-div, #organisation-pfp-list, #orgli-ti {
+    margin-bottom: 25px !important;
   }
   #listing-buttons-div{
     justify-content: center !important;
@@ -193,12 +210,49 @@ button:focus-visible {
   #minilist-hold {
     padding: 0px !important;
   }
-  .mini-job-listing, #mini-date {
+  .mini-job-listing, #mini-date, #org-profile-holder {
     width: 100% !important;
   }
-  #minilistings {
+  #minilistings, #profindloc {
     flex-direction: column !important;
     width: 100% !important;
+  }
+  #org-minilist-holder {
+    overflow-x: hidden !important;
+    overflow-y: scroll;
+    height: 400px !important;
+    padding: 0px 20px !important;
+    flex-direction: column !important;
+  }
+  .prof-mini, .mini-job-listing {
+    min-width: 100% !important;
+    margin-bottom: 10px;
+  }
+  #prof-mg {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #td-div {
+    flex-direction: column-reverse !important;
+  }
+  #main-prof-hold, .org-ho {
+    width: 95% !important;
+  }
+  #edit-buttons-holder {
+    justify-content: right;
+    margin-bottom: 25px;
+  }
+  #profmaininfo {
+    margin: auto !important;
+  }
+  #profaccindustry {
+    margin-right: 0px !important;
+  }
+  #orghd {
+    margin-left: 0px !important;
+  }
+  #orgli-ti, #orghd {
+    text-align: center !important;
   }
 }
 

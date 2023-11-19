@@ -124,14 +124,13 @@ export default function ListingPage() {
 
                 <section style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                     <div style={{ width: '80%' }}>
-                        <div id="td-div" className="ts-hold" style={{ display: 'flex', width: '100%', flexDirection: 'column', margin: '40px auto' }}>
+                        <div className="ts-hold" style={{ display: 'flex', width: '100%', flexDirection: 'column', margin: '40px auto' }}>
                             <h1 style={{ textAlign: 'left', marginTop: 0, marginBottom: 5 }} className="listing-title">About the employer</h1>
                             <p style={{ textAlign: 'left' }}>Interested? Take a moment to learn more about {data.listingById.poster[0].orgName}. Discover their core values, goals, and the industries where they excel. Explore the benefits they can offer you as a potential employee.</p>
                         </div>
                     </div>
                 </section>
                 <section style={{ minHeight: 300, display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 0px 15px 4px inset', padding: '40px 0px' }}>
-
                     <div style={{ width: '80%', margin: '0px auto 30px auto' }}>
                         <div id="org-content" style={{ display: 'flex', justifyContent: 'left', textAlign: 'left', flexDirection: 'row-reverse', height: 130 }}>
                             <div id="orgli-indloc-hold" style={{ marginLeft: 40, width: '60%' }}>
