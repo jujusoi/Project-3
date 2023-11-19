@@ -80,6 +80,12 @@ h1, h2, h3, h4, h5 {
   background-color: #ff4a47 !important;
 }
 
+#organisation-pfp-list:hover {
+  transition: 200ms ease-in-out;
+  width: 125px;
+  height: 125px;
+}
+
 .search-input:focus {
   transition: 300ms ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px 0px inset;
@@ -147,14 +153,18 @@ button:focus-visible {
     align-items: left;
     width: 100% !important;
   }
-  .ilj-o-hold {
+  .ilj-o-hold, #org-content, #mini-date-hold {
     flex-direction: column-reverse !important;
+  }
+  #org-content {
+    text-align: center !important;
+    height: auto !important;
   }
   .lio-hold {
     justify-content: center;
     width: 100% !important;
   }
-  .lidesc-hold, .tsd-hold {
+  .lidesc-hold, .tsd-hold, #org-listing-indloc {
     flex-direction: column;
     text-align: left;
   }
@@ -164,7 +174,7 @@ button:focus-visible {
   #buttonsndate {
     align-items: center;
   }
-  #td-div {
+  #td-div, #organisation-pfp-list {
     margin-bottom: 25px;
   }
   #listing-buttons-div{
@@ -175,6 +185,20 @@ button:focus-visible {
   }
   .listing-not {
     margin-bottom: 5px !important;
+  }
+  #orgli-indloc-hold {
+    width: 100% !important;
+    margin: auto !important;
+  }
+  #minilist-hold {
+    padding: 0px !important;
+  }
+  .mini-job-listing, #mini-date {
+    width: 100% !important;
+  }
+  #minilistings {
+    flex-direction: column !important;
+    width: 100% !important;
   }
 }
 

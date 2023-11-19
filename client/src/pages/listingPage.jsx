@@ -2,7 +2,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_LISTING_BY_ID } from "../utilities/queries";
 import { useParams } from "react-router-dom";
 import { CREATE_NEW_CHAT } from "../utilities/mutations";
-
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import MiniListings from "../components/listingComps/miniListings";
@@ -13,6 +13,16 @@ import InterestedButton from "../components/jobBoard/boardButtons/interestedButt
 import DeleteListing from "../components/jobBoard/boardButtons/deleteListingButton";
 
 export default function ListingPage() {
+
+    const [miniLength, setMiniLength] = useState(0);
+
+    const handleMiniLength = (value) => {
+        setMiniLength(value)
+    };
+
+    useEffect(() => {
+        console.log(miniLength);
+    }, [miniLength])
 
     const listingId = useParams().listingId;
 
@@ -83,8 +93,8 @@ export default function ListingPage() {
                         </div>
                     </div>
                 </section>
-                <section style={{ minHeight: 300, display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 0px 15px 4px inset', padding: '40px 0px'}}>
-                    <div style={{ width: '65%', margin: '0px auto 30px auto'}}>
+                <section style={{ minHeight: 300, display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 0px 15px 4px inset', padding: '40px 0px' }}>
+                    <div style={{ width: '65%', margin: '0px auto 30px auto' }}>
                         <div className="ilj-o-hold" style={{ display: "flex", flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, paddingTop: 20 }}>
                             <div className="liilj-hold" style={{ display: 'flex', width: '100%', justifyContent: 'space-between', textAlign: 'left' }}>
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -107,9 +117,56 @@ export default function ListingPage() {
                         </div>
                     </div>
                     <div className="lidesc-hold" style={{ width: '80%', margin: 'auto', marginBottom: 30, textAlign: 'left', borderLeft: '5px solid #032075', padding: 30, boxShadow: 'rgba(0, 0, 0, 0.07) 7px 7px 7px 0px', borderRadius: 5 }}>
-                            <h4>Job Description: </h4>
-                            <p className="listing-description">{data.listingById.jobDescription}</p>
+                        <h4>Job Description: </h4>
+                        <p className="listing-description">{data.listingById.jobDescription}</p>
+                    </div>
+                </section>
+
+                <section style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                    <div style={{ width: '80%' }}>
+                        <div id="td-div" className="ts-hold" style={{ display: 'flex', width: '100%', flexDirection: 'column', margin: '40px auto' }}>
+                            <h1 style={{ textAlign: 'left', marginTop: 0, marginBottom: 5 }} className="listing-title">About the employer</h1>
+                            <p style={{ textAlign: 'left' }}>Interested? Take a moment to learn more about {data.listingById.poster[0].orgName}. Discover their core values, goals, and the industries where they excel. Explore the benefits they can offer you as a potential employee.</p>
                         </div>
+                    </div>
+                </section>
+                <section style={{ minHeight: 300, display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 0px 15px 4px inset', padding: '40px 0px' }}>
+
+                    <div style={{ width: '80%', margin: '0px auto 30px auto' }}>
+                        <div id="org-content" style={{ display: 'flex', justifyContent: 'left', textAlign: 'left', flexDirection: 'row-reverse', height: 130 }}>
+                            <div id="orgli-indloc-hold" style={{ marginLeft: 40, width: '60%' }}>
+                                <Link to={`/profile/${data.listingById.poster[0]._id}`} target="_blank"><h2 className="linkanchor">{data.listingById.poster[0].orgName}</h2></Link>
+                                <div id="org-listing-indloc" style={{ display: 'flex', width: '80%' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', marginRight: 55 }}>
+                                        <p className="listing-not">Industry:</p>
+                                        <li className="listing-details">{data.listingById.poster[0].industry}</li>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <p className="listing-not">Location:</p>
+                                        <li className="listing-details">{data.listingById.poster[0].userLocation}</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <Link to={`/profile/${data.listingById.poster[0]._id}`} target="_blank"><img src={data.listingById.poster[0].profilePicture} alt="pfp" height={120} width={120} style={{ borderRadius: 100, maxWidth: 200, border: '0px' }} id="organisation-pfp-list" /></Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div style={{ width: '80%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', margin: 'auto' }}>
+                        <div className="lidesc-hold" style={{ textAlign: 'left', borderLeft: '5px solid #032075', padding: 30, boxShadow: 'rgba(0, 0, 0, 0.07) 7px 7px 7px 0px', borderRadius: 5, marginBottom: 30 }}>
+                            <h4>Biography: </h4>
+                            <p className="listing-description">{data.listingById.poster[0].biography}</p>
+                        </div>
+                        {miniLength >= 2 ? (<>
+                            <div className="lidesc-hold" id='minilist-hold' style={{ textAlign: 'left', padding: 30 }}>
+                                <h4>Other listings: </h4>
+                                <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', margin: 'auto' }} id="minilistings">
+                                    <MiniListings orgName={data.listingById.organisationName} index={0} setMiniLength={handleMiniLength} />
+                                    <MiniListings orgName={data.listingById.organisationName} index={1} setMiniLength={handleMiniLength} />
+                                </div>
+                            </div>
+                        </>) :   <MiniListings orgName={data.listingById.organisationName} index={3} setMiniLength={handleMiniLength} />}
+                    </div>
                 </section>
             </>
         );
