@@ -9,7 +9,7 @@ import { useState } from "react";
 import ChatModal from "./chatModal";
 import ListingModal from "./createListingModal";
 
-export default function MenuButton({ isOrganisation }) {
+export default function MenuButton({ isOrganisation, pathName, setPathName }) {
 
     const [currentChatInfo, setCurrentChatInfo] = useState({});
     const [messageText, setMessageText] = useState('');
@@ -83,8 +83,8 @@ export default function MenuButton({ isOrganisation }) {
     if (!loading) {
         return (
             <>
-                <button data-bs-toggle="modal" data-bs-target="#main-menu-modal" ><i className="bi bi-list"></i></button>
-                <div className="modal fade" id="main-menu-modal" tabIndex="-1" role="dialog" aria-labelledby="main-menu-modalLabel" aria-hidden="true" style={{ marginTop: 100 }}>
+                <button onClick={() => setPathName('menubtn')} data-bs-toggle="modal" data-bs-target="#main-menu-modal" style={{  background: 'transparent', borderBottom: pathName == 'menubtn' ? '4px solid #EA312D' : '4px solid #032075', borderRadius: 0, color: pathName == 'menubtn' ? '#EA312D' : '#032075' }} ><i style={{fontSize: 20}} className="bi bi-list"></i></button>
+                <div onClick={() => setPathName(window.location.pathname == '/' ? '/' : 'ds')} className="modal fade" id="main-menu-modal" tabIndex="-1" role="dialog" aria-labelledby="main-menu-modalLabel" aria-hidden="true" style={{ marginTop: 100 }}>
                     <div className="modal-dialog" role="document" style={{ marginRight: 0, marginTop: 0, width: 350 }}>
                         <div className="modal-content" style={{ height: 600 }}>
                             <div className="modal-header" style={{ display: 'flex', flexDirection: 'row-reverse', minHeight: 100 }}>
