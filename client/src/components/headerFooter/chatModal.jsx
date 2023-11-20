@@ -63,7 +63,7 @@ export default function ChatModal({ data, handleChatInfo, handleChatInput, curre
                                                 <p style={{ width: '100%', marginBottom: 0 }}><b>Chat between {currentChatInfo.mainUser[0].firstName} {currentChatInfo.mainUser[0].lastName} and {currentChatInfo.employer[0].orgName}</b></p>
                                                 <p className="listing-not">For {currentChatInfo.listedJob[0].jobType} {currentChatInfo.listedJob[0].title}</p>
                                             </div>
-                                            <button style={{ marginRight: 20, height: '80%' }} type='button' onClick={() => openChatsCloseMessage()}><i className="bi bi-arrow-return-left"></i></button>
+                                            <button id="chatbackbtn" style={{ marginRight: 20, height: '80%' }} type='button' onClick={() => openChatsCloseMessage()}><i className="bi bi-arrow-return-left"></i></button>
                                         </div>
                                         <div id="chat-mni" style={{ height: '65%', boxShadow: 'rgba(0, 0, 0, 0.15) 0px 0px 15px 0px inset', borderRadius: 12}}>
                                             <div id="chats-hold" style={{ overflowY: 'scroll', height: '100%', padding: 20 }}>

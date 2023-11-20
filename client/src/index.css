@@ -241,7 +241,7 @@ button:focus-visible {
     flex-direction: column !important;
     align-items: center !important;
   }
-  #td-div {
+  #td-div, #chat-tne {
     flex-direction: column-reverse !important;
   }
   #main-prof-hold, .org-ho {
@@ -300,6 +300,26 @@ button:focus-visible {
     border-top-right-radius: 0px !important;
     border-bottom-left-radius: 30px !important;
     border-bottom-right-radius: 30px !important;
+  }
+  #chatbackbtn {
+    margin-right: 0px !important;
+    height: 40px !important;
+    width: 100% !important;
+  }
+  .userchat-hold {
+    flex-direction: column !important;
+  }
+  .chat-desc-hold {
+    padding: 25px 0px !important;
+    text-align: center !important;
+  }
+  .chat-delete-btn {
+    display: flex;
+    width: 100% !important;
+    justify-content: right !important;
+  }
+  .bi-trash {
+    height: 60px !important;
   }
 }
 
