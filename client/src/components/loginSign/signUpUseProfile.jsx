@@ -26,7 +26,7 @@ export default function SignUpProfile( { handleChange, activateEmpass } ) {
            <div id="location-industry-hold" style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', marginBottom: 20 }}>
                <div className='signinputs' id="location-hold" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '38%', minWidth: 175 }}>
                    <label htmlFor="userLocation">Location:</label>
-                   <input className='login-inputs' type="text" name="userLocation" id="userLocation" placeholder="Enter your city" required onChange={() => handleChange(event.target, event.target.value)} />
+                   <input className='login-inputs' type="text" name="userLocation" id="userLocation" placeholder="Enter your city and state" required onChange={() => handleChange(event.target, event.target.value)} />
                </div>
                <div className='signinputs' id="industry-hold" style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', width: '38%', minWidth: 175 }}>
                    <label htmlFor="industry">Industry:</label>

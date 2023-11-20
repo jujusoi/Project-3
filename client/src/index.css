@@ -51,6 +51,7 @@ a:hover {
 }
 
 .linkanchor:hover {
+  cursor: pointer;
   transition: ease-in-out 200ms;
   color: #ff4a47 !important;
 }
@@ -86,7 +87,7 @@ h1, h2, h3, h4, h5 {
   height: 125px;
 }
 
-.search-input:focus, .edit-input:focus, .login-inputs:focus {
+.search-input:focus, .edit-input:focus, .login-inputs:focus, #message-input {
   transition: 300ms ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px 0px inset;
   border: 2px solid #2545a7 !important;
@@ -128,15 +129,15 @@ button:hover {
   margin-top: 5px;
 }
 
-#org-minilist-holder::-webkit-scrollbar, textarea::-webkit-scrollbar {
+#org-minilist-holder::-webkit-scrollbar, textarea::-webkit-scrollbar, #main-chat-holder::-webkit-scrollbar, #chats-hold::-webkit-scrollbar {
   height: 11px;
   width: 11px;
 }
-#org-minilist-holder::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
+#org-minilist-holder::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb, #main-chat-holder::-webkit-scrollbar-thumb, #chats-hold::-webkit-scrollbar-thumb {
   background-color: #e3e3e3;
   border-radius: 6px;
 }
-#org-minilist-holder::-webkit-scrollbar-thumb:hover, textarea::-webkit-scrollbar-thumb:hover {
+#org-minilist-holder::-webkit-scrollbar-thumb:hover, textarea::-webkit-scrollbar-thumb:hover, #main-chat-holder::-webkit-scrollbar-thumb:hover, #chats-hold::-webkit-scrollbar-thumb:hover {
   background-color: #d4d3d3;
   border-radius: 6px;
 }

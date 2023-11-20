@@ -38,7 +38,7 @@ export default function JobListings({ pageNumber, searchValues }) {
                     const mostRecentChat = listOfAllChats[listOfAllChats.length - 1];
                     setTimeout(() => {
                         mostRecentChat.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-                        mostRecentChat.style.backgroundColor = '#94d7ef'
+                        mostRecentChat.style.backgroundColor = '#20acff2b'
                         setTimeout(() => {
                             mostRecentChat.style.backgroundColor = ''
                         }, 1000);
