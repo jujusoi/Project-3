@@ -13,6 +13,7 @@ export default function MenuButton({ isOrganisation }) {
 
     const [currentChatInfo, setCurrentChatInfo] = useState({});
     const [messageText, setMessageText] = useState('');
+    const [selectedMenu, setSelectedMenu] = useState('');
 
     const options = { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
     setInterval(() => {
@@ -80,7 +81,6 @@ export default function MenuButton({ isOrganisation }) {
     };
 
     if (!loading) {
-        console.log(data);
         return (
             <>
                 <button data-bs-toggle="modal" data-bs-target="#main-menu-modal" ><i className="bi bi-list"></i></button>
@@ -94,19 +94,19 @@ export default function MenuButton({ isOrganisation }) {
                                 </button>
                             </div>
                             <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', boxShadow: 'rgba(0, 0, 0, 0.15) 0px 10px 12px 0px inset', padding: 30 }}>
-                                <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                <div className='menu-hold' onMouseOver={() => setSelectedMenu('profile')} style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: selectedMenu == 'profile' ? 'rgba(0, 0, 0, 0.3) 5px 5px 12px 0px' : 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
                                     <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi-person-lines-fill"></i>
                                     <Link style={{ paddingLeft: 20, borderLeft: '3px solid rgba(0, 0, 0, 0.08)' }} to={`/profile/${Auth.getProfile().data.userInfo._id}`} target="_blank"><p style={{ fontSize: 18, margin: 'auto', marginRight: 70 }} className="listing-not linkanchor">My Profile</p></Link>
                                     <Link to={`/profile/${Auth.getProfile().data.userInfo._id}`} target="_blank"><i style={{ fontSize: 26, color: '#032075' }} className="bi bi-box-arrow-in-up-right linkanchor"></i>
                                     </Link>
                                 </div>
-                                <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                <div className='menu-hold' onMouseOver={() => setSelectedMenu('chat')} style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: selectedMenu == 'chat' ? 'rgba(0, 0, 0, 0.3) 5px 5px 12px 0px' : 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
                                     <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi-chat-right-dots"></i>
                                     <ChatButton refetch={refetch} />
                                 </div>
 
                                 {isOrganisation ? (
-                                    <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                    <div className='menu-hold' onMouseOver={() => setSelectedMenu('listing')} style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: selectedMenu == 'listing' ? 'rgba(0, 0, 0, 0.3) 5px 5px 12px 0px' : 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
                                         <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi-list-columns-reverse"></i>
                                         <Link style={{ paddingLeft: 20, borderLeft: '3px solid rgba(0, 0, 0, 0.08)' }}>
                                             <p id="create-listing-button" data-bs-toggle="modal" data-bs-target="#createlisting-menu-modal" style={{ fontSize: 18, margin: 'auto', marginRight: 45 }} className="listing-not linkanchor" >Create Listing</p></Link>
@@ -115,7 +115,7 @@ export default function MenuButton({ isOrganisation }) {
                                         </Link>
                                     </div>
                                 ) : ''}
-                                <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                <div className='menu-hold' onMouseOver={() => setSelectedMenu('logout')} style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: selectedMenu == 'logout' ? 'rgba(0, 0, 0, 0.3) 5px 5px 12px 0px' : 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
                                     <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi bi-door-closed"></i>
                                     <Link style={{ paddingLeft: 20, borderLeft: '3px solid rgba(0, 0, 0, 0.08)' }}>
                                         <p id="logout-button" style={{ fontSize: 18, margin: 'auto', marginRight: 92 }} className="listing-not linkanchor" onClick={() => { event.preventDefault(), Auth.logout()}} >Logout</p></Link>

@@ -18,6 +18,10 @@ body {
   display: block !important;
 }
 
+.menu-hold {
+  transition: 400ms ease-in-out;
+}
+
 p, li {
   color: #032075 !important;
 }
