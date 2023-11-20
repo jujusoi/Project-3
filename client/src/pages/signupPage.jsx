@@ -40,6 +40,7 @@ export default function SignUpPage() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        userInformation.profilePicture.length < 10 ? delete userInformation.profilePicture : '';
         try {
             const { data } = await createProfile({
                 variables: { profileInfo: userInformation }
@@ -51,10 +52,6 @@ export default function SignUpPage() {
             console.error(error);
         };
     };
-
-    useEffect(() => {
-        console.log(userInformation);
-    }, [userInformation])
 
     const setCheckVal = async (target) => {
         if (target.name === 'yes-org') {

@@ -142,6 +142,7 @@ const resolvers = {
     Mutation: {
         createProfile: async (parent, { profileInfo }) => {
             const data = await Profile.create(profileInfo);
+            console.log(data.profilePicture);
             const tokenInfo = {
                 _id: data._id,
                 industry: data.industry,
@@ -243,19 +244,22 @@ const resolvers = {
         login: async (parent, { email, password }) => {
             const profile = await Profile.findOne({
                 email: email
-            }).select('-password');
+            });
+            if (!profile) {
+                return;
+            };
+            const passwordCheck = await profile.checkPassword(password);
+            if (!passwordCheck) {
+                return;
+            };
             const tokenInfo = {
                 _id: profile._id,
                 industry: profile.industry,
                 isOrganisation: profile.isOrganisation,
                 userLocation: profile.userLocation,
             };
-            if (!profile) {
-                return;
-            } else {
-                const token = Auth.signToken(tokenInfo);
-                return { token, tokenInfo };
-            }
+            const token = Auth.signToken(tokenInfo);
+            return { token, tokenInfo };
         }
     },
 };
