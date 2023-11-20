@@ -85,19 +85,44 @@ export default function MenuButton({ isOrganisation }) {
             <>
                 <button data-bs-toggle="modal" data-bs-target="#main-menu-modal" ><i className="bi bi-list"></i></button>
                 <div className="modal fade" id="main-menu-modal" tabIndex="-1" role="dialog" aria-labelledby="main-menu-modalLabel" aria-hidden="true" style={{ marginTop: 100 }}>
-                    <div className="modal-dialog" role="document" style={{ marginRight: 0, marginTop: 0, width: 290 }}>
+                    <div className="modal-dialog" role="document" style={{ marginRight: 0, marginTop: 0, width: 350 }}>
                         <div className="modal-content" style={{ height: 600 }}>
-                            <div className="modal-header" style={{ display: 'flex', flexDirection: 'row-reverse' }}>
-                                <h5 className="modal-title" id="main-menu-modalLabel" style={{ width: '100%' }}>Main menu</h5>
+                            <div className="modal-header" style={{ display: 'flex', flexDirection: 'row-reverse', minHeight: 100 }}>
+                                <h3 className="modal-title" id="main-menu-modalLabel" style={{ width: '100%' }}>Main menu</h3>
                                 <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div className="modal-body" style={{ display: 'flex', flexDirection: 'column' }}>
-                                <Link to={`/profile/${Auth.getProfile().data.userInfo._id}`} target="_blank"><button id="my-profile-button">My profile</button></Link>
-                                <ChatButton refetch={refetch} />
-                                {isOrganisation ? (<button id="create-listing-button" data-bs-toggle="modal" data-bs-target="#createlisting-menu-modal" >Create listing</button>) : ''}
-                                <button id="logout-button" onClick={() => { event.preventDefault(), Auth.logout() }}>Logout</button>
+                            <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', boxShadow: 'rgba(0, 0, 0, 0.15) 0px 10px 12px 0px inset', padding: 30 }}>
+                                <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                    <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi-person-lines-fill"></i>
+                                    <Link style={{ paddingLeft: 20, borderLeft: '3px solid rgba(0, 0, 0, 0.08)' }} to={`/profile/${Auth.getProfile().data.userInfo._id}`} target="_blank"><p style={{ fontSize: 18, margin: 'auto', marginRight: 70 }} className="listing-not linkanchor">My Profile</p></Link>
+                                    <Link to={`/profile/${Auth.getProfile().data.userInfo._id}`} target="_blank"><i style={{ fontSize: 26, color: '#032075' }} className="bi bi-box-arrow-in-up-right linkanchor"></i>
+                                    </Link>
+                                </div>
+                                <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                    <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi-chat-right-dots"></i>
+                                    <ChatButton refetch={refetch} />
+                                </div>
+
+                                {isOrganisation ? (
+                                    <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                        <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi-list-columns-reverse"></i>
+                                        <Link style={{ paddingLeft: 20, borderLeft: '3px solid rgba(0, 0, 0, 0.08)' }}>
+                                            <p id="create-listing-button" data-bs-toggle="modal" data-bs-target="#createlisting-menu-modal" style={{ fontSize: 18, margin: 'auto', marginRight: 45 }} className="listing-not linkanchor" >Create Listing</p></Link>
+                                        <Link>
+                                            <i style={{ fontSize: 26, color: '#032075' }} data-bs-toggle="modal" data-bs-target="#createlisting-menu-modal" onClick={() => refetch()} className="bi bi-box-arrow-in-up-right linkanchor"></i>
+                                        </Link>
+                                    </div>
+                                ) : ''}
+                                <div style={{ display: 'flex', width: '100%', padding: 15, marginBottom: 15, height: 65, alignItems: 'center', boxShadow: 'rgba(0, 0, 0, 0.15) 5px 5px 12px 0px', borderRadius: 15 }}>
+                                    <i style={{ fontSize: 33, marginRight: 20, color: '#032075' }} className="bi bi bi-door-closed"></i>
+                                    <Link style={{ paddingLeft: 20, borderLeft: '3px solid rgba(0, 0, 0, 0.08)' }}>
+                                        <p id="logout-button" style={{ fontSize: 18, margin: 'auto', marginRight: 92 }} className="listing-not linkanchor" onClick={() => { event.preventDefault(), Auth.logout()}} >Logout</p></Link>
+                                        <Link>
+                                            <i style={{ fontSize: 26, color: '#032075' }} onClick={() => { event.preventDefault(), Auth.logout()}} className="bi bi-box-arrow-in-up-right linkanchor"></i>
+                                        </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
