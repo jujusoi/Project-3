@@ -70,7 +70,7 @@ export default function JobListings({ pageNumber, searchValues }) {
                             <div className="liinfo-hold" style={{ display: "flex", flexDirection: "column" }}>
                                 <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between', marginBottom: 20 }}>
                                     <div className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column' }}>
-                                        <Link to={`/listing/${listing._id}`} target="_blank"><h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0 }} key={listing._id} className="listing-title linkanchor">{listing.title}</h2></Link>
+                                        {!isLoggedIn ? (<h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0 }} key={listing._id} className="listing-title">{listing.title}</h2>) : (<Link to={`/listing/${listing._id}`} target="_blank"><h2 style={{ textAlign: 'left', marginTop: 0, marginBottom: 0 }} key={listing._id} className="listing-title linkanchor">{listing.title}</h2></Link>)} 
                                     </div>
                                     <p className="listing-not" style={{ width: '30%', marginTop: 0, textAlign: "right" }}>{listing.postedOn}</p>
                                 </div>
@@ -92,7 +92,7 @@ export default function JobListings({ pageNumber, searchValues }) {
                                     <div className="lio-hold" style={{ display: 'flex', width: '40%', flexDirection: 'column' }}>
                                         <div style={{ display: 'flex' }}>
                                             <p className="listing-not" style={{ marginRight: 10 }}>By: </p>
-                                            <Link to={`/profile/${listing.poster[0]._id}`} target="_blank"><h5 className="listing-org linkanchor">{listing.organisationName}</h5></Link>
+                                            {!isLoggedIn ? (<h5 className="listing-org">{listing.organisationName}</h5>) : (<Link to={`/profile/${listing.poster[0]._id}`} target="_blank"><h5 className="listing-org linkanchor">{listing.organisationName}</h5></Link>)}
                                         </div>
                                         <div style={{ display: 'flex' }}>
                                             <p className="listing-not" style={{ marginRight: 10 }}>Salary: </p>

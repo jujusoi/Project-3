@@ -20,13 +20,14 @@ export default function ListingPage() {
         setMiniLength(value)
     };
 
-    useEffect(() => {
-        console.log(miniLength);
-    }, [miniLength])
-
     const listingId = useParams().listingId;
 
-    const profileId = Auth.getProfile().data.userInfo._id;
+    let profileId;
+    if (Auth.getToken()) {
+        profileId = Auth.getProfile().data.userInfo._id;
+    } else {
+        window.location.assign('/');
+    }
 
     const { loading, data } = useQuery(QUERY_LISTING_BY_ID, {
         variables: { listingId: listingId }
