@@ -59,7 +59,7 @@ export default function LoginPage() {
                         <h1 style={{ textAlign: 'center'}}>Login</h1>
                     </div>
                     <div id="login-form-hold">
-                        <form id="login-form" action="submit" onSubmit={() => handleSubmit(event)}>
+                        <form id="login-form" action="submit" onSubmit={() => handleSubmit(event)} style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 5px 5px 12px 0px', borderRadius: 25 }}>
                             <div id="login-inputs-hold" style={{ display: 'flex', textAlign: 'left', marginBottom: 40, alignItems: 'center', flexDirection: 'column' }}>
                                 <div id="email-hold" style={{ display: 'flex', flexDirection: 'column', width: '80%', marginBottom: 20 }}>
                                     <label htmlFor="email-input">Email:</label>

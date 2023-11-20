@@ -123,6 +123,10 @@ button:hover {
 .edit-input, .login-inputs {
   border-radius: 12px;
 }
+.login-inputs {
+  padding: 5px 10px;
+  margin-top: 5px;
+}
 
 #org-minilist-holder::-webkit-scrollbar, textarea::-webkit-scrollbar {
   height: 11px;
@@ -258,12 +262,24 @@ button:focus-visible {
   #orgli-ti, #orghd {
     text-align: center !important;
   }
-  #login-page-sect {
+  #login-page-sect, #signup-sect {
     display: block !important;
     width: auto !important;
   }
-  #login-page-holder {
+  #login-page-holder, #signup-holder {
     width: auto !important;
+  }
+  #signup-org-hold, #signup-info-hold, #email-pass-hold {
+    padding: 0px !important;
+  }
+  #first-last-hold, #location-industry-hold {
+    flex-direction: column;
+  }
+  .signinputs {
+    width: 100% !important;
+  }
+  #location-hold, #firstName-hold, #lastName-hold {
+    margin-bottom: 20px !important;
   }
 }
 

@@ -7,6 +7,8 @@ import Auth from '../utilities/auth';
 import SignUpProfile from "../components/loginSign/signUpUseProfile";
 import SignUpOrg from "../components/loginSign/signUpUseOrg";
 
+import { Link } from "react-router-dom";
+
 export default function SignUpPage() {
 
     const [checkboxValue, setCheckboxValue] = useState('');
@@ -104,50 +106,52 @@ export default function SignUpPage() {
 
     return (
         <>
-            <section id="signup-sect" style={{ marginTop: 35 }}>
-                <div id="signup-holder" style={{ margin: 'auto', width: '70%', display: 'flex', flexDirection: 'column' }}>
-                    <div id="signup-title-hold" style={{ marginBottom: 35 }}>
+            <section id="signup-sect" style={{ margin: 'auto', display: 'flex', justifyContent: 'center', padding: '70px 0px', width: '75%' }}>
+                <div id="signup-holder" style={{ width: '75%', display: 'flex', flexDirection: 'column', minHeight: 450, padding: 25, boxShadow: 'rgba(0, 0, 0, 0.1) 7px 7px 7px 5px', borderRadius: 25 }}>
+                    <div id="signup-title-hold" style={{ margin: '30px 0px' }}>
                         <h1>Create an account</h1>
                     </div>
-                    <div id="signup-org-hold" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div id="signup-org-hold" style={{ display: 'flex', flexDirection: 'column', padding: 35 }}>
                         <div id="org-title-hold">
                             <h2 style={{ marginBottom: 15 }}>Are you an organisation?</h2>
                             <p style={{ marginBottom: 5 }}>Organisations have the ability to create and post job listings for open positions.</p>
                             <p>If you are an individual looking to apply for open job positions, click 'No'.</p>
                         </div>
-                        <div id="org-options-hold">
+                        <div id="org-options-hold" style={{ marginTop: 40, borderRadius: 25, boxShadow: 'rgba(0, 0, 0, 0.05) 5px 5px 12px 0px', padding: 35}}>
                             <form action="submit" style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly' }}>
                                 <div id="org-yes-hold" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <input style={{ width: 17, height: 17, marginRight: 10 }} type="checkbox" name="yes-org" id="yes-org" onClick={() => setCheckVal(event.target)} />
+                                    <input style={{ width: 18, height: 18, marginRight: 10 }} type="checkbox" name="yes-org" id="yes-org" onClick={() => setCheckVal(event.target)} />
                                     <label htmlFor="yes-org">Yes</label>
                                 </div>
                                 <div id="org-no-hold" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <input style={{ width: 17, height: 17, marginRight: 10 }} type="checkbox" name="no-org" id="no-org" onClick={() => setCheckVal(event.target)} />
+                                    <input style={{ width: 18, height: 18, marginRight: 10 }} type="checkbox" name="no-org" id="no-org" onClick={() => setCheckVal(event.target)} />
                                     <label htmlFor="no-org">No</label>
                                 </div>
                             </form>
                         </div>
+                        <p className="listing-not" style={{ marginTop: 40, marginBottom: 5 }}>Already have an account?</p>
+                        <Link to={'/login'}><p className="linkanchor">Login</p></Link>
                     </div>
-                    <div id="signup-info-hold" style={{ display: 'none', flexDirection: 'column', opacity: 0 }}>
+                    <div id="signup-info-hold" style={{ display: 'none', flexDirection: 'column', opacity: 0, padding: 25 }}>
                         {checkboxValue === 'no' ? ( <SignUpProfile handleChange={handleChange} activateEmpass={activateEmpass} /> ) : ( <SignUpOrg handleChange={handleChange} activateEmpass={activateEmpass} /> )}
                     </div>
-                    <div id="email-pass-hold" style={{ display: 'none', flexDirection: 'column', opacity: 0 }}>
+                    <div id="email-pass-hold" style={{ display: 'none', flexDirection: 'column', opacity: 0, padding: 35 }}>
                         <div id="empass-title-hold">
                             <h2>Email & Password</h2>
                             <p >You're almost there! All that's left is your email and a unique password to authenticate your profile!</p>
                         </div>
-                        <form id="empass-form" action="submit" onSubmit={() => handleSubmit(event)}>
-                            <div id="empass-hold" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                                <div id="email-hold" style={{ display: 'flex', flexDirection: 'column', width: '40%' }}>
+                        <form id="empass-form" action="submit" onSubmit={() => handleSubmit(event)} style={{ padding: '35px 10px', boxShadow: 'rgba(0, 0, 0, 0.05) 5px 5px 12px 0px', borderRadius: 25 }}>
+                            <div id="empass-hold" style={{ display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', alignItems: 'center', textAlign: 'left', marginBottom: 40 }}>
+                                <div id="email-hold" style={{ display: 'flex', flexDirection: 'column', width: '90%', marginBottom: 25, maxWidth: 450 }}>
                                     <label htmlFor="email">Email:</label>
-                                    <input type="email" name="email" id="email" required onChange={() => handleChange(event.target, event.target.value)} />
+                                    <input className="login-inputs" type="email" name="email" id="email" required onChange={() => handleChange(event.target, event.target.value)} placeholder="Enter your email"/>
                                 </div>
-                                <div id="pass-hold" style={{ display: 'flex', flexDirection: 'column', width: '36%' }}>
+                                <div id="pass-hold" style={{ display: 'flex', flexDirection: 'column', width: '90%', maxWidth: 450 }}>
                                     <label htmlFor="password">Password:</label>
-                                    <input type="password" name="password" id="password" required onChange={() => handleChange(event.target, event.target.value)} />
+                                    <input className="login-inputs" type="password" name="password" id="password" required onChange={() => handleChange(event.target, event.target.value)} placeholder="Enter your password" />
                                 </div>
                             </div>
-                            <button style={{ width: '20%', margin: 'auto', marginTop: 30 }}>Create Account</button>
+                            <button style={{ width: 120, margin: 'auto' }}>Create Account</button>
                         </form>
                     </div>
                 </div>
