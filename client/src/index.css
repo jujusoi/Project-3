@@ -281,6 +281,25 @@ button:focus-visible {
   #location-hold, #firstName-hold, #lastName-hold {
     margin-bottom: 20px !important;
   }
+  .hf-wrapimg {
+    background-position: center;
+  }
+  #listing-search-form, .search-input {
+    height: auto !important;
+  }
+  .search-input {
+    width: 100% !important;
+  }
+  #listing-li-input {
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 30px !important;
+    border-top-left-radius: 30px !important;
+  }
+  #listing-ind-input {
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;
+  }
 }
 
 @media (prefers-color-scheme: light) {
