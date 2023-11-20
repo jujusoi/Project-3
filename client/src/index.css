@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5 {
   height: 125px;
 }
 
-.search-input:focus, .edit-input:focus {
+.search-input:focus, .edit-input:focus, .login-inputs:focus {
   transition: 300ms ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px 0px inset;
   border: 2px solid #2545a7 !important;
@@ -106,6 +106,10 @@ button:hover {
   color: white;
 }
 
+#login-err-msg {
+  color: #ff4a47 !important;
+}
+
 #listing-li-input {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -116,7 +120,7 @@ button:hover {
   border-bottom-right-radius: 50px;
 }
 
-.edit-input {
+.edit-input, .login-inputs {
   border-radius: 12px;
 }
 
@@ -253,6 +257,13 @@ button:focus-visible {
   }
   #orgli-ti, #orghd {
     text-align: center !important;
+  }
+  #login-page-sect {
+    display: block !important;
+    width: auto !important;
+  }
+  #login-page-holder {
+    width: auto !important;
   }
 }
 
