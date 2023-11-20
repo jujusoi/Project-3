@@ -22,6 +22,10 @@ body {
   transition: 400ms ease-in-out;
 }
 
+.href-images {
+  transition: 200ms ease-in-out;
+}
+
 p, li {
   color: #032075 !important;
 }
@@ -350,6 +354,9 @@ button:focus-visible {
   .headerbtn {
     width: 68px !important;
     font-size: 12px !important;
+  }
+  .href-images {
+    width: 40px !important;
   }
 }
 

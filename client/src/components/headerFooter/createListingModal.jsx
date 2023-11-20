@@ -96,12 +96,12 @@ export default function ListingModal() {
                                 <div id="createlisting-JLJS-hold" style={{ display: 'flex', justifyContent: 'space-around',  padding: '20px 0px', boxShadow: 'rgba(0, 0, 0, 0.07) 7px 7px 7px 0px', borderRadius: 15 }}>
                                     <div className="listing-st-h" style={{ width: '40%' }}>
                                         <h4>Job Location</h4>
-                                        <p className="listing-not">The name of your open position.</p>
+                                        <p className="listing-not">Where's the work focused?</p>
                                         <input type="text" name="location" id="job-location-input" placeholder="Brisbane, QLD"  onChange={(event) => handleInputChange(event.target)} value={listingInputs.location} className='listing-input-area login-inputs' style={{ minWidth: 180, width: 180}} autoComplete="off" />
                                     </div>
                                     <div className="listing-st-h" style={{ width: '40%' }}>
                                         <h4>Salary</h4>
-                                        <p className="listing-not">Average yearly salary. Include currency</p>
+                                        <p className="listing-not">Average yearly salary. Include currency.</p>
                                         <input type="text" name="salary" id="job-salary-input" placeholder="$45,000 - $60,000 AUD"  onChange={(event) => handleInputChange(event.target)} value={listingInputs.salary} className='listing-input-area login-inputs' style={{ minWidth: 180, width: 180}} autoComplete="off" />
                                     </div>
                                 </div>
