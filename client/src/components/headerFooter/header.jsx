@@ -19,14 +19,14 @@ export default function Header() {
     return (
         <>
         <section id="header-sect">
-            <div style={{display: "flex", width: '100%', justifyContent: 'space-evenly', height: 120, alignItems: 'center'}}>
-                <div style={{width: '70%'}}>
-                    <img style={{display: 'flex'}} src="https://preview.redd.it/af446nff4fq51.jpg?width=640&crop=smart&auto=webp&s=4f109ac392afe60a99674e6ebd1ff75df4719b5b" alt="logo" width={50} height={50}/>
+            <div id="header-hold" style={{display: "flex", width: '100%', justifyContent: 'space-evenly', height: 120, alignItems: 'center'}}>
+                <div id="header-logo" style={{width: '60%', marginLeft: 100, marginRight: 300}}>
+                    <img id="header-logo" style={{display: 'flex'}} src="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-6.png" alt="logo" width={200} height={150}/>
                 </div>
-                <div style={{display: "flex", width: '30%', height: 55}}>
-                    <Link onClick={() => setPathName('/')} to={'/'}><button style={{ height: '100%', marginRight: 20, background: 'transparent', borderBottom: pathName == '/' ? '4px solid #EA312D' : '4px solid #032075', borderRadius: 0, color: pathName == '/' ? '#EA312D' : '#032075' }}>Job Listings</button></Link>
-                    {isLoggedIn ? '' : <Link onClick={() => setPathName('/login')} to={'/login'}><button style={{ height: '100%', marginRight: 20, background: 'transparent', borderBottom: pathName == '/login' ? '4px solid #EA312D' : '4px solid #032075', borderRadius: 0, color: pathName == '/login' ? '#EA312D' : '#032075' }}>Login</button></Link> }
-                    {isLoggedIn ? (<MenuButton isOrganisation={Auth.getProfile().data.userInfo.isOrganisation} pathName={pathName} setPathName={setPathName} />): <Link onClick={() => setPathName('/create-account')} to={'/create-account'}><button style={{ height: '100%', background: 'transparent', borderBottom: pathName == '/create-account' ? '4px solid #EA312D' : '4px solid #032075', borderRadius: 0, color: pathName == '/create-account' ? '#EA312D' : '#032075' }}>Sign Up</button></Link>}
+                <div id="headerbtns-hold" style={{display: "flex", width: '40%', height: 55}}>
+                    <Link onClick={() => setPathName('/')} to={'/'}><button className="headerbtn" style={{ height: '100%', marginRight: 20, background: 'transparent', borderBottom: pathName == '/' ? '4px solid #EA312D' : '4px solid #032075', borderRadius: 0, color: pathName == '/' ? '#EA312D' : '#032075' }}>Job Listings</button></Link>
+                    {isLoggedIn ? '' : <Link onClick={() => setPathName('/login')} to={'/login'}><button style={{ height: '100%', marginRight: 20, background: 'transparent', borderBottom: pathName == '/login' ? '4px solid #EA312D' : '4px solid #032075', borderRadius: 0, color: pathName == '/login' ? '#EA312D' : '#032075' }} className="headerbtn">Login</button></Link> }
+                    {isLoggedIn ? (<MenuButton isOrganisation={Auth.getProfile().data.userInfo.isOrganisation} pathName={pathName} setPathName={setPathName} />): <Link onClick={() => setPathName('/create-account')} to={'/create-account'}><button style={{ height: '100%', background: 'transparent', borderBottom: pathName == '/create-account' ? '4px solid #EA312D' : '4px solid #032075', borderRadius: 0, color: pathName == '/create-account' ? '#EA312D' : '#032075' }} className="headerbtn">Sign Up</button></Link>}
                 </div>
             </div>
         </section>
