@@ -24,9 +24,6 @@ const router = createBrowserRouter([
         path: '/:listingSearch',
         element: <JobBoardPage />
       }, {
-        path: '/profile/me',
-        element: <h2>This is the user's profile</h2>
-      }, {
         path: '/profile/:profileId',
         element: <ProfilePage />
       }, {
@@ -35,15 +32,6 @@ const router = createBrowserRouter([
       },{
         path: '/listing/:listingId',
         element: <ListingPage />
-      }, {
-        path: '/about',
-        element: <h2>About us...</h2>
-      }, {
-        path: '/donate',
-        element: <h2>Give me your money</h2>
-      }, {
-        path: '/contact',
-        element: <h2>Contact us</h2>
       },
       {
         path: '/loading',
