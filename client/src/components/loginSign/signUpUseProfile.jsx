@@ -51,7 +51,7 @@ export default function SignUpProfile( { handleChange, activateEmpass } ) {
                    <textarea className='login-inputs' name="biography" id="biography" rows="5" style={{ width: '100%', minWidth: 175 }} placeholder="A deep-dive into who you are. Your passions, interests and goals. Where do you see yourself in the future? etc." required onChange={() => handleChange(event.target, event.target.value)}></textarea>
                </div>
            </div>
-           <button style={{ width: 120, margin: 'auto' }}>Submit details</button>
+           <button id="signsubmit" style={{ width: 120, margin: 'auto' }}>Submit details</button>
        </form>
        </>
     );

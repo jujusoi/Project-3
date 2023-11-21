@@ -161,10 +161,13 @@ button, #next-listing-btn {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #032075 !important;
+  background-color: #032075;
   color: white;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+.save-listing-btn, .close, #profile-edit-button, #chatbackbtn, .bi-send, #login-btn, #signsubmit, #createaccbtn, #next-listing-btn, #create-listing-button {
+  background-color: #032075 !important;
 }
 button:hover {
   border-color: #646cff;

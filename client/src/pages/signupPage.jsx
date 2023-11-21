@@ -150,7 +150,7 @@ export default function SignUpPage() {
                                     <input className="login-inputs" type="password" name="password" id="password" required onChange={() => handleChange(event.target, event.target.value)} placeholder="Enter your password" />
                                 </div>
                             </div>
-                            <button style={{ width: 120, margin: 'auto' }}>Create Account</button>
+                            <button id="createaccbtn" style={{ width: 120, margin: 'auto' }}>Create Account</button>
                         </form>
                     </div>
                 </div>
