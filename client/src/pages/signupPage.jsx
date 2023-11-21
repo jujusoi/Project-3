@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 
 export default function SignUpPage() {
 
+    document.title = 'Vinterview - Create Account'
+
     const [checkboxValue, setCheckboxValue] = useState('');
     const [userInformation, setUserInformation] = useState({
         firstName: '',

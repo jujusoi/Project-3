@@ -62,6 +62,7 @@ export default function ListingPage() {
     if (loading) {
         <LoadingPage />
     } else {
+        document.title = 'Vinterview - ' + data.listingById.title;
         return (
             <>
                 <section style={{ display: 'flex', justifyContent: 'space-evenly' }}>

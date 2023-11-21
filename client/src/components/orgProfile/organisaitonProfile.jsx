@@ -11,6 +11,8 @@ import { EDIT_PROFILE } from '../../utilities/mutations';
 
 export default function OrganisationProfile({ profileData, refetch }) {
 
+    document.title = 'Vinterview - ' + profileData.orgName;
+
     const [onOrOff, setOnOrOff] = useState(false);
     const [editButtonC, setEditButtonC] = useState('');
     const [editData, setEditData] = useState({

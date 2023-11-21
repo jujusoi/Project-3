@@ -63,15 +63,15 @@ export default function ListingModal() {
 
     if (!loading) {
         return (
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style={{ minHeight: 100, padding: '0px 30px'}}>
-                        <h2 class="modal-title" id="exampleModalCenterTitle">Create new listing</h2>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                    <div className="modal-header" style={{ minHeight: 100, padding: '0px 30px'}}>
+                        <h2 className="modal-title" id="exampleModalCenterTitle">Create new listing</h2>
+                        <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" style={{ height: 500, textAlign: 'left', padding: 25, boxShadow: 'rgba(0, 0, 0, 0.15) 0px 10px 12px 0px inset' }}>
+                    <div className="modal-body" style={{ height: 500, textAlign: 'left', padding: 25, boxShadow: 'rgba(0, 0, 0, 0.15) 0px 10px 12px 0px inset' }}>
                         <form action="submit" onSubmit={(event) => {handleInputSubmit(event), checkInputs()}}>
                             <div id="create-listing-hold" style={{ display: showStatus ? 'none' : 'block'}}>
                             <div id="createlisting-desc-hold">
@@ -117,8 +117,8 @@ export default function ListingModal() {
                             </div>
                         </form>
                     </div>
-                    <div class="modal-footer" style={{ display: 'flex', flexDirection: showStatus ? 'row-reverse' : 'row', borderTop: 'none' }}>
-                        <button onClick={() => setShowStatus(!showStatus)} id="next-listing-btn" type="button" class="btn btn-primary">{showStatus ? 'Back' : 'Next'}</button>
+                    <div className="modal-footer" style={{ display: 'flex', flexDirection: showStatus ? 'row-reverse' : 'row', borderTop: 'none' }}>
+                        <button onClick={() => setShowStatus(!showStatus)} id="next-listing-btn" type="button" className="btn btn-primary">{showStatus ? 'Back' : 'Next'}</button>
                     </div>
                 </div>
             </div>

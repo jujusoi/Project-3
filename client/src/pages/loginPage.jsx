@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function LoginPage() {
 
+    document.title = 'Vinterview - Login'
+
     const [formInputs, setFormInputs] = useState({
         email: '',
         password: '',

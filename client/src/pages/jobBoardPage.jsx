@@ -6,6 +6,8 @@ import Auth from '../utilities/auth';
 
 export default function JobBoardPage() {
 
+    document.title = 'Vinterview'
+
     const [pageNumber, setPageNumber] = useState(0);
     const [searchValues, setSearchValues] = useState({
         title: '',

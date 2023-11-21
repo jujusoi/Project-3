@@ -10,6 +10,8 @@ import { EDIT_PROFILE } from '../../utilities/mutations';
 
 export default function NormalUserProfile({ profileData, refetch }) {
 
+    document.title = 'Vinterview - ' + profileData.firstName + ' ' + profileData.lastName;
+
     const [onOrOff, setOnOrOff] = useState(false);
     const [editButtonC, setEditButtonC] = useState('');
     const [editData, setEditData] = useState({

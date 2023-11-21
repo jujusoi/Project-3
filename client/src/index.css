@@ -375,6 +375,9 @@ button:focus-visible {
   #about-iv {
     width: 100% !important;
   }
+  .tsd-hold {
+    flex-direction: row !important;
+  }
 }
 
 @media (prefers-color-scheme: light) {
