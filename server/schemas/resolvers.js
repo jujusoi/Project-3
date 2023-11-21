@@ -63,7 +63,7 @@ const resolvers = {
         listings: async (parent, { pageNumber, title, location, jobType, industry }) => {
             const data = Listing.find({
                 title: { $regex: new RegExp(title, 'i') }, location: { $regex: new RegExp(location, 'i') }, jobType: { $regex: new RegExp(jobType, 'i') }, industry: { $regex: new RegExp(industry, 'i') }
-            }).populate('poster').limit(10).skip(pageNumber * 10).sort({ _id: -1 });
+            }).populate('poster').limit(5).skip(pageNumber * 5).sort({ _id: -1 });
             return data;
         },
         listingById: async (parent, { listingId }) => {
@@ -142,7 +142,6 @@ const resolvers = {
     Mutation: {
         createProfile: async (parent, { profileInfo }) => {
             const data = await Profile.create(profileInfo);
-            console.log(data.profilePicture);
             const tokenInfo = {
                 _id: data._id,
                 industry: data.industry,

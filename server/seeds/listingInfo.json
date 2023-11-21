@@ -1,0 +1,532 @@
+[
+    {
+        "poster": "655c017a42db72227e04f20f",
+        "industry": "Tourism",
+        "jobDescription": "Aussie Expeditions is hiring a Photography Tour Leader to guide photography enthusiasts through picturesque landscapes. This role involves organizing photography-focused expeditions, offering guidance on composition, and ensuring participants capture memorable moments.",
+        "jobType": "Full-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Aussie Expeditions",
+        "salary": "$55,000 - $70,000 AUD",
+        "title": "Photography Tour Leader"
+    },
+    {
+        "poster": "655c00b13a748f35dfe6130b",
+        "industry": "Agriculture",
+        "jobDescription": "Green Fields Agro is seeking a Farm Machinery Technician to maintain and repair our agricultural equipment. This role involves ensuring that our machinery operates efficiently, contributing to the success of our sustainable farming practices. If you have technical expertise in farm machinery, we want to hear from you.",
+        "jobType": "Full-time",
+        "location": "Adelaide, Australia",
+        "organisationName": "Green Fields Agro",
+        "salary": "$40,000 - $50,000 AUD",
+        "title": "Farm Machinery Technician"
+    },
+    {
+        "poster": "655c038ba147feceb0270e10",
+        "industry": "Agriculture",
+        "jobDescription": "Harvest Haven Farms is seeking a dedicated Farm Manager to oversee daily operations and ensure the success of our sustainable agriculture venture. This role involves managing planting schedules, supervising farm activities, and implementing eco-friendly farming practices.",
+        "jobType": "Full-time",
+        "location": "Sacramento, California, USA",
+        "organisationName": "Harvest Haven Farms",
+        "salary": "$55,000 - $70,000 USD",
+        "title": "Farm Manager"
+    },
+    {
+        "poster": "655c03dff537c3a17cd00bbe",
+        "industry": "Education",
+        "jobDescription": "Horizon Learning Institute is seeking passionate Early Childhood Educators to join our dynamic team in Los Angeles. This role involves creating engaging and developmentally appropriate learning experiences for young learners, fostering a positive and nurturing educational environment.",
+        "jobType": "Full-time",
+        "location": "Los Angeles, California, USA",
+        "organisationName": "Horizon Learning Institute",
+        "salary": "$40,000 - $50,000 USD",
+        "title": "Early Childhood Educator"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Urban Threads Boutique is expanding its online presence, and we're looking for an E-commerce Specialist to join our team. If you have experience in managing online platforms, a flair for digital marketing, and a passion for fashion, this role is perfect for you. Help us bring the Urban Threads experience to a global audience.",
+        "jobType": "Full-time",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$38,000 - $45,000 AUD",
+        "title": "E-Commerce Specialist"
+    },
+    {
+        "poster": "655c00b13a748f35dfe6130b",
+        "industry": "Agriculture",
+        "jobDescription": "Green Fields Agro is hiring a Produce Quality Inspector to ensure the high standard of our locally sourced produce. This role involves inspecting crops, monitoring quality control processes, and maintaining adherence to food safety standards. Join us in delivering fresh, quality produce to our community.",
+        "jobType": "Full-time",
+        "location": "Adelaide, Australia",
+        "organisationName": "Green Fields Agro",
+        "salary": "$35,000 - $45,000 AUD",
+        "title": "Produce Quality Inspector"
+    },
+    {
+        "poster": "655bfff51666d44921dfa645",
+        "industry": "Hospitality",
+        "jobDescription": "Coastal Breeze Resort is seeking a skilled and creative Culinary Artist to join our team as Chef de Cuisine. This role involves crafting exquisite dishes that reflect our commitment to gourmet dining. If you have a passion for culinary excellence and want to contribute to a luxurious dining experience on the Gold Coast, we invite you to apply.",
+        "jobType": "Full-time",
+        "location": "Gold Coast, Australia",
+        "organisationName": "Coastal Breeze Resort",
+        "salary": "$50,000 - $65,000 AUD",
+        "title": "Culinary Artist - Chef de Cuisine"
+    },
+    {
+        "poster": "655c011319b34b5474f4b3e0",
+        "industry": "Education",
+        "jobDescription": "Nexus Learning Center is seeking passionate Early Childhood Educators to join our team in Sydney. This full-time role involves creating a nurturing and stimulating environment for young minds, implementing educational programs, and fostering a love for learning from an early age.",
+        "jobType": "Full-time",
+        "location": "Sydney, Australia",
+        "organisationName": "Nexus Learning Center",
+        "salary": "$40,000 - $50,000 AUD",
+        "title": "Early Childhood Educator"
+    },
+    {
+        "poster": "655c017a42db72227e04f20f",
+        "industry": "Tourism",
+        "jobDescription": "Aussie Expeditions is seeking a Cultural Experience Coordinator to curate and organize cultural activities for our tours. This role involves liaising with local communities, planning immersive experiences, and ensuring travelers gain a deeper understanding of Australia's cultural richness.",
+        "jobType": "Full-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Aussie Expeditions",
+        "salary": "$48,000 - $60,000 AUD",
+        "title": "Cultural Experience Coordinator"
+    },
+    {
+        "poster": "655c027323a615c3bcac024a",
+        "industry": "Retail",
+        "jobDescription": "City Threads Emporium is looking for a talented Visual Merchandiser for a casual position to create compelling displays that showcase our diverse fashion collection. This role involves designing and implementing visually appealing store layouts to attract and engage customers.",
+        "jobType": "Casual",
+        "location": "New York City, New York, USA",
+        "organisationName": "City Threads Emporium",
+        "salary": "$15 - $20 per hour USD",
+        "title": "Visual Merchandiser"
+    },
+    {
+        "poster": "655c038ba147feceb0270e10",
+        "industry": "Agriculture",
+        "jobDescription": "Harvest Haven Farms is looking for a casual Farmers' Market Sales Representative to showcase and sell our fresh, organic produce. This role involves setting up and managing a market stall, interacting with customers, and promoting our farm's products.",
+        "jobType": "Casual",
+        "location": "Sacramento, California, USA",
+        "organisationName": "Harvest Haven Farms",
+        "salary": "$18 - $22 per hour USD",
+        "title": "Farmers' Market Sales Representative"
+    },
+    {
+        "poster": "655c01f8f2360357643f6a06",
+        "industry": "Transportation",
+        "jobDescription": "Join Metro Movers as a Logistics Coordinator on a casual basis, responsible for coordinating and optimizing transportation operations. This role involves liaising with drivers, managing schedules, and ensuring efficient and reliable logistics services for our clients.",
+        "jobType": "Casual",
+        "location": "Brisbane, Australia",
+        "organisationName": "Metro Movers",
+        "salary": "$25 - $30 per hour AUD",
+        "title": "Logistics Coordinator"
+    },
+    {
+        "poster": "655c027323a615c3bcac024a",
+        "industry": "Retail",
+        "jobDescription": "City Threads Emporium is hiring Customer Experience Representatives for casual positions to assist with customer interactions and feedback. This role involves ensuring a positive shopping experience and contributing to the overall satisfaction of our diverse clientele.",
+        "jobType": "Casual",
+        "location": "New York City, New York, USA",
+        "organisationName": "City Threads Emporium",
+        "salary": "$18 - $22 per hour USD",
+        "title": "Customer Experience Representative"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Urban Threads Boutique is looking for a Customer Experience Specialist who is dedicated to providing an exceptional shopping journey for our customers. If you have a keen understanding of fashion, excellent communication skills, and a passion for delivering top-notch service, we invite you to be a part of our boutique experience. Urban Threads Boutique is looking for a Customer Experience Specialist who is dedicated to providing an exceptional shopping journey for our customers. If you have a keen understanding of fashion, excellent communication skills, and a passion for delivering top-notch service, we invite you to be a part of our boutique experience.",
+        "jobType": "Full-time",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$32,000 - $38,000 AUD",
+        "title": "Customer Experience Specialist"
+    },
+    {
+        "poster": "655c01f8f2360357643f6a06",
+        "industry": "Transportation",
+        "jobDescription": "Metro Movers is hiring reliable and experienced Delivery Drivers for both full-time and part-time positions to ensure the timely and safe transportation of cargo in and around Sydney. This role involves managing delivery schedules, handling goods with care, and providing exceptional customer service.",
+        "jobType": "Full-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Metro Movers",
+        "salary": "$40,000 - $50,000 AUD",
+        "title": "Delivery Driver"
+    },
+    {
+        "poster": "655bfff51666d44921dfa645",
+        "industry": "Hospitality",
+        "jobDescription": "Coastal Breeze Resort is looking for a Front Desk Receptionist to be the first point of contact for our guests. This role involves providing friendly and efficient customer service, managing reservations, and ensuring a smooth check-in and check-out process. Join us in creating a welcoming atmosphere for our guests on the stunning Gold Coast.",
+        "jobType": "Full-time",
+        "location": "Gold Coast, Australia",
+        "organisationName": "Coastal Breeze Resort",
+        "salary": "$32,000 - $42,000 AUD",
+        "title": "Front Desk Receptionist"
+    },
+    {
+        "poster": "655c00b13a748f35dfe6130b",
+        "industry": "Agriculture",
+        "jobDescription": "Green Fields Agro is hiring a Crop Production Manager to oversee the cultivation and harvest of various crops. This role involves planning planting schedules, managing resources, and ensuring the quality of our produce. If you have experience in crop management and a passion for sustainable agriculture, join our team.",
+        "jobType": "Full-time",
+        "location": "Adelaide, Australia",
+        "organisationName": "Green Fields Agro",
+        "salary": "$50,000 - $65,000 AUD",
+        "title": "Crop Production Manager"
+    },
+    {
+        "poster": "655c03061438bdb152bb4e62",
+        "industry": "Hospitality",
+        "jobDescription": "Riverside Retreat Inn is seeking a full-time Guest Services Representative to provide warm and welcoming hospitality to our guests. This role involves assisting with check-ins and check-outs, responding to guest inquiries, and ensuring a delightful stay experience.",
+        "jobType": "Full-time",
+        "location": "San Francisco, California, USA",
+        "organisationName": "Riverside Retreat Inn",
+        "salary": "$40,000 - $50,000 USD",
+        "title": "Guest Services Representative"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Urban Threads Boutique is hiring Casual Sales Associates to join our team on a flexible basis. Ideal for students or those looking for part-time work, this role involves assisting customers, maintaining store aesthetics, and contributing to the vibrant atmosphere of our boutique. Urban Threads Boutique is hiring Casual Sales Associates to join our team on a flexible basis. Ideal for students or those looking for part-time work, this role involves assisting customers, maintaining store aesthetics, and contributing to the vibrant atmosphere of our boutique.",
+        "jobType": "Casual",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$22 - $28 per hour AUD",
+        "title": "Casual Sales Associate"
+    },
+    {
+        "poster": "655c017a42db72227e04f20f",
+        "industry": "Tourism",
+        "jobDescription": "Join Aussie Expeditions as a Customer Service Representative, assisting travelers with inquiries, bookings, and ensuring a seamless experience from start to finish. This role involves communication with clients, handling reservations, and providing information about our diverse range of expeditions.",
+        "jobType": "Full-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Aussie Expeditions",
+        "salary": "$35,000 - $45,000 AUD",
+        "title": "Customer Service Representative"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Urban Threads Boutique is in search of a Fashion Buyer with a keen eye for trends and a deep understanding of the fashion market. As a Fashion Buyer, you will play a crucial role in curating our diverse collection, ensuring that Urban Threads remains at the forefront of the fashion scene. Join us and contribute to our commitment to offering unique and stylish finds.",
+        "jobType": "Full-time",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$40,000 - $50,000 AUD",
+        "title": "Fashion Buyer"
+    },
+    {
+        "poster": "655c03dff537c3a17cd00bbe",
+        "industry": "Education",
+        "jobDescription": "Join Horizon Learning Institute as an Online Learning Coordinator to oversee and enhance our digital learning initiatives. This role involves coordinating online courses, supporting instructors and students, and implementing strategies for effective online education delivery.",
+        "jobType": "Full-time",
+        "location": "Los Angeles, California, USA",
+        "organisationName": "Horizon Learning Institute",
+        "salary": "$55,000 - $65,000 USD",
+        "title": "Online Learning Coordinator"
+    },
+    {
+        "poster": "655c03061438bdb152bb4e62",
+        "industry": "Hospitality",
+        "jobDescription": "Riverside Retreat Inn is hiring an Executive Chef to lead our culinary team in creating exquisite dining experiences. This role involves menu planning, overseeing kitchen operations, and ensuring the highest standards of food quality and presentation.",
+        "jobType": "Full-time",
+        "location": "San Francisco, California, USA",
+        "organisationName": "Riverside Retreat Inn",
+        "salary": "$60,000 - $75,000 USD",
+        "title": "Executive Chef"
+    },
+    {
+        "poster": "655c038ba147feceb0270e10",
+        "industry": "Agriculture",
+        "jobDescription": "Harvest Haven Farms is hiring an Environmental Stewardship Coordinator to focus on implementing and improving sustainable and eco-friendly practices on our farm. This role involves researching and implementing initiatives to reduce environmental impact.",
+        "jobType": "Full-time",
+        "location": "Sacramento, California, USA",
+        "organisationName": "Harvest Haven Farms",
+        "salary": "$50,000 - $60,000 USD",
+        "title": "Environmental Stewardship Coordinator"
+    },
+    {
+        "poster": "655c03061438bdb152bb4e62",
+        "industry": "Hospitality",
+        "jobDescription": "Riverside Retreat Inn is seeking a skilled Maintenance Technician to ensure the smooth operation and upkeep of our facilities. This role involves performing routine maintenance tasks, addressing repair requests, and maintaining a safe and welcoming environment.",
+        "jobType": "Full-time",
+        "location": "San Francisco, California, USA",
+        "organisationName": "Riverside Retreat Inn",
+        "salary": "$45,000 - $55,000 USD",
+        "title": "Maintenance Technician"
+    },
+    {
+        "poster": "655bfff51666d44921dfa645",
+        "industry": "Hospitality",
+        "jobDescription": "Coastal Breeze Resort is seeking a Guest Services Coordinator to enhance the overall guest experience. This role involves managing guest requests, coordinating special services, and ensuring that every guest feels valued and attended to during their stay. Join us in providing unparalleled hospitality on the Gold Coast.",
+        "jobType": "Full-time",
+        "location": "Gold Coast, Australia",
+        "organisationName": "Coastal Breeze Resort",
+        "salary": "$35,000 - $45,000 AUD",
+        "title": "Guest Services Coordinator"
+    },
+    {
+        "poster": "655c011319b34b5474f4b3e0",
+        "industry": "Education",
+        "jobDescription": "Nexus Learning Center is looking for a Digital Learning Specialist to enhance the integration of technology in education. This full-time role involves implementing digital tools, designing online courses, and training educators on effective digital teaching methods.",
+        "jobType": "Full-time",
+        "location": "Sydney, Australia",
+        "organisationName": "Nexus Learning Center",
+        "salary": "$55,000 - $65,000 AUD",
+        "title": "Digital Learning Specialist"
+    },
+    {
+        "poster": "655c027323a615c3bcac024a",
+        "industry": "Retail",
+        "jobDescription": "City Threads Emporium is seeking dynamic Fashion Sales Associates for part-time positions to join our retail team in the heart of New York City. This role involves assisting customers, providing fashion advice, and ensuring an exceptional shopping experience. If you have a passion for urban fashion and connecting with diverse clientele, we want to hear from you.",
+        "jobType": "Part-time",
+        "location": "New York City, New York, USA",
+        "organisationName": "City Threads Emporium",
+        "salary": "$20,000 - $25,000 USD",
+        "title": "Fashion Sales Associate"
+    },
+    {
+        "poster": "655c038ba147feceb0270e10",
+        "industry": "Agriculture",
+        "jobDescription": "Harvest Haven Farms is seeking a skilled Farm Equipment Technician to maintain and repair agricultural machinery. This role involves performing routine maintenance, troubleshooting issues, and ensuring the efficiency of our farming equipment.",
+        "jobType": "Full-time",
+        "location": "Sacramento, California, USA",
+        "organisationName": "Harvest Haven Farms",
+        "salary": "$45,000 - $55,000 USD",
+        "title": "Farm Equipment Technician"
+    },
+    {
+        "poster": "655c00b13a748f35dfe6130b",
+        "industry": "Agriculture",
+        "jobDescription": "Green Fields Agro is looking for a Sustainable Agriculture Researcher to contribute to our commitment to eco-friendly farming practices. This role involves researching and implementing innovative sustainable farming techniques. Join us in exploring new ways to harmonize agriculture and environmental stewardship.",
+        "jobType": "Full-time",
+        "location": "Adelaide, Australia",
+        "organisationName": "Green Fields Agro",
+        "salary": "$45,000 - $55,000 AUD",
+        "title": "Sustainable Agriculture Researcher"
+    },
+    {
+        "poster": "655c011319b34b5474f4b3e0",
+        "industry": "Education",
+        "jobDescription": "Nexus Learning Center is hiring a part-time STEM Instructor to inspire and educate students in science, technology, engineering, and mathematics. This role involves developing engaging curriculum materials, conducting experiments, and fostering a passion for STEM subjects among students.",
+        "jobType": "Part-time",
+        "location": "Sydney, Australia",
+        "organisationName": "Nexus Learning Center",
+        "salary": "$30,000 - $40,000 AUD",
+        "title": "STEM Instructor"
+    },
+    {
+        "poster": "655c011319b34b5474f4b3e0",
+        "industry": "Education",
+        "jobDescription": "Nexus Learning Center is hiring a part-time Career Counselor to guide students in their educational and career paths. This role involves providing advice, conducting assessments, and assisting students in making informed decisions about their academic and professional futures.",
+        "jobType": "Part-time",
+        "location": "Sydney, Australia",
+        "organisationName": "Nexus Learning Center",
+        "salary": "$35,000 - $45,000 AUD ",
+        "title": "Career Counselor"
+    },
+    {
+        "poster": "655c017a42db72227e04f20f",
+        "industry": "Tourism",
+        "jobDescription": "Aussie Expeditions is seeking passionate Adventure Tour Guides to lead travelers through the diverse landscapes of Australia. This role involves providing informative and entertaining commentary, ensuring the safety of participants, and creating memorable experiences in locations ranging from rainforests to the outback.",
+        "jobType": "Full-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Aussie Expeditions",
+        "salary": "$45,000 - $60,000 AUD",
+        "title": "Adventure Tour Guide"
+    },
+    {
+        "poster": "655c01f8f2360357643f6a06",
+        "industry": "Transportation",
+        "jobDescription": "Metro Movers is seeking professional Executive Chauffeurs for part-time positions to provide top-tier transportation services to corporate clients. This role involves ensuring a smooth and comfortable journey, maintaining a high level of professionalism, and representing Metro Movers with excellence.",
+        "jobType": "Part-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Metro Movers",
+        "salary": "$30,000 - $40,000 AUD",
+        "title": "Executive Chauffeur"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Join Urban Threads Boutique as a Visual Merchandiser and contribute to the unique atmosphere of our fashion haven. You'll be responsible for creating visually appealing displays that showcase our curated collection of clothing and accessories. Bring your creativity to the forefront and help us maintain our reputation as a go-to destination for fashion enthusiasts.",
+        "jobType": "Part-time",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$28,000 - $35,000 AUD",
+        "title": "Visual Merchandiser"
+    },
+    {
+        "poster": "655c01f8f2360357643f6a06",
+        "industry": "Transportation",
+        "jobDescription": "Metro Movers is looking for a Fleet Maintenance Technician for a casual position to ensure the optimal performance of our vehicles. This role involves conducting regular maintenance checks, performing repairs, and keeping our transportation fleet in excellent condition.",
+        "jobType": "Casual",
+        "location": "Brisbane, Australia",
+        "organisationName": "Metro Movers",
+        "salary": "$20 - $25 per hour AUD",
+        "title": "Fleet Maintenance Technician"
+    },
+    {
+        "poster": "655c03061438bdb152bb4e62",
+        "industry": "Hospitality",
+        "jobDescription": "Join Riverside Retreat Inn as a part-time Housekeeping Attendant to maintain the cleanliness and comfort of our guest rooms. This role involves performing housekeeping duties, replenishing amenities, and contributing to the overall positive guest experience.",
+        "jobType": "Part-time",
+        "location": "San Francisco, California, USA",
+        "organisationName": "Riverside Retreat Inn",
+        "salary": "$18,000 - $22,000 USD",
+        "title": "Housekeeping Attendant"
+    },
+    {
+        "poster": "655c03061438bdb152bb4e62",
+        "industry": "Hospitality",
+        "jobDescription": "Riverside Retreat Inn is looking for a casual Event Coordinator to organize and coordinate special events at our boutique hotel. This role involves liaising with clients, planning logistics, and ensuring seamless execution of events.",
+        "jobType": "Casual",
+        "location": "San Francisco, California, USA",
+        "organisationName": "Riverside Retreat Inn",
+        "salary": "$20 - $25 per hour USD",
+        "title": "Event Coordinator"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Join Urban Threads Boutique as Event Staff for our upcoming fashion pop-up events. This casual position involves setting up and managing event spaces, assisting customers, and promoting our fashion collection in dynamic settings. Perfect for those seeking occasional and exciting work opportunities.",
+        "jobType": "Casual",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$25 - $30 per hour AUD",
+        "title": "Event Staff - Fashion Pop-up"
+    },
+    {
+        "poster": "655bfff51666d44921dfa645",
+        "industry": "Hospitality",
+        "jobDescription": "Coastal Breeze Resort is hiring Lifeguards to ensure the safety of guests at our beachfront resort. If you are a certified lifeguard with a commitment to guest safety, join our team and contribute to a secure and enjoyable beach experience on the Gold Coast.",
+        "jobType": "Casual",
+        "location": "Gold Coast, Australia",
+        "organisationName": "Coastal Breeze Resort",
+        "salary": "$25 - $30 per hour AUD",
+        "title": "Lifeguard - Beachfront Resort"
+    },
+    {
+        "poster": "655c00b13a748f35dfe6130b",
+        "industry": "Agriculture",
+        "jobDescription": "Green Fields Agro is seeking a Farm Assistant to join our family-owned farm near Adelaide. This role involves hands-on work in sustainable agriculture, including planting, harvesting, and maintaining crops. If you have a passion for eco-friendly farming practices and want to contribute to providing fresh, locally sourced produce, apply now.",
+        "jobType": "Full-time",
+        "location": "Adelaide, Australia",
+        "organisationName": "Green Fields Agro",
+        "salary": "$28,000 - $35,000 AUD",
+        "title": "Farm Assistant"
+    },
+    {
+        "poster": "655c011319b34b5474f4b3e0",
+        "industry": "Education",
+        "jobDescription": "Nexus Learning Center is seeking a Professional Development Trainer to facilitate training sessions for educators and professionals on a casual basis. This role involves designing and delivering workshops, fostering continuous learning, and contributing to the growth of educational excellence.",
+        "jobType": "Casual",
+        "location": "Sydney, Australia",
+        "organisationName": "Nexus Learning Center",
+        "salary": "$40 - $50 per hour AUD",
+        "title": "Professional Development Trainer"
+    },
+    {
+        "poster": "655c027323a615c3bcac024a",
+        "industry": "Retail",
+        "jobDescription": "Join City Threads Emporium as a full-time Fashion Buyer, responsible for selecting and purchasing merchandise that aligns with our urban fashion aesthetic. This role involves staying current with fashion trends, negotiating with suppliers, and contributing to the curation of our fashion collection.",
+        "jobType": "Full-time",
+        "location": "New York City, New York, USA",
+        "organisationName": "City Threads Emporium",
+        "salary": "$50,000 - $65,000 USD",
+        "title": "Fashion Buyer"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Urban Threads Boutique is seeking Casual Warehouse Assistants to support our logistics and inventory management. This role involves receiving, packing, and dispatching fashion items. If you're looking for flexible work hours in a dynamic environment, this position is for you.",
+        "jobType": "Casual",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$20 - $25 per hour AUD",
+        "title": "Casual Warehouse Assistant"
+    },
+    {
+        "poster": "655bffa32f18089b362bdaf3",
+        "industry": "Retail",
+        "jobDescription": "Urban Threads Boutique is seeking a dynamic and fashion-forward individual to join our team as a Fashion Sales Associate. The ideal candidate will have a passion for current fashion trends, excellent customer service skills, and the ability to curate personalized shopping experiences for our valued customers. Urban Threads Boutique is seeking a dynamic and fashion-forward individual to join our team as a Fashion Sales Associate. The ideal candidate will have a passion for current fashion trends, excellent customer service skills, and the ability to curate personalized shopping experiences for our valued customers.",
+        "jobType": "Full-time",
+        "location": "Melbourne, Australia",
+        "organisationName": "Urban Threads Botique",
+        "salary": "$35,000 - $45,000 AUD",
+        "title": "Fashion Sales Associate"
+    },
+    {
+        "poster": "655bfff51666d44921dfa645",
+        "industry": "Hospitality",
+        "jobDescription": "Coastal Breeze Resort is hiring an Event Coordinator specializing in luxury functions. This role involves planning and executing events, ensuring every detail contributes to an unforgettable experience. If you thrive in a dynamic event environment and have a passion for creating memorable moments, we want to hear from you.",
+        "jobType": "Full-time",
+        "location": "Gold Coast, Australia",
+        "organisationName": "Coastal Breeze Resort",
+        "salary": "$40,000 - $55,000 AUD",
+        "title": "Event Coordinator - Luxury Functions"
+    },
+    {
+        "poster": "655c017a42db72227e04f20f",
+        "industry": "Tourism",
+        "jobDescription": "Aussie Expeditions is looking for a Wildlife Conservation Specialist to enhance the eco-friendly aspects of our tours. This role involves promoting sustainable practices, educating travelers on wildlife conservation, and collaborating with local conservation initiatives.",
+        "jobType": "Full-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Aussie Expeditions",
+        "salary": "$50,000 - $65,000 AUD",
+        "title": "Wildlife Conservation Specialist"
+    },
+    {
+        "poster": "655c011319b34b5474f4b3e0",
+        "industry": "Education",
+        "jobDescription": "Nexus Learning Center is looking for a Learning Support Specialist to provide casual assistance to students with diverse learning needs. This role involves developing personalized learning plans, collaborating with teachers, and ensuring every student has the support required to succeed.",
+        "jobType": "Casual",
+        "location": "Sydney, Australia",
+        "organisationName": "Nexus Learning Center",
+        "salary": "$25 - $30 per hour AUD",
+        "title": "Learning Support Specialist"
+    },
+    {
+        "poster": "655bfff51666d44921dfa645",
+        "industry": "Hospitality",
+        "jobDescription": "Coastal Breeze Resort is looking for a Spa and Wellness Therapist to provide rejuvenating experiences for our guests. If you are a certified therapist with a passion for wellness, join our team and contribute to the relaxation and rejuvenation of those seeking a spa retreat on the beautiful Gold Coast.",
+        "jobType": "Part-time",
+        "location": "Gold Coast, Australia",
+        "organisationName": "Coastal Breeze Resort",
+        "salary": "$28,000 - $35,000 AUD",
+        "title": "Spa and Wellness Therapist"
+    },
+    {
+        "poster": "655bfff51666d44921dfa645",
+        "industry": "Hospitality",
+        "jobDescription": "Coastal Breeze Resort is looking for a Housekeeping Supervisor to ensure the highest standards of cleanliness and guest satisfaction. If you have supervisory experience in hospitality and a keen eye for detail, join our team and contribute to maintaining the pristine condition of our resort accommodations.",
+        "jobType": "Full-time",
+        "location": "Gold Coast, Australia",
+        "organisationName": "Coastal Breeze Resort",
+        "salary": "$38,000 - $48,000 AUD",
+        "title": "Housekeeping Supervisor"
+    },
+    {
+        "poster": "655c01f8f2360357643f6a06",
+        "industry": "Transportation",
+        "jobDescription": "Metro Movers is hiring a Customer Service Representative for a part-time position to assist clients with transportation inquiries, bookings, and concerns. This role involves providing excellent customer service, managing reservations, and ensuring customer satisfaction in the fast-paced urban landscape.",
+        "jobType": "Part-time",
+        "location": "Brisbane, Australia",
+        "organisationName": "Metro Movers",
+        "salary": "$25,000 - $35,000 AUD",
+        "title": "Customer Service Representative"
+    },
+    {
+        "poster": "655c038ba147feceb0270e10",
+        "industry": "Agriculture",
+        "jobDescription": "Join Harvest Haven Farms as a part-time Crop Cultivation Specialist to contribute to our organic farming practices. This role involves planting, cultivating, and harvesting crops while adhering to sustainable and eco-friendly agricultural methods.",
+        "jobType": "Part-time",
+        "location": "Sacramento, California, USA",
+        "organisationName": "Harvest Haven Farms",
+        "salary": "$20,000 - $25,000 USD",
+        "title": "Crop Cultivation Specialist"
+    },
+    {
+        "poster": "655c011319b34b5474f4b3e0",
+        "industry": "Education",
+        "jobDescription": "Nexus Learning Center is seeking a Language Arts Curriculum Developer to create engaging and effective language arts materials for students. This full-time role involves designing curriculum content, assessments, and activities that align with educational standards.",
+        "jobType": "Full-time",
+        "location": "Sydney, Australia",
+        "organisationName": "Nexus Learning Center",
+        "salary": "$50,000 - $60,000 AUD",
+        "title": "Language Arts Curriculum Developer"
+    }
+]

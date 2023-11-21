@@ -13,8 +13,6 @@ export default function ProfilePage() {
         variables: {profileId: profileId}
     });
 
-    console.log(data);
-
     if (loading) {
         return (
             <LoadingPage />

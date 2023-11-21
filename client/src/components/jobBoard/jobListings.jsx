@@ -62,7 +62,7 @@ export default function JobListings({ pageNumber, searchValues }) {
         );
     } else {
         if (document.querySelector('#increase-page')) {
-            data.listings.length < 10 ? (document.querySelector('#increase-page').disabled = true, document.querySelector('#increase-page').style.opacity = 0, document.querySelector('#increase-page').style.cursor = 'default') : (document.querySelector('#increase-page').disabled = false, document.querySelector('#increase-page').style.opacity = 1, document.querySelector('#increase-page').style.cursor = 'pointer');
+            data.listings.length < 5 ? (document.querySelector('#increase-page').disabled = true, document.querySelector('#increase-page').style.opacity = 0, document.querySelector('#increase-page').style.cursor = 'default') : (document.querySelector('#increase-page').disabled = false, document.querySelector('#increase-page').style.opacity = 1, document.querySelector('#increase-page').style.cursor = 'pointer');
         }
         return (
             data.listings.length <= 0 ? (<div><h2>No listings found</h2><p>It seems there are no open job listings that match your filters!</p></div>) : (data.listings.map((listing) => {

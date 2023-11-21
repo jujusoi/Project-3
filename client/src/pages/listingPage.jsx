@@ -62,7 +62,6 @@ export default function ListingPage() {
     if (loading) {
         <LoadingPage />
     } else {
-        console.log(data)
         return (
             <>
                 <section style={{ display: 'flex', justifyContent: 'space-evenly' }}>

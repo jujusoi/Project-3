@@ -95,7 +95,6 @@ export default function NormalUserProfile({ profileData, refetch }) {
     };
 
     const changeEditInfo = (target, value) => {
-        console.log(editData);
         setEditData(previousEditData => ({
             ...previousEditData,
             [target.name]: value,

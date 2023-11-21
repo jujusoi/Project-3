@@ -106,7 +106,6 @@ export default function OrganisationProfile({ profileData, refetch }) {
     };
 
     const changeEditInfo = (target, value) => {
-        console.log(editData);
         setEditData(previousEditData => ({
             ...previousEditData,
             [target.name]: value,

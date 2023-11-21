@@ -61,10 +61,6 @@ export default function ListingModal() {
         }
     };
 
-    useEffect(() => {
-        console.log(errorMessage);
-    }, [errorMessage]);
-    
     if (!loading) {
         return (
             <div class="modal-dialog modal-dialog-centered" role="document">

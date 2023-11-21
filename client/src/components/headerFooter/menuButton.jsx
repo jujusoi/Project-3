@@ -31,7 +31,6 @@ export default function MenuButton({ isOrganisation, pathName, setPathName }) {
                 variables: { messageInfo, chatId },
             });
             if (data) {
-                console.log(data);
                 setMessageText('');
                 let newArray = [...currentChatInfo.chatMessages, { ...messageInfo, timeSent: new Date().toLocaleDateString('en-US', options) }];
                 setCurrentChatInfo(previousChatInfo => ({

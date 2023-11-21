@@ -46,7 +46,6 @@ export default function LoginPage() {
                 Auth.login(data.login.token);
             }
         } catch (err) {
-            console.log(err);
             setLoginErrorMsg('Incorrect username or password');
         }
     }
