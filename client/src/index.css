@@ -161,7 +161,7 @@ button, #next-listing-btn {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #032075;
+  background-color: #032075 !important;
   color: white;
   cursor: pointer;
   transition: border-color 0.25s;
