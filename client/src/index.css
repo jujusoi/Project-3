@@ -109,6 +109,10 @@ h1, h2, h3, h4, h5 {
   font-weight: 300;
 }
 
+.headerdiv-para {
+  color: white !important;
+}
+
 button:hover {
   transition: 150ms ease-in-out;
   background-color: rgb(58, 82, 157);
@@ -357,6 +361,19 @@ button:focus-visible {
   }
   .href-images {
     width: 40px !important;
+  }
+  .headerdiv-para {
+    width: auto !important;
+    font-size: 12px !important;
+  }
+  #about-title {
+    font-size: 20px !important;
+  }
+  #about-hold {
+    width: 90% !important;
+  }
+  #about-iv {
+    width: 100% !important;
   }
 }
 
