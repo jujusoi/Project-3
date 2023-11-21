@@ -378,6 +378,9 @@ button:focus-visible {
   .tsd-hold {
     flex-direction: row !important;
   }
+  #lsitinghold {
+    flex-direction: column !important;
+  }
 }
 
 @media (prefers-color-scheme: light) {

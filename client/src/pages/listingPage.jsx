@@ -69,7 +69,7 @@ export default function ListingPage() {
                     <div style={{ width: '80%' }}>
                         <div className="job-listing" style={{ display: 'flex', flexDirection: "column", margin: '40px auto', border: '1px solid white', borderRadius: 8, width: '100%' }}>
                             <div className="liinfo-hold" style={{ display: "flex", flexDirection: "column" }}>
-                                <div className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between', marginBottom: 15, alignItems: 'center' }}>
+                                <div id="lsitinghold" className="tsd-hold" style={{ display: "flex", justifyContent: 'space-between', marginBottom: 15, alignItems: 'center' }}>
                                     <div id="td-div" className="ts-hold" style={{ display: 'flex', width: '65%', flexDirection: 'column' }}>
                                         <h1 style={{ textAlign: 'left', marginTop: 0, marginBottom: 5 }} className="listing-title">{data.listingById.title}</h1>
                                         <div style={{ display: 'flex' }}>
